@@ -1,0 +1,2682 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d9488" />
+  <title>Cuốn Sách Số Di Sản Văn Hóa Phi Vật Thể Thái Nguyên</title>
+  <meta name="description"
+    content="Cuốn sách số tương tác về Di sản văn hóa phi vật thể Thái Nguyên: Then, Tắc Xình, Páo dung, Lồng Tồng, nghề truyền thống và tri thức dân gian." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Be Vietnam Pro"', 'system-ui', 'sans-serif'] },
+          boxShadow: {
+            glass: '0 8px 32px 0 rgba(31,38,135,0.07)',
+            'glass-lg': '0 20px 60px -10px rgba(15,23,42,0.18)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+      color: #0f172a;
+      background-color: #eef3f8;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    /* ===== BACKGROUND ===== */
+    .bg-image {
+      position: fixed;
+      inset: 0;
+      z-index: -4;
+      pointer-events: none;
+      background-image: url('back.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background:
+        radial-gradient(60% 60% at 18% 18%, rgba(255, 255, 255, .62) 0%, rgba(255, 255, 255, .28) 45%, transparent 78%),
+        radial-gradient(55% 55% at 85% 82%, rgba(255, 255, 255, .55) 0%, rgba(255, 255, 255, .22) 50%, transparent 82%),
+        linear-gradient(180deg, rgba(255, 255, 255, .32) 0%, rgba(255, 255, 255, .18) 40%, rgba(255, 255, 255, .42) 100%);
+      backdrop-filter: blur(3px) saturate(120%);
+      -webkit-backdrop-filter: blur(3px) saturate(120%);
+    }
+
+    .bg-tint {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        radial-gradient(45% 45% at 12% 18%, rgba(16, 185, 129, .13) 0%, transparent 62%),
+        radial-gradient(42% 42% at 88% 12%, rgba(245, 158, 11, .11) 0%, transparent 62%),
+        radial-gradient(42% 42% at 78% 88%, rgba(56, 189, 248, .09) 0%, transparent 62%);
+      mix-blend-mode: multiply;
+    }
+
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(400px 400px at 20% 30%, rgba(255, 255, 255, .35), transparent 70%),
+        radial-gradient(360px 360px at 80% 70%, rgba(255, 255, 255, .28), transparent 70%);
+      animation: glowMove 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowMove {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate3d(3%, -3%, 0) scale(1.08);
+      }
+    }
+
+    /* ===== LIQUID GLASS ===== */
+    .glass,
+    .glass-strong,
+    .glass-soft {
+      position: relative;
+      isolation: isolate;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: box-shadow .4s ease, border-color .4s ease, background .4s ease, transform .4s ease;
+    }
+
+    .glass {
+      background: linear-gradient(135deg, rgba(255, 255, 255, .62) 0%, rgba(255, 255, 255, .42) 42%, rgba(255, 255, 255, .55) 100%);
+      backdrop-filter: blur(28px) saturate(210%) brightness(1.05);
+      -webkit-backdrop-filter: blur(28px) saturate(210%) brightness(1.05);
+      border: 1px solid rgba(255, 255, 255, .72);
+      box-shadow:
+        0 12px 40px -8px rgba(31, 38, 135, .16),
+        0 4px 12px -2px rgba(31, 38, 135, .06),
+        inset 0 1px 0 rgba(255, 255, 255, .95),
+        inset 0 -1px 0 rgba(255, 255, 255, .35),
+        inset 0 0 40px rgba(255, 255, 255, .16);
+    }
+
+    .glass-strong {
+      background: linear-gradient(135deg, rgba(255, 255, 255, .78) 0%, rgba(255, 255, 255, .6) 42%, rgba(255, 255, 255, .72) 100%);
+      backdrop-filter: blur(36px) saturate(220%) brightness(1.06);
+      -webkit-backdrop-filter: blur(36px) saturate(220%) brightness(1.06);
+      border: 1px solid rgba(255, 255, 255, .85);
+      box-shadow:
+        0 16px 48px -10px rgba(31, 38, 135, .18),
+        0 6px 16px -4px rgba(31, 38, 135, .08),
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 0 -1px 0 rgba(255, 255, 255, .4),
+        inset 0 0 50px rgba(255, 255, 255, .22);
+    }
+
+    .glass-soft {
+      background: linear-gradient(135deg, rgba(255, 255, 255, .58) 0%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .5) 100%);
+      backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+      -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
+      border: 1px solid rgba(255, 255, 255, .65);
+      box-shadow:
+        0 8px 24px -6px rgba(31, 38, 135, .12),
+        inset 0 1px 0 rgba(255, 255, 255, .85),
+        inset 0 0 30px rgba(255, 255, 255, .14);
+    }
+
+    .glass::before,
+    .glass-strong::before,
+    .glass-soft::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(115deg, transparent 22%, rgba(255, 255, 255, .35) 42%, rgba(255, 255, 255, .05) 50%, transparent 68%),
+        radial-gradient(120% 60% at 0% 0%, rgba(255, 255, 255, .45) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+      opacity: .9;
+      mix-blend-mode: screen;
+    }
+
+    .glass>*,
+    .glass-strong>*,
+    .glass-soft>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass,
+    .glass-strong,
+    .glass-soft {
+      color: #0f172a;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .text-sharp {
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .35);
+    }
+
+    /* ===== CARDS ===== */
+    .card-hover {
+      transition: transform .5s cubic-bezier(.22, .9, .3, 1), box-shadow .5s ease, border-color .35s;
+    }
+
+    @media (hover:hover) {
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow:
+          0 32px 60px -18px rgba(15, 23, 42, .24),
+          0 8px 20px -6px rgba(31, 38, 135, .12),
+          inset 0 1px 0 rgba(255, 255, 255, 1);
+        border-color: rgba(255, 255, 255, .98);
+      }
+    }
+
+    .card-hover:active {
+      transform: scale(.985);
+    }
+
+    /* ===== VIEW SWITCH ===== */
+    .view-hidden {
+      display: none !important;
+    }
+
+    /* ===== PAGE FLIP ===== */
+    .book-stage {
+      position: relative;
+      perspective: 2000px;
+      perspective-origin: 50% 50%;
+      transform-style: preserve-3d;
+    }
+
+    @keyframes pageFlipOutNext {
+      0% {
+        opacity: 1;
+        transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1);
+        filter: brightness(1) blur(0);
+      }
+
+      35% {
+        opacity: .55;
+        filter: brightness(.92) blur(.4px);
+      }
+
+      100% {
+        opacity: 0;
+        transform: perspective(2000px) rotateY(-22deg) translateZ(-60px) translateX(-70px) scale(.94);
+        filter: brightness(.78) blur(1.5px);
+      }
+    }
+
+    @keyframes pageFlipOutPrev {
+      0% {
+        opacity: 1;
+        transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1);
+        filter: brightness(1) blur(0);
+      }
+
+      35% {
+        opacity: .55;
+        filter: brightness(.92) blur(.4px);
+      }
+
+      100% {
+        opacity: 0;
+        transform: perspective(2000px) rotateY(22deg) translateZ(-60px) translateX(70px) scale(.94);
+        filter: brightness(.78) blur(1.5px);
+      }
+    }
+
+    @keyframes pageFlipInNext {
+      0% {
+        opacity: 0;
+        transform: perspective(2000px) rotateY(22deg) translateZ(-60px) translateX(70px) scale(.94);
+        filter: brightness(.78) blur(1.5px);
+      }
+
+      55% {
+        opacity: .85;
+        filter: brightness(.96) blur(.2px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1);
+        filter: brightness(1) blur(0);
+      }
+    }
+
+    @keyframes pageFlipInPrev {
+      0% {
+        opacity: 0;
+        transform: perspective(2000px) rotateY(-22deg) translateZ(-60px) translateX(-70px) scale(.94);
+        filter: brightness(.78) blur(1.5px);
+      }
+
+      55% {
+        opacity: .85;
+        filter: brightness(.96) blur(.2px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1);
+        filter: brightness(1) blur(0);
+      }
+    }
+
+    .page-flip-out-next {
+      animation: pageFlipOutNext .32s cubic-bezier(.55, .06, .68, .19) forwards;
+      transform-origin: left center;
+      pointer-events: none;
+      will-change: transform, opacity, filter;
+    }
+
+    .page-flip-out-prev {
+      animation: pageFlipOutPrev .32s cubic-bezier(.55, .06, .68, .19) forwards;
+      transform-origin: right center;
+      pointer-events: none;
+      will-change: transform, opacity, filter;
+    }
+
+    .page-flip-in-next {
+      animation: pageFlipInNext .58s cubic-bezier(.22, .9, .3, 1) forwards;
+      transform-origin: right center;
+      will-change: transform, opacity, filter;
+    }
+
+    .page-flip-in-prev {
+      animation: pageFlipInPrev .58s cubic-bezier(.22, .9, .3, 1) forwards;
+      transform-origin: left center;
+      will-change: transform, opacity, filter;
+    }
+
+    .page-sweep {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 20;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      opacity: 0;
+    }
+
+    .page-sweep.active {
+      opacity: 1;
+    }
+
+    .page-sweep::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, .55) 45%, rgba(255, 255, 255, .85) 50%, rgba(255, 255, 255, .55) 55%, transparent 100%);
+      mix-blend-mode: screen;
+      filter: blur(8px);
+    }
+
+    .page-sweep.active::after {
+      animation: sweepMove .7s cubic-bezier(.22, .9, .3, 1) forwards;
+    }
+
+    @keyframes sweepMove {
+      0% {
+        left: -60%;
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      100% {
+        left: 120%;
+        opacity: 0;
+      }
+    }
+
+    .page-enter {
+      animation: pageEnter .55s cubic-bezier(.22, .9, .3, 1) both;
+    }
+
+    @keyframes pageEnter {
+      from {
+        opacity: 0;
+        transform: translateY(16px) scale(.99);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .card-enter {
+      animation: cardIn .55s cubic-bezier(.22, .9, .3, 1) both;
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ===== AUDIO ===== */
+    .wave {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 16px;
+    }
+
+    .wave span {
+      display: block;
+      width: 3px;
+      height: 22%;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #34d399, #0d9488);
+      transition: height .25s ease;
+      opacity: .55;
+    }
+
+    .is-playing .wave span {
+      opacity: 1;
+      animation: waveAnim .85s ease-in-out infinite alternate;
+    }
+
+    @keyframes waveAnim {
+      from {
+        height: 18%;
+      }
+
+      to {
+        height: 100%;
+      }
+    }
+
+    .seek-bar {
+      position: relative;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, .4);
+      cursor: pointer;
+    }
+
+    .seek-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #34d399, #0d9488);
+      width: 0%;
+    }
+
+    .seek-knob {
+      position: absolute;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid #0d9488;
+      transform: translate(-50%, -50%);
+      left: 0%;
+      box-shadow: 0 2px 6px rgba(13, 148, 136, .4);
+      transition: transform .15s;
+    }
+
+    @media (hover:hover) {
+      .seek-bar:hover .seek-knob {
+        transform: translate(-50%, -50%) scale(1.25);
+      }
+    }
+
+    .audio-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #065f46;
+      background: rgba(16, 185, 129, .15);
+      border: 1px solid rgba(16, 185, 129, .35);
+      backdrop-filter: blur(6px);
+    }
+
+    .audio-dot i {
+      font-size: 9px;
+    }
+
+    /* ===== IMAGE PLACEHOLDER ===== */
+    .img-ph {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #d1fae5 0%, #ffffff 50%, #fef3c7 100%);
+    }
+
+    .thumb-active {
+      outline: 2px solid #0d9488;
+      outline-offset: 2px;
+    }
+
+    /* ===== TAGS ===== */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #065f46;
+      background: rgba(16, 185, 129, .12);
+      border: 1px solid rgba(16, 185, 129, .28);
+      backdrop-filter: blur(6px);
+    }
+
+    /* ===== SCROLLBARS ===== */
+    .nice-scroll::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    .nice-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .nice-scroll::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, .3);
+      border-radius: 99px;
+    }
+
+    .nice-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, .48);
+    }
+
+    .chip-scroll::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .chip-scroll::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, .25);
+      border-radius: 99px;
+    }
+
+    input[type="search"]::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+
+    /* ============================================================
+     MOBILE EXPERIENCE
+     ============================================================ */
+    .mobile-nav {
+      display: none;
+    }
+
+    @media (max-width: 1023px) {
+      body {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom));
+      }
+
+      .mobile-nav {
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 55;
+        padding-bottom: env(safe-area-inset-bottom);
+        pointer-events: none;
+      }
+
+      .mobile-nav-inner {
+        pointer-events: auto;
+        margin: 8px 10px 10px;
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: hidden;
+      }
+
+      .mnav-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        padding: 9px 4px 8px;
+        font-size: 10px;
+        font-weight: 800;
+        color: #475569;
+        transition: all .25s ease;
+        position: relative;
+        min-height: 54px;
+      }
+
+      .mnav-btn i {
+        font-size: 17px;
+        transition: transform .25s;
+      }
+
+      .mnav-btn.active {
+        color: #0d9488;
+      }
+
+      .mnav-btn.active i {
+        transform: translateY(-1px) scale(1.08);
+      }
+
+      .mnav-btn.active::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 18px;
+        height: 3px;
+        border-radius: 99px;
+        background: linear-gradient(90deg, #34d399, #0d9488);
+      }
+
+      .mnav-btn:active {
+        transform: scale(.94);
+      }
+
+      header {
+        padding-top: 8px !important;
+      }
+
+      .header-compact {
+        padding: 8px 10px !important;
+      }
+
+      .controls-desktop-only {
+        display: none !important;
+      }
+
+      .mobile-filter-btn {
+        display: inline-flex !important;
+      }
+
+      .book-toc-aside {
+        display: none !important;
+      }
+
+      .book-layout {
+        grid-template-columns: 1fr !important;
+      }
+
+      #modalPanel {
+        max-width: 100% !important;
+        border-radius: 20px 20px 0 0 !important;
+        margin: 0 !important;
+        min-height: 100vh;
+      }
+
+      #modal>.relative {
+        padding: 0 !important;
+      }
+
+      #miniPlayer {
+        bottom: calc(76px + env(safe-area-inset-bottom)) !important;
+      }
+
+      #toast {
+        bottom: calc(90px + env(safe-area-inset-bottom)) !important;
+      }
+
+      .hero-title {
+        font-size: 26px !important;
+        line-height: 1.15 !important;
+      }
+
+      .swipe-hint {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px;
+        font-size: 10.5px;
+        font-weight: 700;
+        color: #64748b;
+        opacity: .85;
+      }
+
+      .player {
+        padding: 10px !important;
+      }
+
+      .player .w-12 {
+        width: 42px !important;
+        height: 42px !important;
+      }
+    }
+
+    .mobile-filter-btn {
+      display: none;
+    }
+
+    .swipe-hint {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .bg-image {
+        background-attachment: scroll;
+      }
+
+      .bg-overlay {
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+      }
+
+      .glass,
+      .glass-strong,
+      .glass-soft {
+        backdrop-filter: blur(18px) saturate(180%) brightness(1.04);
+        -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.04);
+      }
+
+      .page-flip-out-next,
+      .page-flip-out-prev,
+      .page-flip-in-next,
+      .page-flip-in-prev {
+        animation-duration: .42s;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .bg-glow {
+        animation: none;
+      }
+    }
+
+    /* Bottom sheet */
+    .sheet-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(15, 23, 42, .5);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .28s ease;
+    }
+
+    .sheet-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .bottom-sheet {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 81;
+      max-height: 82vh;
+      border-radius: 24px 24px 0 0;
+      transform: translateY(100%);
+      transition: transform .35s cubic-bezier(.22, .9, .3, 1);
+      overflow: hidden;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .bottom-sheet.open {
+      transform: translateY(0);
+    }
+
+    .sheet-handle {
+      width: 42px;
+      height: 4px;
+      border-radius: 99px;
+      background: rgba(100, 116, 139, .35);
+      margin: 10px auto 4px;
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- BACKGROUND -->
+  <div class="bg-image"></div>
+  <div class="bg-overlay"></div>
+  <div class="bg-tint"></div>
+  <div class="bg-glow"></div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 px-2 sm:px-4 pt-2 sm:pt-3">
+    <div
+      class="header-compact glass mx-auto max-w-7xl rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+        <div
+          class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-emerald-500 via-teal-500 to-emerald-600 text-white grid place-items-center shadow-lg shadow-emerald-500/30 shrink-0">
+          <i class="fa-solid fa-book-open-reader text-base sm:text-lg"></i>
+        </div>
+        <div class="min-w-0">
+          <h1
+            class="text-[11.5px] sm:text-[15px] font-extrabold tracking-tight leading-tight truncate text-slate-900 text-sharp">
+            DI SẢN VĂN HÓA PHI VẬT THỂ
+          </h1>
+          <p class="text-[10px] sm:text-[11.5px] text-slate-700 font-semibold truncate">
+            Thái Nguyên · Không gian văn hóa số
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <span
+          class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10.5px] font-bold uppercase tracking-[0.14em] text-amber-900 bg-amber-100/80 border border-amber-200/90 shadow-sm backdrop-blur-md">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+          </span>
+          Cuốn Sách Số
+        </span>
+
+        <a href="https://disanthainguyen.pages.dev/" target="_top"
+          class="group inline-flex items-center gap-2 px-2.5 sm:px-4 py-2 rounded-xl glass text-slate-800 text-xs sm:text-[13px] font-bold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+          <i class="fa-solid fa-house-chimney text-emerald-600 group-hover:scale-110 transition-transform"></i>
+          <span class="hidden sm:inline">Quay về Menu chính</span>
+          <span class="sm:hidden">Menu</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative px-4 pt-6 sm:pt-12 pb-4 sm:pb-6">
+    <div class="mx-auto max-w-5xl text-center">
+      <span
+        class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full glass-soft text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-emerald-800">
+        <i class="fa-solid fa-landmark-dome"></i>
+        Di sản văn hóa phi vật thể Việt Nam
+      </span>
+
+      <h2
+        class="hero-title mt-4 sm:mt-5 text-[26px] leading-[1.12] sm:text-5xl lg:text-[58px] font-extrabold tracking-tight text-slate-900 text-sharp">
+        CUỐN SÁCH SỐ<br />
+        <span
+          class="bg-gradient-to-r from-emerald-600 via-teal-600 to-amber-500 bg-clip-text text-transparent drop-shadow-sm">
+          DI SẢN VĂN HÓA PHI VẬT THỂ
+        </span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- CONTROLS -->
+  <section class="px-3 sm:px-4 pb-4 sm:pb-5">
+    <div class="mx-auto max-w-7xl glass rounded-2xl p-3 sm:p-4">
+
+      <div class="flex flex-col lg:flex-row lg:items-center gap-3">
+        <div
+          class="controls-desktop-only flex items-center gap-1 p-1 rounded-xl bg-slate-100/70 border border-white/80 self-start lg:self-auto backdrop-blur-md">
+          <button data-view="book"
+            class="view-btn flex items-center gap-2 px-3.5 py-2 rounded-lg text-[12.5px] font-bold transition-all">
+            <i class="fa-solid fa-book-open"></i> Đọc sách
+          </button>
+          <button data-view="grid"
+            class="view-btn flex items-center gap-2 px-3.5 py-2 rounded-lg text-[12.5px] font-bold transition-all">
+            <i class="fa-solid fa-grip"></i> Khám phá
+          </button>
+        </div>
+
+        <div class="relative flex-1 min-w-0">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Tìm kiếm di sản, địa danh, dân tộc…"
+            class="w-full pl-10 pr-10 py-2.5 rounded-xl bg-white/85 border border-white/80 text-[13.5px] text-slate-900 placeholder-slate-400 outline-none focus:ring-2 focus:ring-emerald-400/60 focus:border-emerald-300 transition backdrop-blur-md" />
+          <button id="clearSearch"
+            class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 transition">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </button>
+        </div>
+
+        <div
+          class="controls-desktop-only flex items-center gap-1 p-1 rounded-xl bg-slate-100/70 border border-white/80 overflow-x-auto chip-scroll self-start lg:self-auto backdrop-blur-md">
+          <button data-level="all"
+            class="lvl-btn px-3 py-2 rounded-lg text-[12px] font-bold whitespace-nowrap transition-all">Tất cả</button>
+          <button data-level="UNESCO"
+            class="lvl-btn px-3 py-2 rounded-lg text-[12px] font-bold whitespace-nowrap transition-all">UNESCO</button>
+          <button data-level="QG"
+            class="lvl-btn px-3 py-2 rounded-lg text-[12px] font-bold whitespace-nowrap transition-all">Quốc
+            gia</button>
+          <button data-level="Local"
+            class="lvl-btn px-3 py-2 rounded-lg text-[12px] font-bold whitespace-nowrap transition-all">Địa
+            phương</button>
+        </div>
+
+        <button id="openFilterSheet"
+          class="mobile-filter-btn items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[12.5px] font-bold shadow-lg shadow-emerald-500/25">
+          <i class="fa-solid fa-sliders"></i>
+          <span>Bộ lọc</span>
+          <span id="mobileFilterCount" class="hidden px-1.5 py-0.5 rounded-full bg-white/25 text-[10px]">0</span>
+        </button>
+      </div>
+
+      <div id="catChips" class="controls-desktop-only mt-3 flex items-center gap-2 overflow-x-auto chip-scroll pb-1">
+      </div>
+
+      <div class="mt-3 flex items-center justify-between gap-3 text-[12px]">
+        <p class="text-slate-700 font-semibold">
+          <i class="fa-solid fa-circle-info text-emerald-600 mr-1"></i>
+          Tìm thấy <span id="resultCount" class="font-extrabold text-slate-900">0</span> di sản
+        </p>
+        <button id="resetFilters"
+          class="hidden text-[12px] font-bold text-emerald-700 hover:text-emerald-900 transition">
+          <i class="fa-solid fa-rotate-left mr-1"></i> Đặt lại bộ lọc
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRID VIEW -->
+  <section id="gridView" class="px-3 sm:px-4 pb-20">
+    <div id="gridContainer" class="mx-auto max-w-7xl grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </section>
+
+  <!-- BOOK VIEW -->
+  <section id="bookView" class="view-hidden px-3 sm:px-4 pb-20">
+    <div class="mx-auto max-w-7xl book-layout grid lg:grid-cols-[300px_minmax(0,1fr)] gap-5">
+
+      <aside class="book-toc-aside glass rounded-2xl p-4 h-fit lg:sticky lg:top-24">
+        <div class="flex items-center gap-2 mb-3">
+          <span
+            class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 text-white grid place-items-center text-[13px]">
+            <i class="fa-solid fa-list-ul"></i>
+          </span>
+          <div>
+            <h3 class="text-[13px] font-extrabold text-slate-900 leading-tight text-sharp">MỤC LỤC</h3>
+            <p class="text-[10.5px] text-slate-700 font-semibold" id="tocCountLabel">Đang tải…</p>
+          </div>
+        </div>
+        <div id="tocList" class="max-h-[58vh] overflow-y-auto nice-scroll pr-1 space-y-3"></div>
+      </aside>
+
+      <div class="min-w-0">
+        <div class="swipe-hint">
+          <i class="fa-solid fa-hand-point-left"></i>
+          <span>Vuốt ngang để lật trang</span>
+          <i class="fa-solid fa-hand-point-right"></i>
+        </div>
+
+        <div class="book-stage" id="bookStage">
+          <div id="bookPage" class="relative"></div>
+          <div id="pageSweep" class="page-sweep"></div>
+        </div>
+
+        <div class="mt-3 sm:mt-4 glass rounded-2xl p-2.5 sm:p-3 flex items-center justify-between gap-3">
+          <button data-act="book-prev"
+            class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl glass text-[13px] font-bold text-slate-800 transition-all hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+            <i class="fa-solid fa-chevron-left text-emerald-600"></i>
+            <span class="hidden sm:inline">Trang trước</span>
+          </button>
+
+          <div class="flex items-center gap-1.5" id="pageDots"></div>
+
+          <button data-act="book-next"
+            class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-[13px] font-bold shadow-lg shadow-emerald-500/30 transition-all hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+            <span class="hidden sm:inline">Trang sau</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="px-3 sm:px-4 pb-8 sm:pb-28">
+    <div class="mx-auto max-w-7xl glass rounded-2xl p-5 sm:p-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div>
+          <p class="text-[13px] font-extrabold text-slate-900 text-sharp">CUỐN SÁCH SỐ DI SẢN VĂN HÓA PHI VẬT THỂ</p>
+          <p class="text-[11.5px] text-slate-700 font-semibold mt-0.5">Thái Nguyên · Dự án số hóa di sản văn hóa</p>
+        </div>
+        <a href="https://disanthainguyen.pages.dev/" target="_top"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl glass text-[12.5px] font-bold text-slate-800 transition-all hover:-translate-y-0.5">
+          <i class="fa-solid fa-arrow-left text-emerald-600"></i> Quay về Menu chính
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE BOTTOM NAV -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-inner glass-strong">
+      <button class="mnav-btn" data-mnav="home">
+        <i class="fa-solid fa-house"></i>
+        <span>Trang chủ</span>
+      </button>
+      <button class="mnav-btn active" data-mnav="book">
+        <i class="fa-solid fa-book-open"></i>
+        <span>Đọc sách</span>
+      </button>
+      <button class="mnav-btn" data-mnav="grid">
+        <i class="fa-solid fa-grip"></i>
+        <span>Khám phá</span>
+      </button>
+      <button class="mnav-btn" data-mnav="filter">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Bộ lọc</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- BOTTOM SHEET FILTER (mobile) -->
+  <div id="filterSheetBackdrop" class="sheet-backdrop" data-close-sheet></div>
+  <div id="filterSheet" class="bottom-sheet glass-strong">
+    <div class="sheet-handle"></div>
+    <div class="px-5 pt-2 pb-3 flex items-center justify-between border-b border-white/60">
+      <div>
+        <h3 class="text-[15px] font-extrabold text-slate-900">Bộ lọc di sản</h3>
+        <p class="text-[11px] text-slate-600 font-semibold mt-0.5">Chọn loại hình và cấp ghi danh</p>
+      </div>
+      <button data-close-sheet
+        class="w-9 h-9 rounded-xl bg-white/90 hover:bg-white border border-white/80 grid place-items-center text-slate-700 shadow-sm transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="px-5 py-4 overflow-y-auto nice-scroll" style="max-height: calc(82vh - 120px);">
+      <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-emerald-800 mb-2">
+        <i class="fa-solid fa-layer-group mr-1"></i>Loại hình di sản
+      </p>
+      <div id="sheetCatChips" class="grid grid-cols-2 gap-2 mb-5"></div>
+
+      <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-emerald-800 mb-2">
+        <i class="fa-solid fa-award mr-1"></i>Cấp ghi danh
+      </p>
+      <div id="sheetLvlChips" class="grid grid-cols-2 gap-2 mb-4"></div>
+    </div>
+
+    <div class="px-5 py-3 border-t border-white/60 flex items-center gap-3">
+      <button id="sheetReset"
+        class="flex-1 px-4 py-3 rounded-xl bg-white/90 border border-white/80 text-slate-800 text-[13px] font-bold shadow-sm transition active:scale-95">
+        <i class="fa-solid fa-rotate-left mr-1.5 text-emerald-600"></i> Đặt lại
+      </button>
+      <button data-close-sheet
+        class="flex-1 px-4 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[13px] font-bold shadow-lg shadow-emerald-500/25 transition active:scale-95">
+        <i class="fa-solid fa-check mr-1.5"></i> Áp dụng
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal" class="fixed inset-0 z-[70] hidden">
+    <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-md" data-close></div>
+    <div class="relative h-full w-full overflow-y-auto nice-scroll p-2 sm:p-6 flex items-start justify-center">
+      <div id="modalPanel"
+        class="glass-strong w-full max-w-5xl rounded-3xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(15,23,42,0.45)] my-2 sm:my-8 transition-all duration-300 scale-95 opacity-0">
+        <div id="modalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="fixed inset-0 z-[90] hidden">
+    <div class="absolute inset-0 bg-slate-950/85 backdrop-blur-lg" data-close-lightbox></div>
+    <div class="relative h-full w-full grid place-items-center p-4">
+      <button data-close-lightbox
+        class="absolute top-5 right-5 w-11 h-11 rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 text-white grid place-items-center transition">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      <figure class="max-w-5xl w-full text-center">
+        <img id="lightboxImg" src="" alt=""
+          class="max-h-[78vh] w-auto mx-auto rounded-2xl shadow-2xl border border-white/20 object-contain" />
+        <figcaption id="lightboxCap" class="mt-4 text-white/90 text-[13px] font-semibold"></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- MINI PLAYER -->
+  <div id="miniPlayer" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[60] hidden w-[min(94vw,560px)]">
+    <div
+      class="glass-strong rounded-2xl px-3 sm:px-4 py-3 flex items-center gap-3 shadow-[0_20px_50px_-12px_rgba(15,23,42,0.28)]">
+      <button id="miniToggle"
+        class="w-11 h-11 shrink-0 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white grid place-items-center shadow-lg shadow-emerald-500/30 transition hover:scale-105 active:scale-95">
+        <i class="fa-solid fa-play"></i>
+      </button>
+      <div class="min-w-0 flex-1">
+        <p id="miniTitle" class="text-[12px] font-bold text-slate-900 truncate text-sharp">Bản ghi âm di sản</p>
+        <div class="seek-bar mt-1.5" id="miniSeek">
+          <div class="seek-fill" id="miniFill"></div>
+          <div class="seek-knob" id="miniKnob"></div>
+        </div>
+      </div>
+      <span id="miniTime" class="text-[10.5px] tabular-nums text-slate-700 font-bold shrink-0">0:00</span>
+      <button id="miniClose"
+        class="w-8 h-8 shrink-0 rounded-lg hover:bg-slate-200/70 text-slate-500 grid place-items-center transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-[95] hidden">
+    <div class="glass-strong rounded-xl px-4 py-3 flex items-center gap-3 shadow-xl max-w-[90vw]">
+      <i class="fa-solid fa-circle-exclamation text-amber-500"></i>
+      <p id="toastMsg" class="text-[12.5px] font-semibold text-slate-800"></p>
+    </div>
+  </div>
+
+  <script>
+    /* ============================================================
+       1. DATA MODEL
+       ============================================================ */
+
+    const CATEGORIES = [
+      { id: 1, name: 'Hát Then', short: 'Then', full: 'Hát Then của người Tày, Nùng, Thái', icon: 'fa-hands-praying' },
+      { id: 2, name: 'Tiếng nói – Chữ viết – Ngữ văn dân gian', short: 'Chữ viết & Ngữ văn', full: 'Tiếng nói, chữ viết, ký tự & Ngữ văn dân gian', icon: 'fa-feather-pointed' },
+      { id: 3, name: 'Nghệ thuật trình diễn dân gian', short: 'Trình diễn', full: 'Nghệ thuật trình diễn dân gian', icon: 'fa-music' },
+      { id: 4, name: 'Tập quán xã hội và tín ngưỡng', short: 'Tín ngưỡng', full: 'Tập quán xã hội và tín ngưỡng', icon: 'fa-fire-flame-curved' },
+      { id: 5, name: 'Lễ hội truyền thống', short: 'Lễ hội', full: 'Loại hình lễ hội truyền thống', icon: 'fa-drum' },
+      { id: 6, name: 'Nghề thủ công truyền thống', short: 'Thủ công', full: 'Loại hình nghề thủ công truyền thống', icon: 'fa-hands-holding-circle' },
+      { id: 7, name: 'Tri thức dân gian', short: 'Tri thức', full: 'Loại hình tri thức dân gian', icon: 'fa-seedling' }
+    ];
+
+    /* hasAudio = true CHỈ với 3 di sản: Thực hành Then, Ngữ văn dân gian, Hát Páo dung
+       Các di sản còn lại: KHÔNG hiển thị mục âm thanh.
+       Địa danh: dùng tên xã/phường MỚI sau sáp nhập (2025). */
+    const HERITAGES = [
+      /* ---------- 1. THEN ---------- */
+      {
+        slug: 'thuc-hanh-then',
+        title: 'Hát Then của người Tày, Nùng, Thái',
+        cat: 1, level: 'UNESCO', year: '2019', hasAudio: true,
+        short: 'Các xã vùng Đình Hóa – Thái Nguyên',
+        location: 'Các xã Đình Hóa, Bình Yên, Bình Thành, Trung Hội, Phượng Tiến, Phú Đình, Kim Phượng, Lam Vỹ – tỉnh Thái Nguyên',
+        summary: 'Tín ngưỡng dân gian tổng hợp kết hợp âm nhạc đàn Tính, lời Then, múa Then và nghi lễ cầu an, giải hạn, cấp sắc.',
+        desc: [
+          'Then là hình thức sinh hoạt tín ngưỡng dân gian tổng hợp của người Tày, Nùng, Thái, bao gồm lời Then, tiếng đàn Tính, điệu múa và hệ thống nghi lễ gắn chặt với đời sống tâm linh của cộng đồng. Thầy Then vừa là người dẫn dắt nghi lễ, vừa là nghệ sĩ trình diễn, đưa con người giao hòa cùng thế giới thần linh.',
+          'Tại Thái Nguyên, hát Then được bảo tồn đậm đặc ở vùng Đình Hóa – nơi còn lưu giữ nhiều gia đình có truyền thống hành nghề Then qua nhiều thế hệ. Các nghi lễ tiêu biểu gồm cầu an, giải hạn, chữa bệnh, mừng thọ, cấp sắc và các cuộc Then trong lễ hội cộng đồng.',
+          'Năm 2019, UNESCO đã ghi danh "Hát Then của người Tày, Nùng, Thái ở Việt Nam" vào Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại, khẳng định giá trị nhân văn và sức sống của loại hình này.'
+        ],
+        facts: [
+          ['Loại hình', 'Tín ngưỡng dân gian & Nghệ thuật trình diễn'],
+          ['Dân tộc', 'Tày, Nùng, Thái'],
+          ['Nhạc cụ', 'Đàn Tính, chùm xóc'],
+          ['Địa bàn', 'Vùng Đình Hóa – Thái Nguyên'],
+          ['Ghi danh', 'UNESCO – 2019']
+        ],
+        tags: ['Then', 'Đàn tính', 'Hát Then', 'Múa Then', 'Cầu an', 'Cấp sắc']
+      },
+
+      /* ---------- 2. CHỮ VIẾT & NGỮ VĂN ---------- */
+      {
+        slug: 'sach-co-nom-dao',
+        title: 'Sách cổ chữ Nôm Dao',
+        cat: 2, level: 'Local', year: '', hasAudio: false,
+        short: 'X. Nam Hòa, X. Quang Sơn – Thái Nguyên',
+        location: 'Gia đình lưu giữ tại xã Nam Hòa và xã Quang Sơn – tỉnh Thái Nguyên',
+        summary: 'Kho tư liệu Hán – Nôm cổ của người Dao ghi chép nghi lễ, lịch pháp, y dược cổ truyền và gia phả dòng họ.',
+        desc: [
+          'Những bộ sách cổ chữ Nôm Dao được lưu giữ trong các gia đình người Dao tại vùng Nam Hòa – Quang Sơn là kho tư liệu quý phản ánh tri thức bản địa được tích lũy qua nhiều đời. Sách được viết trên giấy bản truyền thống, đóng thành quyển, nhiều bộ đã ngả màu theo thời gian.',
+          'Nội dung sách trải rộng từ các bài cúng, nghi thức cấp sắc, lịch pháp cổ, phương thang y dược đến gia phả dòng họ và các bài học đạo lý. Đây là nguồn sử liệu quan trọng để nghiên cứu ngôn ngữ, tôn giáo tín ngưỡng và tập quán của người Dao ở Thái Nguyên.'
+        ],
+        facts: [
+          ['Loại hình', 'Tiếng nói, chữ viết, ký tự'],
+          ['Dân tộc', 'Dao'],
+          ['Chất liệu', 'Giấy bản, mực Tàu'],
+          ['Địa bàn', 'X. Nam Hòa, X. Quang Sơn']
+        ],
+        tags: ['Chữ Nôm Dao', 'Sách cổ', 'Người Dao', 'Tri thức bản địa']
+      },
+      {
+        slug: 'cot-da-chua-ha',
+        title: 'Chữ trên cột đá chùa Ha',
+        cat: 2, level: 'Local', year: '', hasAudio: false,
+        short: 'X. Phú Bình – Thái Nguyên',
+        location: 'Bà Ha Tự (chùa Ha), xã Phú Bình – tỉnh Thái Nguyên',
+        summary: 'Hệ thống ký tự cổ khắc trên cột đá chùa Ha – dấu vết chữ viết cổ còn lưu giữ đến ngày nay.',
+        desc: [
+          'Chùa Ha (Bà Ha Tự) tại xã Phú Bình là nơi còn lưu giữ những cột đá khắc chữ cổ – một trong những di vật hiếm hoi về chữ viết cổ trên địa bàn Thái Nguyên.',
+          'Các ký tự trên cột đá được xem như chứng tích của nhiều thế kỷ giao lưu văn hóa, tín ngưỡng Phật giáo và văn tự cổ. Việc giải mã và bảo tồn nguồn tư liệu này có ý nghĩa quan trọng với nghiên cứu lịch sử, khảo cổ học và ngôn ngữ học vùng.'
+        ],
+        facts: [
+          ['Loại hình', 'Tiếng nói, chữ viết, ký tự'],
+          ['Di tích', 'Bà Ha Tự (chùa Ha)'],
+          ['Địa bàn', 'X. Phú Bình – Thái Nguyên']
+        ],
+        tags: ['Cột đá', 'Chùa Ha', 'Cổ tự', 'Chữ cổ']
+      },
+      {
+        slug: 'ngu-van-dan-gian',
+        title: 'Ngữ văn dân gian Thái Nguyên',
+        cat: 2, level: 'Local', year: '', hasAudio: true,
+        short: 'Toàn tỉnh Thái Nguyên',
+        location: 'Các xã vùng cao tỉnh Thái Nguyên (Tày, Nùng, Dao, Sán Chay, Mông…)',
+        summary: 'Thần thoại, truyện ngụ ngôn, ca dao, tục ngữ, dân ca – kho tàng ngôn từ truyền miệng của các dân tộc Việt Bắc.',
+        desc: [
+          'Ngữ văn dân gian Thái Nguyên là kho tàng truyền miệng phong phú, bao gồm thần thoại về nguồn gốc trời đất, truyện ngụ ngôn răn dạy đạo lý, ca dao tục ngữ về lao động và ứng xử, cùng các làn điệu dân ca như lượn, sli, phong slư.',
+          'Đây là phương tiện lưu truyền tri thức, lịch sử và đạo đức của cộng đồng qua nhiều thế hệ, đồng thời là nguồn cảm hứng cho sáng tạo văn học nghệ thuật đương đại và giáo dục văn hóa địa phương.'
+        ],
+        facts: [
+          ['Loại hình', 'Ngữ văn dân gian'],
+          ['Thể loại', 'Thần thoại, ngụ ngôn, ca dao, tục ngữ, dân ca'],
+          ['Dân tộc', 'Tày, Nùng, Dao, Sán Chay, Mông…']
+        ],
+        tags: ['Ca dao', 'Tục ngữ', 'Thần thoại', 'Lượn', 'Sli']
+      },
+
+      /* ---------- 3. TRÌNH DIỄN ---------- */
+      {
+        slug: 'roi-can-tay',
+        title: 'Rối cạn của người Tày',
+        cat: 3, level: 'QG', year: '', hasAudio: false,
+        short: 'X. Bình Yên, X. Đồng Hỷ – Thái Nguyên',
+        location: 'Các xã Bình Yên và Đồng Hỷ – tỉnh Thái Nguyên',
+        summary: 'Nghệ thuật múa rối cạn độc đáo của người Tày, điều khiển con rối bằng que gỗ gắn với các tích trò dân gian.',
+        desc: [
+          'Rối cạn của người Tày là loại hình trình diễn dân gian hiếm gặp, trong đó nghệ nhân điều khiển những con rối được làm từ gỗ và vải, biểu diễn các tích trò gắn với đời sống nông nghiệp, săn bắt và sinh hoạt cộng đồng.',
+          'Trò diễn thường gắn với không gian lễ hội, hội xuân và các nghi lễ cầu mùa. Việc bảo tồn rối cạn Tày tại các xã Bình Yên và Đồng Hỷ là nỗ lực quan trọng nhằm giữ gìn một loại hình sân khấu dân gian đang có nguy cơ mai một.'
+        ],
+        facts: [
+          ['Loại hình', 'Nghệ thuật trình diễn dân gian'],
+          ['Dân tộc', 'Tày'],
+          ['Địa bàn', 'X. Bình Yên, X. Đồng Hỷ'],
+          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        tags: ['Rối cạn', 'Sân khấu dân gian', 'Người Tày']
+      },
+      {
+        slug: 'mua-tac-xinh',
+        title: 'Múa Tắc Xình của người Sán Chay',
+        cat: 3, level: 'QG', year: '', hasAudio: false,
+        short: 'X. Yên Trạch, X. Hợp Thành – Thái Nguyên',
+        location: 'Các xã Yên Trạch, Hợp Thành và vùng Phú Lương – tỉnh Thái Nguyên',
+        summary: 'Điệu múa nghi lễ - hội hè của người Sán Chay, nhịp điệu dồn dập mô phỏng động tác lao động sản xuất.',
+        desc: [
+          'Tắc Xình là điệu múa tập thể của người Sán Chay (Cao Lan – Sán Chí) được trình diễn trong các dịp lễ hội, cầu mùa, mừng nhà mới. Người múa xếp thành vòng, nhún chân theo nhịp trống, chiêng, tạo nên không khí cộng cảm mạnh mẽ.',
+          'Động tác múa mô phỏng các hoạt động lao động như cày cấy, gieo hạt, giã gạo – thể hiện ước vọng mùa màng bội thu và đời sống sung túc. Múa Tắc Xình đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+        ],
+        facts: [
+          ['Loại hình', 'Nghệ thuật trình diễn dân gian'],
+          ['Dân tộc', 'Sán Chay (Cao Lan, Sán Chí)'],
+          ['Địa bàn', 'X. Yên Trạch, X. Hợp Thành'],
+          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        tags: ['Tắc Xình', 'Sán Chay', 'Múa cầu mùa']
+      },
+      {
+        slug: 'hat-pao-dung',
+        title: 'Hát Páo dung của người Dao',
+        cat: 3, level: 'QG', year: '', hasAudio: true,
+        short: 'X. Chợ Đồn, X. Ngân Sơn, P. Bắc Kạn – Thái Nguyên',
+        location: 'Các xã Chợ Đồn, Ngân Sơn, Bằng Thành, Phủ Thông và các phường Bắc Kạn, Đức Xuân – tỉnh Thái Nguyên',
+        summary: 'Làn điệu hát đối đáp giao duyên của người Dao, gắn với nghi lễ và sinh hoạt cộng đồng.',
+        desc: [
+          'Páo dung là hình thức hát đối đáp truyền thống của người Dao, thường được cất lên trong các dịp lễ Tết, hội làng, đám cưới và những buổi giao duyên giữa nam nữ thanh niên.',
+          'Lời hát Páo dung giàu hình ảnh, sử dụng nhiều ẩn dụ về núi rừng, mùa màng, chim muông, thể hiện tình cảm và triết lý sống của người Dao. Giai điệu mộc mạc, gần với ngữ điệu nói, dễ đi vào lòng người. Nghệ thuật hát Páo dung đã được ghi danh Di sản văn hóa phi vật thể Quốc gia.'
+        ],
+        facts: [
+          ['Loại hình', 'Nghệ thuật trình diễn dân gian'],
+          ['Dân tộc', 'Dao'],
+          ['Địa bàn', 'Chợ Đồn, Ngân Sơn, Bằng Thành, Phủ Thông, P. Bắc Kạn, P. Đức Xuân'],
+          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        tags: ['Páo dung', 'Người Dao', 'Hát giao duyên']
+      },
+
+      /* ---------- 4. TÍN NGƯỠNG ---------- */
+      {
+        slug: 'cap-sac-tay',
+        title: 'Lễ Cấp sắc của người Tày',
+        cat: 4, level: 'Local', year: '', hasAudio: false,
+        short: 'X. Na Rì – Thái Nguyên',
+        location: 'Xã Na Rì và vùng lân cận – tỉnh Thái Nguyên',
+        summary: 'Nghi lễ công nhận tư cách thầy Then, đánh dấu bước trưởng thành trong đời sống tâm linh của người Tày.',
+        desc: [
+          'Lễ Cấp sắc của người Tày là nghi lễ quan trọng nhằm công nhận một người đã đủ khả năng hành nghề Then, được thần linh chứng giám và cộng đồng thừa nhận. Lễ thường được tổ chức nhiều ngày với hệ thống bài cúng, múa và diễn xướng phong phú.',
+          'Nghi lễ thể hiện quan niệm về sự trưởng thành, đạo hiếu và trách nhiệm với cộng đồng. Đây cũng là dịp để trao truyền tri thức giữa các thế hệ nghệ nhân Then tại Na Rì.'
+        ],
+        facts: [
+          ['Loại hình', 'Tập quán xã hội và tín ngưỡng'],
+          ['Dân tộc', 'Tày'],
+          ['Địa bàn', 'X. Na Rì – Thái Nguyên'],
+          ['Thời gian', 'Tổ chức nhiều ngày, thường vào mùa xuân – thu']
+        ],
+        tags: ['Cấp sắc', 'Then', 'Na Rì', 'Nghi lễ']
+      },
+      {
+        slug: 'het-khoan-nung',
+        title: 'Lễ Hét Khoăn (Tài khoăn) của người Nùng',
+        cat: 4, level: 'QG', year: '', hasAudio: false,
+        short: 'X. Xuân Dương – Thái Nguyên',
+        location: 'Xã Xuân Dương và vùng Na Rì – tỉnh Thái Nguyên',
+        summary: 'Nghi lễ "gọi hồn" cầu sức khỏe, bình an và may mắn cho con người, gắn với quan niệm vạn vật hữu linh.',
+        desc: [
+          'Hét Khoăn (còn gọi Tài khoăn) là nghi lễ gọi hồn của người Nùng, dựa trên quan niệm mỗi con người có nhiều "khoăn" trú ngụ; khi ốm đau, gặp vận hạn hoặc sau biến cố lớn, khoăn có thể rời khỏi thân thể và cần được gọi trở về.',
+          'Nghi lễ do thầy cúng chủ trì, kết hợp lời khấn, nhạc đệm và các động tác nghi thức, được tổ chức tại gia đình hoặc cộng đồng. Hét Khoăn thể hiện khát vọng về sức khỏe, bình an và sự gắn kết của con người với thế giới tâm linh, đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+        ],
+        facts: [
+          ['Loại hình', 'Tập quán xã hội và tín ngưỡng'],
+          ['Dân tộc', 'Nùng'],
+          ['Địa bàn', 'X. Xuân Dương – Thái Nguyên'],
+          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        tags: ['Hét Khoăn', 'Tài khoăn', 'Người Nùng', 'Cầu an']
+      },
+      {
+        slug: 'cap-sac-dao',
+        title: 'Nghi lễ Cấp sắc của người Dao',
+        cat: 4, level: 'QG', year: '', hasAudio: false,
+        short: 'X. Thanh Thịnh, X. Chợ Mới – Thái Nguyên',
+        location: 'Các xã Thanh Thịnh và Chợ Mới – tỉnh Thái Nguyên',
+        summary: 'Nghi lễ trưởng thành quan trọng nhất của người Dao, đánh dấu việc người đàn ông được công nhận là con cháu thần linh.',
+        desc: [
+          'Cấp sắc là nghi lễ thiêng liêng và quan trọng bậc nhất trong đời sống tín ngưỡng của người Dao. Người được cấp sắc phải trải qua quá trình học tập, chuẩn bị lễ vật và thực hiện nghi thức dưới sự dẫn dắt của thầy cúng cùng hội đồng các thầy.',
+          'Nghi lễ kéo dài nhiều ngày đêm, bao gồm các bước như lập đàn, tụng kinh, nhảy múa, "lên đèn" và đặt tên âm. Cấp sắc thể hiện triết lý về sự trưởng thành, đạo hiếu và trách nhiệm của con người với tổ tiên, cộng đồng. Nghi lễ đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+        ],
+        facts: [
+          ['Loại hình', 'Tập quán xã hội và tín ngưỡng'],
+          ['Dân tộc', 'Dao'],
+          ['Địa bàn', 'X. Thanh Thịnh, X. Chợ Mới'],
+          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        tags: ['Cấp sắc', 'Người Dao', 'Nghi lễ trưởng thành']
+      },
+
+      /* ---------- 5. LỄ HỘI ---------- */
+      {
+        slug: 'le-hoi-dinh-phuong-do',
+        title: 'Lễ hội đình Phương Độ',
+        cat: 5, level: 'Local', year: '', hasAudio: false,
+        short: 'X. Phú Bình – Thái Nguyên',
+        location: 'Xã Phú Bình – tỉnh Thái Nguyên',
+        summary: 'Lễ hội truyền thống tưởng niệm các vị thần hoàng làng, gắn với nghi thức rước và hội thi dân gian.',
+        desc: [
+          'Lễ hội đình Phương Độ diễn ra tại xã Phú Bình – nơi thờ các vị thành hoàng có công với làng, với đất nước. Phần lễ gồm các nghi thức rước kiệu, dâng hương, tế lễ trang nghiêm do các bô lão và đội tế chủ trì.',
+          'Phần hội sôi nổi với các trò chơi dân gian, thi đấu thể thao, biểu diễn văn nghệ truyền thống, thu hút đông đảo nhân dân trong vùng tham gia. Lễ hội là dịp gắn kết cộng đồng và giáo dục truyền thống uống nước nhớ nguồn.'
+        ],
+        facts: [
+          ['Loại hình', 'Lễ hội truyền thống'],
+          ['Địa bàn', 'X. Phú Bình – Thái Nguyên'],
+          ['Thời gian', 'Mùa xuân – mùa thu âm lịch']
+        ],
+        tags: ['Đình Phương Độ', 'Lễ hội', 'Thành hoàng']
+      },
+      {
+        slug: 'le-hoi-nui-van-nui-vo',
+        title: 'Lễ hội Núi Văn – Núi Võ',
+        cat: 5, level: 'Local', year: '', hasAudio: false,
+        short: 'X. Vạn Phú, X. Đại Từ – Thái Nguyên',
+        location: 'Các xã Vạn Phú và Đại Từ – tỉnh Thái Nguyên',
+        summary: 'Lễ hội gắn với truyền thuyết hai ngọn núi Văn – Võ, đề cao truyền thống hiếu học và thượng võ.',
+        desc: [
+          'Lễ hội Núi Văn – Núi Võ tại vùng Đại Từ gắn với truyền thuyết về hai ngọn núi tượng trưng cho văn tài và võ nghệ. Lễ hội thể hiện truyền thống hiếu học, tôn sư trọng đạo và tinh thần thượng võ của người dân địa phương.',
+          'Trong lễ hội diễn ra các nghi thức dâng hương, tế lễ, cùng nhiều hoạt động văn hóa – thể thao như thi đấu võ thuật, kéo co, đẩy gậy và các trò chơi dân gian khác.'
+        ],
+        facts: [
+          ['Loại hình', 'Lễ hội truyền thống'],
+          ['Địa bàn', 'X. Vạn Phú, X. Đại Từ – Thái Nguyên'],
+          ['Ý nghĩa', 'Hiếu học – Thượng võ']
+        ],
+        tags: ['Núi Văn', 'Núi Võ', 'Đại Từ', 'Thượng võ']
+      },
+      {
+        slug: 'le-hoi-long-tong-ba-be',
+        title: 'Lễ hội Lồng Tồng Ba Bể',
+        cat: 5, level: 'QG', year: '', hasAudio: false,
+        short: 'X. Ba Bể – Thái Nguyên',
+        location: 'Xã Ba Bể và vùng hồ Ba Bể – tỉnh Thái Nguyên',
+        summary: 'Lễ hội xuống đồng của người Tày vùng hồ Ba Bể, cầu mùa màng bội thu, mưa thuận gió hòa.',
+        desc: [
+          'Lồng Tồng theo tiếng Tày nghĩa là "xuống đồng". Đây là lễ hội nông nghiệp cổ truyền của người Tày vùng Ba Bể, được tổ chức vào đầu năm để cầu cho mùa màng bội thu, muôn loài sinh sôi và bản làng ấm no.',
+          'Phần lễ gồm nghi thức cúng thần linh, cày tượng trưng trên thửa ruộng thiêng. Phần hội sôi động với các trò chơi dân gian đặc sắc như tung còn, đẩy gậy, kéo co, hát lượn và thi ẩm thực bản địa. Lễ hội Lồng Tồng Ba Bể đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+        ],
+        facts: [
+          ['Loại hình', 'Lễ hội truyền thống'],
+          ['Dân tộc', 'Tày'],
+          ['Địa bàn', 'X. Ba Bể – Thái Nguyên'],
+          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        tags: ['Lồng Tồng', 'Ba Bể', 'Lễ xuống đồng', 'Tung còn']
+      },
+
+      /* ---------- 6. THỦ CÔNG ---------- */
+      {
+        slug: 'nghe-det-tay',
+        title: 'Nghề dệt thủ công truyền thống người Tày',
+        cat: 6, level: 'Local', year: '', hasAudio: false,
+        short: 'X. Ba Bể, X. Chợ Rã – Thái Nguyên',
+        location: 'Các xã Ba Bể và Chợ Rã – tỉnh Thái Nguyên',
+        summary: 'Kỹ thuật trồng bông, kéo sợi, nhuộm chàm và dệt vải với hoa văn truyền thống của người Tày.',
+        desc: [
+          'Nghề dệt thủ công của người Tày ở vùng Ba Bể – Chợ Rã bao gồm chuỗi công đoạn công phu: trồng bông, bật bông, kéo sợi, mắc cửi, nhuộm chàm và dệt vải. Mỗi công đoạn đều đòi hỏi sự khéo léo và kinh nghiệm được truyền từ mẹ sang con gái.',
+          'Sản phẩm dệt mang hoa văn hình học, họa tiết hoa lá, chim thú – thể hiện thẩm mỹ và quan niệm về vũ trụ của người Tày. Nghề dệt không chỉ tạo ra trang phục mà còn là biểu tượng của bản sắc văn hóa tộc người.'
+        ],
+        facts: [
+          ['Loại hình', 'Nghề thủ công truyền thống'],
+          ['Dân tộc', 'Tày'],
+          ['Công đoạn', 'Trồng bông – kéo sợi – nhuộm chàm – dệt'],
+          ['Địa bàn', 'X. Ba Bể, X. Chợ Rã']
+        ],
+        tags: ['Dệt vải', 'Nhuộm chàm', 'Người Tày', 'Ba Bể']
+      },
+      {
+        slug: 'nghe-che-bien-che',
+        title: 'Nghề chế biến chè truyền thống',
+        cat: 6, level: 'Local', year: '', hasAudio: false,
+        short: 'X. Tân Cương, X. La Bằng, P. Phúc Thuận – Thái Nguyên',
+        location: 'Các xã Tân Cương, La Bằng, Trại Cau và phường Phúc Thuận – tỉnh Thái Nguyên',
+        summary: 'Quy trình sao sấy thủ công tạo nên hương vị đặc trưng của chè Thái Nguyên nức tiếng.',
+        desc: [
+          'Nghề chế biến chè truyền thống tại Thái Nguyên gắn với các vùng chè nổi tiếng như Tân Cương, La Bằng, Trại Cau và Phúc Thuận. Búp chè được hái theo tiêu chuẩn "một tôm hai lá", sau đó trải qua các công đoạn làm héo, diệt men, vò và sao sấy.',
+          'Kỹ thuật sao chè bằng chảo gang trên bếp củi, với đôi bàn tay điêu luyện của nghệ nhân, tạo nên hương cốm đặc trưng, vị chát dịu và hậu ngọt sâu. Đây là tri thức nghề được truyền đời, góp phần khẳng định thương hiệu chè Thái Nguyên.'
+        ],
+        facts: [
+          ['Loại hình', 'Nghề thủ công truyền thống'],
+          ['Vùng nguyên liệu', 'Tân Cương, La Bằng, Trại Cau, Phúc Thuận'],
+          ['Kỹ thuật', 'Hái tay – vò – sao sấy thủ công']
+        ],
+        tags: ['Chè Thái Nguyên', 'Sao sấy', 'Tân Cương', 'Nghề truyền thống']
+      },
+      {
+        slug: 'tuong-nep-uc-ky',
+        title: 'Nghề làm tương nếp Úc Kỳ',
+        cat: 6, level: 'QG', year: '', hasAudio: false,
+        short: 'X. Phú Bình – Thái Nguyên',
+        location: 'Xã Phú Bình – tỉnh Thái Nguyên',
+        summary: 'Bí quyết ủ tương từ gạo nếp và đậu tương, tạo nên hương vị đậm đà nổi tiếng của vùng Phú Bình.',
+        desc: [
+          'Tương nếp Úc Kỳ là sản phẩm ẩm thực truyền thống lâu đời của người dân xã Phú Bình. Nguyên liệu chính gồm gạo nếp, đậu tương, muối và nước sạch, trải qua quá trình lên men tự nhiên trong nhiều tháng.',
+          'Bí quyết nằm ở khâu chọn nguyên liệu, tỷ lệ pha trộn và cách ủ trong chum sành dưới ánh nắng. Tương có vị ngọt hậu, mùi thơm dịu đặc trưng, là gia vị không thể thiếu trong bữa ăn của nhiều gia đình. Nghề làm tương nếp Úc Kỳ đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+        ],
+        facts: [
+          ['Loại hình', 'Nghề thủ công truyền thống'],
+          ['Nguyên liệu', 'Gạo nếp, đậu tương, muối'],
+          ['Địa bàn', 'X. Phú Bình – Thái Nguyên'],
+          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        tags: ['Tương nếp', 'Úc Kỳ', 'Ẩm thực', 'Lên men']
+      },
+
+      /* ---------- 7. TRI THỨC ---------- */
+      {
+        slug: 'tri-thuc-che-tan-cuong',
+        title: 'Tri thức trồng và chế biến chè Tân Cương',
+        cat: 7, level: 'QG', year: '', hasAudio: false,
+        short: 'X. Tân Cương, P. Tích Lương – Thái Nguyên',
+        location: 'Xã Tân Cương, phường Tích Lương, phường Gia Sàng – tỉnh Thái Nguyên',
+        summary: 'Hệ tri thức bản địa về chọn giống, canh tác, thu hái và chế biến chè – linh hồn của vùng chè Tân Cương.',
+        desc: [
+          'Tri thức trồng và chế biến chè Tân Cương là hệ thống kiến thức bản địa được tích lũy qua nhiều thế hệ về chọn đất, chọn giống, kỹ thuật trồng, chăm sóc, thời điểm thu hái và phương pháp chế biến chè xanh.',
+          'Người trồng chè Tân Cương am hiểu về thổ nhưỡng, khí hậu, mùa vụ và các yếu tố ảnh hưởng đến chất lượng búp chè. Tri thức này gắn liền với đời sống kinh tế, văn hóa và nghệ thuật thưởng trà của người dân địa phương, đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+        ],
+        facts: [
+          ['Loại hình', 'Tri thức dân gian'],
+          ['Địa bàn', 'X. Tân Cương, P. Tích Lương, P. Gia Sàng'],
+          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        tags: ['Chè Tân Cương', 'Tri thức bản địa', 'Trà', 'Canh tác']
+      },
+      {
+        slug: 'hoa-van-dao-do',
+        title: 'Nghệ thuật trang trí hoa văn trên trang phục người Dao Đỏ',
+        cat: 7, level: 'QG', year: '', hasAudio: false,
+        short: 'X. Chợ Đồn – Thái Nguyên',
+        location: 'Xã Chợ Đồn và vùng lân cận – tỉnh Thái Nguyên',
+        summary: 'Kỹ thuật thêu, in sáp ong và ghép hoa văn tinh xảo trên trang phục truyền thống của người Dao Đỏ.',
+        desc: [
+          'Trang phục người Dao Đỏ nổi bật với hệ hoa văn phong phú được tạo nên bằng kỹ thuật thêu chỉ màu, in sáp ong và ghép vải. Các mô típ như mặt trời, cây cỏ, chim thú, hình học… mang ý nghĩa biểu tượng về vũ trụ, tổ tiên và bản sắc tộc người.',
+          'Người phụ nữ Dao Đỏ học thêu từ nhỏ và làm trang phục cho bản thân, gia đình trong suốt cuộc đời. Nghệ thuật trang trí hoa văn trên trang phục người Dao Đỏ tại Chợ Đồn đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+        ],
+        facts: [
+          ['Loại hình', 'Tri thức dân gian'],
+          ['Dân tộc', 'Dao Đỏ'],
+          ['Kỹ thuật', 'Thêu chỉ màu, in sáp ong, ghép vải'],
+          ['Địa bàn', 'X. Chợ Đồn – Thái Nguyên'],
+          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        tags: ['Dao Đỏ', 'Hoa văn', 'Thêu', 'Sáp ong', 'Chợ Đồn']
+      }
+    ];
+
+    /* ============================================================
+       2. STATE & HELPERS
+       ============================================================ */
+
+    const state = {
+      view: 'book',
+      category: 'all',
+      level: 'all',
+      search: '',
+      bookIndex: 0,
+      modalSlug: null,
+      isTurning: false
+    };
+
+    const $ = (s, ctx = document) => ctx.querySelector(s);
+    const $$ = (s, ctx = document) => Array.from(ctx.querySelectorAll(s));
+
+    function norm(str) {
+      return (str || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+        .toLowerCase();
+    }
+
+    function fmtTime(sec) {
+      if (!isFinite(sec) || isNaN(sec) || sec < 0) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ':' + String(s).padStart(2, '0');
+    }
+
+    function escapeHTML(str) {
+      return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function getHeritage(slug) { return HERITAGES.find(h => h.slug === slug); }
+    function hasAudio(h) { return !!(h && h.hasAudio); }
+
+    /* ============================================================
+       3. AUDIO ENGINE
+       ============================================================ */
+
+    const audioEl = new Audio();
+    audioEl.preload = 'metadata';
+    let currentSlug = null;
+    let currentTitle = '';
+    const audioErrors = {};
+
+    audioEl.addEventListener('timeupdate', () => { syncPlayers(); });
+    audioEl.addEventListener('loadedmetadata', () => { syncPlayers(); });
+    audioEl.addEventListener('play', () => { syncPlayers(); });
+    audioEl.addEventListener('pause', () => { syncPlayers(); });
+    audioEl.addEventListener('ended', () => { syncPlayers(); });
+    audioEl.addEventListener('error', () => {
+      if (currentSlug) {
+        audioErrors[currentSlug] = true;
+        syncPlayers();
+        toast('Tệp âm thanh cho di sản này chưa được cập nhật.');
+      }
+    });
+
+    function playTrack(slug, title) {
+      const h = getHeritage(slug);
+      if (!hasAudio(h)) { toast('Di sản này không có bản ghi âm.'); return; }
+      if (audioErrors[slug]) { toast('Tệp âm thanh cho di sản này chưa được cập nhật.'); return; }
+      if (currentSlug !== slug) {
+        currentSlug = slug;
+        currentTitle = title || (h ? h.title : 'Bản ghi âm di sản');
+        audioEl.src = 'audio/' + slug + '.mp3';
+        try { audioEl.load(); } catch (e) { }
+      }
+      const p = audioEl.play();
+      if (p && p.catch) p.catch(() => { });
+      syncPlayers();
+    }
+
+    function toggleTrack(slug, title) {
+      const h = getHeritage(slug);
+      if (!hasAudio(h)) { toast('Di sản này không có bản ghi âm.'); return; }
+      if (currentSlug !== slug) { playTrack(slug, title); return; }
+      if (audioEl.paused) { const p = audioEl.play(); if (p && p.catch) p.catch(() => { }); }
+      else audioEl.pause();
+      syncPlayers();
+    }
+
+    function stopTrack() {
+      audioEl.pause();
+      audioEl.removeAttribute('src');
+      try { audioEl.load(); } catch (e) { }
+      currentSlug = null;
+      syncPlayers();
+    }
+
+    function seekTo(ratio) {
+      if (!currentSlug || !isFinite(audioEl.duration)) return;
+      audioEl.currentTime = Math.max(0, Math.min(1, ratio)) * audioEl.duration;
+      syncPlayers();
+    }
+
+    /* ============================================================
+       4. HTML BUILDERS
+       ============================================================ */
+
+    function levelBadge(level) {
+      const map = {
+        UNESCO: { cls: 'from-amber-400 to-orange-500', icon: 'fa-globe', label: 'UNESCO' },
+        QG: { cls: 'from-emerald-500 to-teal-600', icon: 'fa-award', label: 'Di sản Quốc gia' },
+        Local: { cls: 'from-slate-500 to-slate-700', icon: 'fa-location-dot', label: 'Di sản Địa phương' }
+      };
+      const m = map[level] || map.Local;
+      return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide text-white bg-gradient-to-r ${m.cls} border border-white/60 shadow-md whitespace-nowrap">
+    <i class="fa-solid ${m.icon}"></i>${m.label}</span>`;
+    }
+
+    function placeholderHTML(label) {
+      return `<div class="img-ph">
+    <div class="text-center px-4">
+      <i class="fa-regular fa-image text-2xl text-emerald-500/70"></i>
+      <p class="mt-1 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-700/80">${label || 'Hình ảnh đang cập nhật'}</p>
+    </div>
+  </div>`;
+    }
+
+    function galleryHTML(h) {
+      const imgs = [1, 2, 3].map(n => `images/${h.slug}/${n}.png`);
+      const thumbs = imgs.map((src, i) => `
+    <button type="button" data-act="g-thumb" data-idx="${i}"
+      class="thumb-btn relative aspect-[4/3] rounded-xl overflow-hidden border border-white/80 bg-slate-100 group/th transition-all hover:-translate-y-0.5">
+      ${placeholderHTML('')}
+      <img src="${src}" alt="${escapeHTML(h.title)} - ảnh ${i + 1}" loading="lazy"
+           class="relative z-10 w-full h-full object-cover transition-transform duration-500 group-hover/th:scale-110"
+           onerror="this.style.opacity=0" />
+    </button>`).join('');
+
+      return `
+  <div class="gallery" data-gallery="${h.slug}" data-idx="0">
+    <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner group/main bg-slate-100">
+      ${placeholderHTML('Hình ảnh đang cập nhật')}
+      <img data-role="main" src="${imgs[0]}" alt="${escapeHTML(h.title)}"
+           class="relative z-10 w-full h-full object-cover transition-opacity duration-300"
+           onerror="this.style.opacity=0" />
+      <div class="absolute inset-0 z-20 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
+
+      <button type="button" data-act="g-prev" aria-label="Ảnh trước"
+        class="absolute z-30 left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-white/80 grid place-items-center text-slate-700 shadow-lg transition-all hover:scale-110">
+        <i class="fa-solid fa-chevron-left text-xs"></i>
+      </button>
+      <button type="button" data-act="g-next" aria-label="Ảnh sau"
+        class="absolute z-30 right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-white/80 grid place-items-center text-slate-700 shadow-lg transition-all hover:scale-110">
+        <i class="fa-solid fa-chevron-right text-xs"></i>
+      </button>
+      <button type="button" data-act="g-zoom" aria-label="Xem ảnh lớn"
+        class="absolute z-30 bottom-3 right-3 w-10 h-10 rounded-full bg-white/90 hover:bg-white backdrop-blur-md border border-white/80 grid place-items-center text-slate-700 shadow-lg transition-all hover:scale-110">
+        <i class="fa-solid fa-expand text-xs"></i>
+      </button>
+      <span class="absolute z-30 bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-slate-800">
+        <i class="fa-solid fa-camera-retro mr-1 text-emerald-600"></i>${escapeHTML(h.short)}
+      </span>
+    </div>
+    <div class="mt-2.5 grid grid-cols-3 gap-2">${thumbs}</div>
+  </div>`;
+    }
+
+    function playerHTML(slug) {
+      const bars = Array.from({ length: 22 }, (_, i) =>
+        `<span style="animation-delay:${(i * 62) % 900}ms"></span>`).join('');
+
+      return `
+  <div class="player glass-soft rounded-2xl p-3.5 flex items-center gap-3" data-player="${slug}">
+    <button type="button" data-act="toggle" data-slug="${slug}"
+      class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white grid place-items-center shadow-lg shadow-emerald-500/30 transition-all hover:scale-105 active:scale-95">
+      <i class="fa-solid fa-play text-sm"></i>
+    </button>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center justify-between gap-2 mb-1.5">
+        <span class="text-[10px] font-extrabold uppercase tracking-[0.14em] text-emerald-800">
+          <i class="fa-solid fa-headphones mr-1"></i>Bản ghi âm di sản
+        </span>
+        <span data-role="time" class="text-[10.5px] tabular-nums font-bold text-slate-700">0:00 / 0:00</span>
+      </div>
+      <div class="seek-bar" data-role="seek">
+        <div class="seek-fill" data-role="fill"></div>
+        <div class="seek-knob" data-role="knob"></div>
+      </div>
+      <div class="mt-2 flex items-center justify-between gap-3">
+        <div class="wave" data-role="wave">${bars}</div>
+        <span data-role="status" class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Sẵn sàng</span>
+      </div>
+    </div>
+  </div>`;
+    }
+
+    function factsHTML(h) {
+      return `
+  <dl class="space-y-2">
+    ${h.facts.map(([k, v]) => `
+      <div class="flex gap-3 items-start text-[12.5px]">
+        <dt class="w-[92px] shrink-0 font-extrabold text-slate-600 uppercase tracking-wide text-[10.5px] pt-0.5">${escapeHTML(k)}</dt>
+        <dd class="flex-1 text-slate-900 font-semibold leading-snug">${escapeHTML(v)}</dd>
+      </div>`).join('')}
+  </dl>`;
+    }
+
+    /* ============================================================
+       5. FILTERING
+       ============================================================ */
+
+    function filteredList() {
+      const q = norm(state.search.trim());
+      return HERITAGES.filter(h => {
+        if (state.category !== 'all' && h.cat !== Number(state.category)) return false;
+        if (state.level !== 'all' && h.level !== state.level) return false;
+        if (q) {
+          const hay = norm([
+            h.title, h.summary, h.location, h.short,
+            h.tags.join(' '), h.desc.join(' '),
+            CATEGORIES[h.cat - 1].full
+          ].join(' '));
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+    }
+
+    /* ============================================================
+       6. RENDER: CHIPS
+       ============================================================ */
+
+    function renderChips() {
+      const wrap = $('#catChips');
+      const chips = [
+        `<button data-cat="all" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
+       <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả loại hình</button>`
+      ].concat(CATEGORIES.map(c => `
+    <button data-cat="${c.id}" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
+      <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id}. ${escapeHTML(c.short)}
+    </button>`));
+
+      wrap.innerHTML = chips.join('');
+      paintChips();
+    }
+
+    function paintChips() {
+      $$('.cat-chip').forEach(el => {
+        const active = String(el.dataset.cat) === String(state.category);
+        el.className = 'cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all ' +
+          (active
+            ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-white border-transparent shadow-lg shadow-emerald-500/25'
+            : 'bg-white/80 text-slate-800 border-white/85 hover:bg-white hover:-translate-y-0.5');
+      });
+    }
+
+    function paintControls() {
+      $$('.view-btn').forEach(el => {
+        const active = el.dataset.view === state.view;
+        el.className = 'view-btn flex items-center gap-2 px-3.5 py-2 rounded-lg text-[12.5px] font-bold transition-all ' +
+          (active
+            ? 'bg-white text-emerald-700 shadow-md border border-white/90'
+            : 'text-slate-700 hover:text-slate-900');
+      });
+
+      $$('.lvl-btn').forEach(el => {
+        const active = el.dataset.level === state.level;
+        el.className = 'lvl-btn px-3 py-2 rounded-lg text-[12px] font-bold whitespace-nowrap transition-all ' +
+          (active
+            ? 'bg-white text-emerald-700 shadow-md border border-white/90'
+            : 'text-slate-700 hover:text-slate-900');
+      });
+
+      paintChips();
+      paintSheetChips();
+      updateMobileNav();
+      updateMobileFilterCount();
+    }
+
+    /* ============================================================
+       7. RENDER: GRID
+       ============================================================ */
+
+    function renderGrid() {
+      const list = filteredList();
+      const wrap = $('#gridContainer');
+      $('#resultCount').textContent = list.length;
+
+      if (!list.length) {
+        wrap.innerHTML = `
+      <div class="col-span-full glass rounded-3xl p-10 sm:p-12 text-center">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-100 to-amber-100 grid place-items-center">
+          <i class="fa-solid fa-magnifying-glass text-2xl text-emerald-600"></i>
+        </div>
+        <h3 class="mt-4 text-lg font-extrabold text-slate-900">Không tìm thấy di sản phù hợp</h3>
+        <p class="mt-1.5 text-[13px] text-slate-700 font-medium">Hãy thử từ khóa khác hoặc đặt lại bộ lọc.</p>
+        <button id="emptyReset" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[13px] font-bold shadow-lg shadow-emerald-500/25 transition hover:-translate-y-0.5">
+          <i class="fa-solid fa-rotate-left"></i> Đặt lại bộ lọc
+        </button>
+      </div>`;
+        const btn = $('#emptyReset');
+        if (btn) btn.addEventListener('click', resetFilters);
+        return;
+      }
+
+      wrap.innerHTML = list.map((h, i) => {
+        const cat = CATEGORIES[h.cat - 1];
+        const cover = `images/${h.slug}/1.png`;
+        const audioBadge = h.hasAudio
+          ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Audio</span>`
+          : '';
+        const audioBtn = h.hasAudio
+          ? `<button data-act="toggle" data-slug="${h.slug}" data-title="${escapeHTML(h.title)}"
+           title="Nghe bản ghi âm"
+           class="w-10 h-10 rounded-xl bg-white/90 hover:bg-emerald-50 border border-white/90 grid place-items-center text-emerald-700 shadow-sm transition-all hover:scale-105 active:scale-95">
+           <i class="fa-solid fa-headphones text-[13px]"></i>
+         </button>`
+          : '';
+
+        return `
+    <article class="card-hover glass rounded-2xl overflow-hidden flex flex-col card-enter" style="animation-delay:${Math.min(i * 45, 400)}ms">
+      <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
+        ${placeholderHTML('')}
+        <img src="${cover}" alt="${escapeHTML(h.title)}" loading="lazy"
+             class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+             onerror="this.style.opacity=0" />
+        <div class="absolute inset-0 z-20 bg-gradient-to-t from-slate-900/60 via-slate-900/5 to-transparent pointer-events-none"></div>
+        <div class="absolute z-30 top-3 left-3">${levelBadge(h.level)}</div>
+        <div class="absolute z-30 bottom-3 left-3 right-3 flex items-center gap-2 flex-wrap">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-emerald-800">
+            <i class="fa-solid ${cat.icon}"></i>${escapeHTML(cat.short)}
+          </span>
+          ${audioBadge}
+        </div>
+      </div>
+
+      <div class="p-4 flex flex-col flex-1">
+        <h3 class="font-extrabold text-[15px] leading-snug text-slate-900 line-clamp-2">${escapeHTML(h.title)}</h3>
+        <p class="mt-1.5 flex items-start gap-1.5 text-[11.5px] text-slate-700 font-semibold">
+          <i class="fa-solid fa-location-dot mt-0.5 text-emerald-600"></i>
+          <span class="line-clamp-2">${escapeHTML(h.short)}</span>
+        </p>
+        <p class="mt-3 text-[13px] leading-relaxed text-slate-800 font-medium line-clamp-3">${escapeHTML(h.summary)}</p>
+
+        <div class="mt-4 pt-3 border-t border-slate-200/70 flex items-center justify-between gap-2 mt-auto">
+          <button data-open="${h.slug}"
+            class="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[12.5px] font-bold shadow-md shadow-emerald-500/20 transition-all hover:-translate-y-0.5 active:scale-95">
+            Xem chi tiết <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
+          ${audioBtn}
+        </div>
+      </div>
+    </article>`;
+      }).join('');
+
+      syncPlayers();
+    }
+
+    /* ============================================================
+       8. RENDER: BOOK
+       ============================================================ */
+
+    function renderTOC(list) {
+      const wrap = $('#tocList');
+      const label = $('#tocCountLabel');
+      if (label) label.textContent = list.length + ' loại hình di sản';
+
+      const grouped = {};
+      list.forEach((h, idx) => {
+        grouped[h.cat] = grouped[h.cat] || [];
+        grouped[h.cat].push({ h, idx });
+      });
+
+      if (!list.length) {
+        wrap.innerHTML = `<p class="text-[12px] text-slate-600 text-center py-6 font-medium">Không có mục lục phù hợp.</p>`;
+        return;
+      }
+
+      wrap.innerHTML = Object.keys(grouped).sort((a, b) => a - b).map(catId => {
+        const cat = CATEGORIES[catId - 1];
+        return `
+    <div>
+      <p class="flex items-center gap-2 text-[10.5px] font-extrabold uppercase tracking-[0.12em] text-emerald-800 mb-1.5">
+        <i class="fa-solid ${cat.icon}"></i> Chương ${cat.id} · ${escapeHTML(cat.short)}
+      </p>
+      <div class="space-y-1">
+        ${grouped[catId].map(({ h, idx }) => `
+          <button data-act="toc" data-idx="${idx}"
+            class="toc-item w-full text-left px-2.5 py-2 rounded-lg text-[12px] font-bold leading-snug transition-all flex items-start gap-2 ${idx === state.bookIndex ? 'bg-emerald-50 text-emerald-900 border border-emerald-200/80' : 'text-slate-800 hover:bg-white/80 border border-transparent'}">
+            <span class="text-[10px] font-extrabold text-slate-400 mt-0.5 tabular-nums">${String(idx + 1).padStart(2, '0')}</span>
+            <span class="flex-1 line-clamp-2">${escapeHTML(h.title)}</span>
+            ${h.hasAudio ? '<i class="fa-solid fa-headphones text-[9px] text-emerald-500 mt-1"></i>' : ''}
+          </button>`).join('')}
+      </div>
+    </div>`;
+      }).join('');
+    }
+
+    function buildBookPageHTML(h, cat, total) {
+      const playerBlock = h.hasAudio ? `<div class="mt-5">${playerHTML(h.slug)}</div>` : '';
+      const audioBadge = h.hasAudio
+        ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Có bản ghi âm</span>`
+        : '';
+
+      return `
+  <article class="glass-strong rounded-3xl overflow-hidden shadow-[0_20px_60px_-10px_rgba(15,23,42,0.18)]" data-page-slug="${h.slug}">
+    <div class="flex items-center justify-between gap-3 px-4 sm:px-8 py-3.5 border-b border-white/70 bg-white/60">
+      <div class="flex items-center gap-3 min-w-0">
+        <span class="w-9 h-9 shrink-0 rounded-xl grid place-items-center text-white bg-gradient-to-br from-emerald-500 to-teal-600 shadow-md">
+          <i class="fa-solid ${cat.icon} text-[13px]"></i>
+        </span>
+        <div class="min-w-0">
+          <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-emerald-800 truncate">Chương ${cat.id} · ${escapeHTML(cat.name)}</p>
+          <p class="text-[11px] text-slate-700 font-semibold">Trang ${state.bookIndex + 1} / ${total}${h.year ? ' · ' + escapeHTML(h.year) : ''}</p>
+        </div>
+      </div>
+      <div class="hidden sm:flex items-center gap-2 shrink-0">
+        ${audioBadge}
+        ${levelBadge(h.level)}
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2">
+      <div class="p-4 sm:p-7 border-b lg:border-b-0 lg:border-r border-white/70 bg-white/35">
+        ${galleryHTML(h)}
+        <div class="mt-5 p-4 rounded-2xl bg-white/80 border border-white/85">
+          <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-slate-600 mb-2.5">
+            <i class="fa-solid fa-circle-info mr-1 text-emerald-600"></i>Thông tin di sản
+          </p>
+          ${factsHTML(h)}
+          <div class="mt-3 pt-3 border-t border-slate-200/70 text-[12.5px] flex items-start gap-2">
+            <i class="fa-solid fa-map-pin text-emerald-600 mt-0.5"></i>
+            <span class="text-slate-900 font-semibold leading-snug">${escapeHTML(h.location)}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 sm:p-7">
+        <div class="sm:hidden mb-3 flex items-center gap-2 flex-wrap">
+          ${audioBadge}
+          ${levelBadge(h.level)}
+        </div>
+
+        <h2 class="text-[22px] sm:text-[30px] font-extrabold leading-[1.18] text-slate-900 tracking-tight text-sharp">${escapeHTML(h.title)}</h2>
+
+        <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/95 to-amber-50/70 border border-emerald-200/60 border-l-4 border-l-emerald-400">
+          <p class="text-[13.5px] font-bold text-slate-900 leading-relaxed">
+            <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}
+          </p>
+        </div>
+
+        ${playerBlock}
+
+        <div class="mt-5 space-y-3.5 text-[14px] leading-[1.9] text-slate-800 font-medium">
+          ${h.desc.map(p => `<p class="text-justify">${escapeHTML(p)}</p>`).join('')}
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          ${h.tags.map(t => `<span class="tag"><i class="fa-solid fa-hashtag text-[9px] opacity-70"></i>${escapeHTML(t)}</span>`).join('')}
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          <button data-open="${h.slug}"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[13px] font-bold shadow-lg shadow-emerald-500/25 transition-all hover:-translate-y-0.5 active:scale-95">
+            <i class="fa-solid fa-up-right-and-down-left-from-center"></i> Xem toàn màn hình
+          </button>
+          ${h.hasAudio ? `
+          <button data-act="toggle" data-slug="${h.slug}" data-title="${escapeHTML(h.title)}"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/90 hover:bg-white border border-white/90 text-slate-800 text-[13px] font-bold shadow-sm transition-all hover:-translate-y-0.5 active:scale-95">
+            <i class="fa-solid fa-headphones text-emerald-600"></i> Nghe bản ghi
+          </button>` : ''}
+        </div>
+
+        <div class="mt-7 pt-4 border-t border-slate-200/70 flex items-center justify-between text-[11px] text-slate-600 font-bold">
+          <span><i class="fa-solid fa-bookmark text-emerald-500 mr-1"></i>Cuốn sách số di sản</span>
+          <span class="tabular-nums">— ${state.bookIndex + 1} —</span>
+        </div>
+      </div>
+    </div>
+  </article>`;
+    }
+
+    function runPageSweep() {
+      const sweep = $('#pageSweep');
+      if (!sweep) return;
+      sweep.classList.remove('active');
+      void sweep.offsetWidth;
+      sweep.classList.add('active');
+      setTimeout(() => sweep.classList.remove('active'), 800);
+    }
+
+    function renderBook(direction) {
+      const list = filteredList();
+      const wrap = $('#bookPage');
+      $('#resultCount').textContent = list.length;
+
+      if (!list.length) {
+        wrap.innerHTML = `
+      <div class="glass-strong rounded-3xl p-10 sm:p-12 text-center">
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-100 to-amber-100 grid place-items-center">
+          <i class="fa-solid fa-book-open text-2xl text-emerald-600"></i>
+        </div>
+        <h3 class="mt-4 text-lg font-extrabold text-slate-900">Không có trang phù hợp</h3>
+        <p class="mt-1.5 text-[13px] text-slate-700 font-medium">Hãy điều chỉnh bộ lọc hoặc từ khóa tìm kiếm.</p>
+      </div>`;
+        renderTOC(list);
+        $('#pageDots').innerHTML = '';
+        return;
+      }
+
+      if (state.bookIndex >= list.length) state.bookIndex = 0;
+      if (state.bookIndex < 0) state.bookIndex = list.length - 1;
+
+      const h = list[state.bookIndex];
+      const cat = CATEGORIES[h.cat - 1];
+      const newHTML = buildBookPageHTML(h, cat, list.length);
+
+      const oldPage = wrap.firstElementChild;
+
+      if (direction && oldPage && !state.isTurning) {
+        state.isTurning = true;
+
+        const exitClass = direction === 'next' ? 'page-flip-out-next' : 'page-flip-out-prev';
+        const enterClass = direction === 'next' ? 'page-flip-in-next' : 'page-flip-in-prev';
+
+        oldPage.classList.add(exitClass);
+        oldPage.style.willChange = 'transform, opacity, filter';
+
+        setTimeout(() => runPageSweep(), 120);
+
+        setTimeout(() => {
+          wrap.innerHTML = newHTML;
+          const newPage = wrap.firstElementChild;
+          if (newPage) {
+            newPage.classList.add(enterClass);
+            newPage.style.willChange = 'transform, opacity, filter';
+            setTimeout(() => {
+              newPage.style.willChange = '';
+              newPage.classList.remove(enterClass);
+            }, 650);
+          }
+          syncPlayers();
+          state.isTurning = false;
+        }, 340);
+
+        renderTOC(list);
+        renderDots(list.length);
+        syncPlayers();
+      } else if (!state.isTurning) {
+        wrap.innerHTML = newHTML;
+        const newPage = wrap.firstElementChild;
+        if (newPage) newPage.classList.add('page-enter');
+        renderTOC(list);
+        renderDots(list.length);
+        syncPlayers();
+      }
+    }
+
+    function renderDots(total) {
+      const maxDots = 12;
+      const dots = $('#pageDots');
+      if (total <= 1) { dots.innerHTML = ''; return; }
+      const step = Math.max(1, Math.ceil(total / maxDots));
+      let html = '';
+      for (let i = 0; i < total; i += step) {
+        const active = i === state.bookIndex || (state.bookIndex >= i && state.bookIndex < i + step);
+        html += `<button data-act="book-goto" data-idx="${i}"
+      class="w-2.5 h-2.5 rounded-full transition-all ${active ? 'bg-emerald-600 w-6' : 'bg-slate-300 hover:bg-slate-400'}"></button>`;
+      }
+      dots.innerHTML = html;
+    }
+
+    /* ============================================================
+       9. MODAL
+       ============================================================ */
+
+    function modalHTML(h) {
+      const cat = CATEGORIES[h.cat - 1];
+      const playerBlock = h.hasAudio ? `<div class="mt-5">${playerHTML(h.slug)}</div>` : '';
+      const audioBadge = h.hasAudio
+        ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Có bản ghi âm</span>`
+        : '';
+
+      return `
+  <div class="sticky top-0 z-30 flex items-center justify-between gap-3 px-4 sm:px-6 py-3 bg-white/85 backdrop-blur-2xl border-b border-white/70">
+    <div class="flex items-center gap-3 min-w-0">
+      <span class="w-10 h-10 shrink-0 rounded-xl grid place-items-center text-white bg-gradient-to-br from-emerald-500 to-teal-600 shadow-md">
+        <i class="fa-solid ${cat.icon}"></i>
+      </span>
+      <div class="min-w-0">
+        <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-emerald-800 truncate">Chương ${cat.id} · ${escapeHTML(cat.full)}</p>
+        <p class="text-[11.5px] text-slate-700 font-semibold truncate">${escapeHTML(h.short)}</p>
+      </div>
+    </div>
+    <button data-close class="w-10 h-10 shrink-0 rounded-xl bg-white/90 hover:bg-white border border-white/80 grid place-items-center text-slate-700 shadow-sm transition-all hover:rotate-90 duration-300">
+      <i class="fa-solid fa-xmark text-base"></i>
+    </button>
+  </div>
+
+  <div class="grid lg:grid-cols-2">
+    <div class="p-4 sm:p-7 border-b lg:border-b-0 lg:border-r border-white/70 bg-white/40">
+      ${galleryHTML(h)}
+      <div class="mt-5 p-4 rounded-2xl bg-white/85 border border-white/85">
+        <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-slate-600 mb-3">
+          <i class="fa-solid fa-circle-info mr-1 text-emerald-600"></i>Thông tin di sản
+        </p>
+        ${factsHTML(h)}
+      </div>
+      <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/90 to-amber-50/70 border border-emerald-200/60">
+        <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-emerald-800 mb-2">
+          <i class="fa-solid fa-location-dot mr-1"></i>Địa bàn phân bố
+        </p>
+        <p class="text-[13px] text-slate-900 font-semibold leading-relaxed">${escapeHTML(h.location)}</p>
+      </div>
+    </div>
+
+    <div class="p-4 sm:p-7">
+      <div class="mb-3 flex items-center gap-2 flex-wrap">
+        ${audioBadge}
+        ${levelBadge(h.level)}
+      </div>
+      <h2 class="text-[24px] sm:text-[32px] font-extrabold leading-[1.18] text-slate-900 tracking-tight text-sharp">${escapeHTML(h.title)}</h2>
+
+      <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/95 to-amber-50/70 border border-emerald-200/60 border-l-4 border-l-emerald-400">
+        <p class="text-[14px] font-bold text-slate-900 leading-relaxed">
+          <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}
+        </p>
+      </div>
+
+      ${playerBlock}
+
+      <div class="mt-6 space-y-4 text-[14.5px] leading-[1.9] text-slate-800 font-medium">
+        ${h.desc.map(p => `<p class="text-justify">${escapeHTML(p)}</p>`).join('')}
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-2">
+        ${h.tags.map(t => `<span class="tag"><i class="fa-solid fa-hashtag text-[9px] opacity-70"></i>${escapeHTML(t)}</span>`).join('')}
+      </div>
+
+      <div class="mt-7 pt-4 border-t border-slate-200/70 flex flex-wrap gap-2">
+        <a href="https://disanthainguyen.pages.dev/" target="_top"
+           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/90 hover:bg-white border border-white/90 text-slate-800 text-[12.5px] font-bold shadow-sm transition-all hover:-translate-y-0.5">
+          <i class="fa-solid fa-house-chimney text-emerald-600"></i> Menu chính
+        </a>
+        <button data-close
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-900 text-white text-[12.5px] font-bold shadow-sm transition-all hover:-translate-y-0.5">
+          <i class="fa-solid fa-arrow-left"></i> Đóng
+        </button>
+      </div>
+    </div>
+  </div>`;
+    }
+
+    function openModal(slug) {
+      const h = getHeritage(slug);
+      if (!h) return;
+      state.modalSlug = slug;
+      $('#modalBody').innerHTML = modalHTML(h);
+      const modal = $('#modal');
+      const panel = $('#modalPanel');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      $('#miniPlayer').classList.add('hidden');
+      requestAnimationFrame(() => {
+        panel.classList.remove('scale-95', 'opacity-0');
+        panel.classList.add('scale-100', 'opacity-100');
+      });
+      syncPlayers();
+    }
+
+    function closeModal() {
+      const modal = $('#modal');
+      const panel = $('#modalPanel');
+      panel.classList.add('scale-95', 'opacity-0');
+      panel.classList.remove('scale-100', 'opacity-100');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        $('#modalBody').innerHTML = '';
+        state.modalSlug = null;
+        document.body.style.overflow = '';
+        updateMiniPlayer();
+        syncPlayers();
+      }, 220);
+    }
+
+    /* ============================================================
+       10. LIGHTBOX
+       ============================================================ */
+
+    function openLightbox(src, caption) {
+      const lb = $('#lightbox');
+      $('#lightboxImg').src = src;
+      $('#lightboxCap').textContent = caption || '';
+      lb.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      $('#lightbox').classList.add('hidden');
+      if (!state.modalSlug) document.body.style.overflow = '';
+    }
+
+    /* ============================================================
+       11. PLAYER SYNC
+       ============================================================ */
+
+    function syncPlayers() {
+      const playing = currentSlug && !audioEl.paused && !audioErrors[currentSlug];
+      const dur = (currentSlug && isFinite(audioEl.duration)) ? audioEl.duration : 0;
+      const cur = currentSlug ? (audioEl.currentTime || 0) : 0;
+      const ratio = dur ? cur / dur : 0;
+
+      $$('[data-player]').forEach(el => {
+        const slug = el.dataset.player;
+        const isActive = slug === currentSlug;
+        const isPlaying = isActive && playing;
+        const hasError = !!audioErrors[slug];
+
+        el.classList.toggle('is-playing', isPlaying);
+
+        const icon = el.querySelector('[data-act="toggle"] i');
+        if (icon) icon.className = isPlaying ? 'fa-solid fa-pause text-sm' : 'fa-solid fa-play text-sm';
+
+        const timeEl = el.querySelector('[data-role="time"]');
+        if (timeEl) timeEl.textContent = fmtTime(isActive ? cur : 0) + ' / ' + fmtTime(isActive ? dur : 0);
+
+        const fill = el.querySelector('[data-role="fill"]');
+        const knob = el.querySelector('[data-role="knob"]');
+        const w = (isActive ? ratio * 100 : 0) + '%';
+        if (fill) fill.style.width = w;
+        if (knob) knob.style.left = w;
+
+        const st = el.querySelector('[data-role="status"]');
+        if (st) {
+          if (hasError) { st.textContent = 'Chưa có tệp'; st.className = 'text-[10px] font-bold uppercase tracking-wider text-amber-700'; }
+          else if (isPlaying) { st.textContent = 'Đang phát'; st.className = 'text-[10px] font-bold uppercase tracking-wider text-emerald-700'; }
+          else if (isActive) { st.textContent = 'Tạm dừng'; st.className = 'text-[10px] font-bold uppercase tracking-wider text-slate-700'; }
+          else { st.textContent = 'Sẵn sàng'; st.className = 'text-[10px] font-bold uppercase tracking-wider text-slate-600'; }
+        }
+      });
+
+      updateMiniPlayer();
+    }
+
+    function updateMiniPlayer() {
+      const mini = $('#miniPlayer');
+      const modalOpen = !$('#modal').classList.contains('hidden');
+
+      if (!currentSlug || modalOpen) { mini.classList.add('hidden'); return; }
+      mini.classList.remove('hidden');
+
+      const h = getHeritage(currentSlug);
+      $('#miniTitle').textContent = h ? h.title : currentTitle;
+
+      const icon = $('#miniToggle').querySelector('i');
+      const playing = !audioEl.paused && !audioErrors[currentSlug];
+      icon.className = playing ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+
+      const dur = isFinite(audioEl.duration) ? audioEl.duration : 0;
+      const cur = audioEl.currentTime || 0;
+      const ratio = dur ? cur / dur : 0;
+
+      $('#miniFill').style.width = (ratio * 100) + '%';
+      $('#miniKnob').style.left = (ratio * 100) + '%';
+      $('#miniTime').textContent = fmtTime(cur);
+    }
+
+    /* ============================================================
+       12. GALLERY
+       ============================================================ */
+
+    function gallerySetIndex(galleryEl, idx) {
+      const slug = galleryEl.dataset.gallery;
+      const total = 3;
+      idx = ((idx % total) + total) % total;
+      galleryEl.dataset.idx = idx;
+
+      const main = galleryEl.querySelector('[data-role="main"]');
+      if (main) {
+        main.style.opacity = '0';
+        setTimeout(() => {
+          main.src = `images/${slug}/${idx + 1}.png`;
+          main.style.opacity = '';
+        }, 140);
+      }
+
+      galleryEl.querySelectorAll('[data-act="g-thumb"]').forEach((t, i) => {
+        t.classList.toggle('thumb-active', i === idx);
+      });
+    }
+
+    function galleryCurrentSrc(galleryEl) {
+      const slug = galleryEl.dataset.gallery;
+      const idx = Number(galleryEl.dataset.idx || 0);
+      return `images/${slug}/${idx + 1}.png`;
+    }
+
+    /* ============================================================
+       13. TOAST
+       ============================================================ */
+
+    let toastTimer = null;
+    function toast(msg) {
+      const t = $('#toast');
+      $('#toastMsg').textContent = msg;
+      t.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.add('hidden'), 3200);
+    }
+
+    /* ============================================================
+       14. VIEW SWITCHER + MOBILE NAV
+       ============================================================ */
+
+    function setView(view) {
+      state.view = view;
+      paintControls();
+
+      const gridView = $('#gridView');
+      const bookView = $('#bookView');
+
+      if (view === 'grid') {
+        gridView.classList.remove('view-hidden');
+        bookView.classList.add('view-hidden');
+        renderGrid();
+      } else {
+        bookView.classList.remove('view-hidden');
+        gridView.classList.add('view-hidden');
+        renderBook();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateMobileNav() {
+      $$('.mnav-btn').forEach(btn => {
+        const m = btn.dataset.mnav;
+        const active = (m === 'book' && state.view === 'book') || (m === 'grid' && state.view === 'grid');
+        btn.classList.toggle('active', active);
+      });
+    }
+
+    function updateMobileFilterCount() {
+      let n = 0;
+      if (state.category !== 'all') n++;
+      if (state.level !== 'all') n++;
+      const badge = $('#mobileFilterCount');
+      if (!badge) return;
+      if (n > 0) { badge.textContent = n; badge.classList.remove('hidden'); }
+      else badge.classList.add('hidden');
+    }
+
+    function resetFilters() {
+      state.category = 'all';
+      state.level = 'all';
+      state.search = '';
+      state.bookIndex = 0;
+      $('#searchInput').value = '';
+      $('#clearSearch').classList.add('hidden');
+      $('#resetFilters').classList.add('hidden');
+      paintControls();
+      renderAll();
+    }
+
+    function renderAll() {
+      if (state.view === 'grid') renderGrid();
+      else renderBook();
+      syncPlayers();
+    }
+
+    /* ============================================================
+       15. BOTTOM SHEET FILTER
+       ============================================================ */
+
+    function renderSheetChips() {
+      const catWrap = $('#sheetCatChips');
+      const lvlWrap = $('#sheetLvlChips');
+      if (!catWrap || !lvlWrap) return;
+
+      catWrap.innerHTML = [
+        `<button data-scat="all" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
+       <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả</button>`
+      ].concat(CATEGORIES.map(c => `
+    <button data-scat="${c.id}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
+      <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id}. ${escapeHTML(c.short)}
+    </button>`)).join('');
+
+      lvlWrap.innerHTML = [
+        { v: 'all', l: 'Tất cả', i: 'fa-border-all' },
+        { v: 'UNESCO', l: 'UNESCO', i: 'fa-globe' },
+        { v: 'QG', l: 'Quốc gia', i: 'fa-award' },
+        { v: 'Local', l: 'Địa phương', i: 'fa-location-dot' }
+      ].map(x => `
+    <button data-slvl="${x.v}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
+      <i class="fa-solid ${x.i} mr-1.5"></i>${x.l}
+    </button>`).join('');
+
+      paintSheetChips();
+    }
+
+    function paintSheetChips() {
+      $$('.sheet-chip').forEach(el => {
+        const isCat = el.hasAttribute('data-scat');
+        const val = isCat ? el.dataset.scat : el.dataset.slvl;
+        const stateVal = isCat ? state.category : state.level;
+        const active = String(val) === String(stateVal);
+        el.classList.toggle('bg-gradient-to-r', active);
+        el.classList.toggle('from-emerald-500', active);
+        el.classList.toggle('to-teal-600', active);
+        el.classList.toggle('text-white', active);
+        el.classList.toggle('border-transparent', active);
+        el.classList.toggle('shadow-lg', active);
+        el.classList.toggle('shadow-emerald-500/25', active);
+        el.classList.toggle('bg-white/80', !active);
+        el.classList.toggle('text-slate-800', !active);
+        el.classList.toggle('border-white/85', !active);
+      });
+    }
+
+    function openSheet() {
+      $('#filterSheet').classList.add('open');
+      $('#filterSheetBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      paintSheetChips();
+    }
+
+    function closeSheet() {
+      $('#filterSheet').classList.remove('open');
+      $('#filterSheetBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* ============================================================
+       16. SWIPE GESTURE (mobile book)
+       ============================================================ */
+
+    function setupSwipe() {
+      const stage = $('#bookStage');
+      if (!stage) return;
+      let x0 = 0, y0 = 0, t0 = 0, tracking = false;
+
+      stage.addEventListener('touchstart', (e) => {
+        if (state.view !== 'book' || state.isTurning) return;
+        const t = e.touches[0];
+        x0 = t.clientX; y0 = t.clientY; t0 = Date.now();
+        tracking = true;
+      }, { passive: true });
+
+      stage.addEventListener('touchend', (e) => {
+        if (!tracking) return;
+        tracking = false;
+        if (state.view !== 'book' || state.isTurning) return;
+        const t = e.changedTouches[0];
+        const dx = t.clientX - x0;
+        const dy = t.clientY - y0;
+        const dt = Date.now() - t0;
+        if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.4 || dt > 800) return;
+
+        const list = filteredList();
+        if (!list.length) return;
+
+        if (dx < 0) {
+          state.bookIndex = (state.bookIndex + 1) % list.length;
+          renderBook('next');
+        } else {
+          state.bookIndex = (state.bookIndex - 1 + list.length) % list.length;
+          renderBook('prev');
+        }
+      }, { passive: true });
+    }
+
+    /* ============================================================
+       17. EVENT WIRING
+       ============================================================ */
+
+    document.addEventListener('click', (e) => {
+      const openBtn = e.target.closest('[data-open]');
+      if (openBtn) { openModal(openBtn.dataset.open); return; }
+
+      if (e.target.closest('[data-close]')) { closeModal(); return; }
+      if (e.target.closest('[data-close-lightbox]')) { closeLightbox(); return; }
+      if (e.target.closest('[data-close-sheet]')) { closeSheet(); return; }
+
+      const sheetChip = e.target.closest('.sheet-chip');
+      if (sheetChip) {
+        if (sheetChip.hasAttribute('data-scat')) {
+          state.category = sheetChip.dataset.scat;
+        } else if (sheetChip.hasAttribute('data-slvl')) {
+          state.level = sheetChip.dataset.slvl;
+        }
+        state.bookIndex = 0;
+        paintControls();
+        paintSheetChips();
+        renderAll();
+        return;
+      }
+
+      const actEl = e.target.closest('[data-act]');
+      if (!actEl) return;
+      const act = actEl.dataset.act;
+
+      if (act === 'toggle') {
+        const slug = actEl.dataset.slug;
+        const title = actEl.dataset.title || (getHeritage(slug) ? getHeritage(slug).title : '');
+        toggleTrack(slug, title);
+        return;
+      }
+
+      if (act === 'book-prev') {
+        if (state.isTurning) return;
+        const list = filteredList();
+        if (!list.length) return;
+        state.bookIndex = (state.bookIndex - 1 + list.length) % list.length;
+        renderBook('prev');
+        return;
+      }
+
+      if (act === 'book-next') {
+        if (state.isTurning) return;
+        const list = filteredList();
+        if (!list.length) return;
+        state.bookIndex = (state.bookIndex + 1) % list.length;
+        renderBook('next');
+        return;
+      }
+
+      if (act === 'book-goto') {
+        if (state.isTurning) return;
+        const newIdx = Number(actEl.dataset.idx) || 0;
+        if (newIdx === state.bookIndex) return;
+        const dir = newIdx > state.bookIndex ? 'next' : 'prev';
+        state.bookIndex = newIdx;
+        renderBook(dir);
+        return;
+      }
+
+      if (act === 'toc') {
+        if (state.isTurning) return;
+        const newIdx = Number(actEl.dataset.idx) || 0;
+        if (newIdx === state.bookIndex) return;
+        const dir = newIdx > state.bookIndex ? 'next' : 'prev';
+        state.bookIndex = newIdx;
+        renderBook(dir);
+        window.scrollTo({ top: $('#bookView').offsetTop - 90, behavior: 'smooth' });
+        return;
+      }
+
+      const gallery = e.target.closest('[data-gallery]');
+      if (!gallery) return;
+      const curIdx = Number(gallery.dataset.idx || 0);
+
+      if (act === 'g-prev') gallerySetIndex(gallery, curIdx - 1);
+      if (act === 'g-next') gallerySetIndex(gallery, curIdx + 1);
+      if (act === 'g-thumb') gallerySetIndex(gallery, Number(actEl.dataset.idx));
+      if (act === 'g-zoom') {
+        const h = getHeritage(gallery.dataset.gallery);
+        openLightbox(galleryCurrentSrc(gallery), h ? h.title + ' · Ảnh ' + (curIdx + 1) : '');
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      const mainImg = e.target.closest('[data-role="main"]');
+      if (mainImg && !e.target.closest('[data-act]')) {
+        const gallery = mainImg.closest('[data-gallery]');
+        if (gallery) {
+          const h = getHeritage(gallery.dataset.gallery);
+          const idx = Number(gallery.dataset.idx || 0);
+          openLightbox(galleryCurrentSrc(gallery), h ? h.title + ' · Ảnh ' + (idx + 1) : '');
+        }
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      const seek = e.target.closest('[data-role="seek"]');
+      if (seek) {
+        const rect = seek.getBoundingClientRect();
+        seekTo((e.clientX - rect.left) / rect.width);
+      }
+    });
+
+    $('#miniSeek').addEventListener('click', (e) => {
+      const rect = e.currentTarget.getBoundingClientRect();
+      seekTo((e.clientX - rect.left) / rect.width);
+    });
+
+    $('#miniToggle').addEventListener('click', () => {
+      if (!currentSlug) return;
+      if (audioEl.paused) { const p = audioEl.play(); if (p && p.catch) p.catch(() => { }); }
+      else audioEl.pause();
+      syncPlayers();
+    });
+    $('#miniClose').addEventListener('click', () => { stopTrack(); });
+
+    $$('.view-btn').forEach(btn => {
+      btn.addEventListener('click', () => setView(btn.dataset.view));
+    });
+
+    $$('.lvl-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.level = btn.dataset.level;
+        state.bookIndex = 0;
+        paintControls();
+        renderAll();
+      });
+    });
+
+    $('#catChips').addEventListener('click', (e) => {
+      const chip = e.target.closest('.cat-chip');
+      if (!chip) return;
+      state.category = chip.dataset.cat;
+      state.bookIndex = 0;
+      paintChips();
+      renderAll();
+    });
+
+    $$('.mnav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const m = btn.dataset.mnav;
+        if (m === 'home') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+        if (m === 'filter') { openSheet(); return; }
+        if (m === 'book' || m === 'grid') { setView(m); }
+      });
+    });
+
+    $('#openFilterSheet')?.addEventListener('click', openSheet);
+    $('#sheetReset')?.addEventListener('click', () => {
+      state.category = 'all';
+      state.level = 'all';
+      state.bookIndex = 0;
+      paintControls();
+      paintSheetChips();
+      renderAll();
+    });
+
+    let searchTimer = null;
+    $('#searchInput').addEventListener('input', (e) => {
+      const val = e.target.value;
+      $('#clearSearch').classList.toggle('hidden', !val);
+      $('#resetFilters').classList.toggle('hidden', !val && state.category === 'all' && state.level === 'all');
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        state.search = val;
+        state.bookIndex = 0;
+        renderAll();
+      }, 220);
+    });
+
+    $('#clearSearch').addEventListener('click', () => {
+      $('#searchInput').value = '';
+      $('#clearSearch').classList.add('hidden');
+      state.search = '';
+      state.bookIndex = 0;
+      renderAll();
+    });
+
+    $('#resetFilters').addEventListener('click', resetFilters);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (!$('#lightbox').classList.contains('hidden')) { closeLightbox(); return; }
+        if (!$('#modal').classList.contains('hidden')) { closeModal(); return; }
+        if ($('#filterSheet').classList.contains('open')) { closeSheet(); return; }
+      }
+      if ($('#modal').classList.contains('hidden') && $('#lightbox').classList.contains('hidden') && state.view === 'book' && !state.isTurning) {
+        if (e.key === 'ArrowLeft') {
+          const list = filteredList();
+          if (list.length) {
+            state.bookIndex = (state.bookIndex - 1 + list.length) % list.length;
+            renderBook('prev');
+          }
+        }
+        if (e.key === 'ArrowRight') {
+          const list = filteredList();
+          if (list.length) {
+            state.bookIndex = (state.bookIndex + 1) % list.length;
+            renderBook('next');
+          }
+        }
+      }
+    });
+
+    /* ============================================================
+       18. INIT
+       ============================================================ */
+
+    function init() {
+      renderChips();
+      renderSheetChips();
+      paintControls();
+      setupSwipe();
+      setView('book');
+      renderAll();
+    }
+
+    init();
+  </script>
+
+</body>
+
+</html>
