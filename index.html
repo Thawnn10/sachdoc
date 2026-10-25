@@ -786,6 +786,24 @@
       background: rgba(100, 116, 139, .35);
       margin: 10px auto 4px;
     }
+
+    /* ===== GALLERY LOADING SHIMMER ===== */
+    .gallery-shimmer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, .7) 50%, transparent 80%);
+      animation: shimmerMove 1.4s linear infinite;
+    }
+
+    @keyframes shimmerMove {
+      0% {
+        transform: translateX(-100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
+    }
   </style>
 </head>
 
@@ -1154,6 +1172,27 @@
       },
 
       /* ---------- 2. CHỮ VIẾT & NGỮ VĂN ---------- */
+      {
+        slug: 'chu-nom-tay-bang-thanh',
+        title: 'Chữ Nôm của người Tày ở xã Bằng Thành',
+        cat: 2, level: 'QG', year: '2014', hasAudio: false,
+        short: 'X. Bằng Thành – Thái Nguyên',
+        location: 'Xã Bằng Thành (nguyên là xã Bộc Bố, huyện Pác Nặm, tỉnh Bắc Kạn) – tỉnh Thái Nguyên',
+        summary: 'Hệ thống chữ Nôm Tày xây dựng trên cơ sở chữ Hán, lưu giữ kho tàng văn học dân gian, sách cúng và tri thức dân gian của người Tày.',
+        desc: [
+          'Chữ Nôm Tày ở xã Bằng Thành (trước đây thuộc xã Bộc Bố, huyện Pác Nặm, tỉnh Bắc Kạn) là hệ thống chữ viết được xây dựng trên cơ sở chữ Hán (chủ yếu dạng phồn thể), gồm toàn bộ các nét, các bộ thủ và các chữ Hán nguyên bản, sử dụng âm Hán – Việt, thuộc thể loại chữ tượng hình. Trong cách viết, Nôm Tày tuân thủ trình tự viết chữ Hán: từ trái sang phải, từ trên xuống dưới theo hàng dọc, vào trước đóng sau.',
+          'Nhờ có chữ viết, người Tày đến nay vẫn lưu giữ được nhiều thông tin quý giá về nguồn gốc tổ tiên, gia đình, dòng họ, tín ngưỡng, tôn giáo và tập quán. Mỗi cuốn sách đều hàm chứa nét văn hóa độc đáo của người Tày: từ sách văn học dân gian (truyện thơ Lương Nguyên, Phạm Công – Cúc Hoa, Tần Chu; Sléc truyện thơ Tần Chu) đến sách cúng, sách tín ngưỡng (Sléc Tuổn – cúng đầy tháng, Sléc Chải, mo – cầu yêu giải hạn, Sléc Quét lườn – cúng vào nhà mới).',
+          'Với những giá trị đặc sắc đó, Chữ Nôm của người Tày ở xã Bộc Bố – Pác Nặm – Bắc Kạn (nay là xã Bằng Thành, tỉnh Thái Nguyên) đã được đưa vào Danh mục Di sản văn hóa phi vật thể quốc gia theo Quyết định số 2684/QĐ-BVHTTDL ngày 25/8/2014 của Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch.'
+        ],
+        facts: [
+          ['Loại hình', 'Tiếng nói, chữ viết, ký tự'],
+          ['Dân tộc', 'Tày'],
+          ['Cơ sở chữ', 'Chữ Hán (phồn thể), âm Hán – Việt'],
+          ['Địa bàn', 'X. Bằng Thành – Thái Nguyên'],
+          ['Ghi danh', 'Di sản Quốc gia – 2014']
+        ],
+        tags: ['Chữ Nôm Tày', 'Bằng Thành', 'Pác Nặm', 'Sách cổ', 'Văn học dân gian']
+      },
       {
         slug: 'sach-co-nom-dao',
         title: 'Sách cổ chữ Nôm Dao',
@@ -1608,45 +1647,159 @@
   </div>`;
     }
 
+    /* ============================================================
+       GALLERY — Dynamic image count (1 hình to, 2-3 hình lưới, 4+ lưới)
+       Ảnh được dò tự động trong thư mục images/{slug}/1.png, 2.png…
+       Dừng khi gặp ảnh không tồn tại. Có cache để không dò lại.
+       ============================================================ */
+
+    const galleryCache = {};
+    const galleryPromises = {};
+
+    function probeImage(src, timeout = 6000) {
+      return new Promise(resolve => {
+        const img = new Image();
+        let done = false;
+        const finish = (ok) => {
+          if (done) return;
+          done = true;
+          resolve(ok);
+        };
+        img.onload = () => finish(true);
+        img.onerror = () => finish(false);
+        setTimeout(() => finish(false), timeout);
+        img.src = src;
+      });
+    }
+
+    async function getGalleryImages(slug) {
+      if (galleryCache[slug]) return galleryCache[slug];
+      if (galleryPromises[slug]) return galleryPromises[slug];
+      galleryPromises[slug] = (async () => {
+        const images = [];
+        for (let i = 1; i <= 10; i++) {
+          const src = `images/${slug}/${i}.png`;
+          if (await probeImage(src)) images.push(src);
+          else break;
+        }
+        galleryCache[slug] = images;
+        delete galleryPromises[slug];
+        return images;
+      })();
+      return galleryPromises[slug];
+    }
+
+    /* Khung gallery: lúc đầu hiển thị loading, sau đó thay bằng layout thật */
     function galleryHTML(h) {
-      const imgs = [1, 2, 3].map(n => `images/${h.slug}/${n}.png`);
-      const thumbs = imgs.map((src, i) => `
-    <button type="button" data-act="g-thumb" data-idx="${i}"
-      class="thumb-btn relative aspect-[4/3] rounded-xl overflow-hidden border border-white/80 bg-slate-100 group/th transition-all hover:-translate-y-0.5">
-      ${placeholderHTML('')}
-      <img src="${src}" alt="${escapeHTML(h.title)} - ảnh ${i + 1}" loading="lazy"
-           class="relative z-10 w-full h-full object-cover transition-transform duration-500 group-hover/th:scale-110"
-           onerror="this.style.opacity=0" />
-    </button>`).join('');
-
       return `
-  <div class="gallery" data-gallery="${h.slug}" data-idx="0">
-    <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner group/main bg-slate-100">
-      ${placeholderHTML('Hình ảnh đang cập nhật')}
-      <img data-role="main" src="${imgs[0]}" alt="${escapeHTML(h.title)}"
-           class="relative z-10 w-full h-full object-cover transition-opacity duration-300"
-           onerror="this.style.opacity=0" />
-      <div class="absolute inset-0 z-20 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
+  <div class="gallery" data-gallery="${h.slug}" data-idx="0" data-count="0">
+    <div class="gallery-inner">
+      <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner bg-slate-100">
+        ${placeholderHTML('Đang tải hình ảnh…')}
+        <div class="gallery-shimmer pointer-events-none"></div>
+      </div>
+    </div>
+  </div>`;
+    }
 
+    function buildGalleryLayout(h, images) {
+      const shortLabel = escapeHTML(h.short);
+
+      // Không có ảnh nào → placeholder to
+      if (!images.length) {
+        return `
+      <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner bg-slate-100">
+        ${placeholderHTML('Hình ảnh đang cập nhật')}
+        <span class="absolute z-30 bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-slate-800 max-w-[70%] truncate">
+          <i class="fa-solid fa-camera-retro mr-1 text-emerald-600"></i>${shortLabel}
+        </span>
+      </div>`;
+      }
+
+      const multi = images.length > 1;
+
+      const arrowPrev = multi ? `
       <button type="button" data-act="g-prev" aria-label="Ảnh trước"
         class="absolute z-30 left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-white/80 grid place-items-center text-slate-700 shadow-lg transition-all hover:scale-110">
         <i class="fa-solid fa-chevron-left text-xs"></i>
-      </button>
+      </button>` : '';
+
+      const arrowNext = multi ? `
       <button type="button" data-act="g-next" aria-label="Ảnh sau"
         class="absolute z-30 right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-white/80 grid place-items-center text-slate-700 shadow-lg transition-all hover:scale-110">
         <i class="fa-solid fa-chevron-right text-xs"></i>
-      </button>
+      </button>` : '';
+
+      const counter = multi ? `
+      <span class="absolute z-30 top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900/65 backdrop-blur-md border border-white/30 text-white tabular-nums">
+        <i class="fa-solid fa-image mr-1"></i><span data-role="cur">1</span>/${images.length}
+      </span>` : '';
+
+      const mainBlock = `
+    <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner group/main bg-slate-100">
+      ${placeholderHTML('Hình ảnh đang cập nhật')}
+      <img data-role="main" src="${images[0]}" alt="${escapeHTML(h.title)}"
+           class="relative z-10 w-full h-full object-cover transition-opacity duration-300 cursor-zoom-in"
+           onerror="this.style.opacity=0" />
+      <div class="absolute inset-0 z-20 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
+      ${arrowPrev}
+      ${arrowNext}
+      ${counter}
       <button type="button" data-act="g-zoom" aria-label="Xem ảnh lớn"
         class="absolute z-30 bottom-3 right-3 w-10 h-10 rounded-full bg-white/90 hover:bg-white backdrop-blur-md border border-white/80 grid place-items-center text-slate-700 shadow-lg transition-all hover:scale-110">
         <i class="fa-solid fa-expand text-xs"></i>
       </button>
-      <span class="absolute z-30 bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-slate-800">
-        <i class="fa-solid fa-camera-retro mr-1 text-emerald-600"></i>${escapeHTML(h.short)}
+      <span class="absolute z-30 bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-slate-800 max-w-[60%] truncate">
+        <i class="fa-solid fa-camera-retro mr-1 text-emerald-600"></i>${shortLabel}
       </span>
-    </div>
-    <div class="mt-2.5 grid grid-cols-3 gap-2">${thumbs}</div>
-  </div>`;
+    </div>`;
+
+      // Thumbnails: chỉ render khi có từ 2 ảnh trở lên
+      let thumbsBlock = '';
+      if (multi) {
+        let gridCls = 'grid-cols-2';
+        if (images.length === 3) gridCls = 'grid-cols-3';
+        else if (images.length >= 4) gridCls = 'grid-cols-2 sm:grid-cols-4';
+
+        thumbsBlock = `
+      <div class="mt-2.5 grid ${gridCls} gap-2">
+        ${images.map((src, i) => `
+          <button type="button" data-act="g-thumb" data-idx="${i}"
+            class="thumb-btn relative aspect-[4/3] rounded-xl overflow-hidden border border-white/80 bg-slate-100 group/th transition-all hover:-translate-y-0.5 ${i === 0 ? 'thumb-active' : ''}">
+            <img src="${src}" alt="${escapeHTML(h.title)} - ảnh ${i + 1}" loading="lazy"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover/th:scale-110" />
+          </button>`).join('')}
+      </div>`;
+      }
+
+      return mainBlock + thumbsBlock;
     }
+
+    async function initGallery(el) {
+      const slug = el.dataset.gallery;
+      const h = getHeritage(slug);
+      if (!h) return;
+      const images = await getGalleryImages(slug);
+      if (!el.isConnected) return;
+      const inner = el.querySelector('.gallery-inner');
+      if (!inner) return;
+
+      el.dataset.idx = '0';
+      el.dataset.count = String(images.length);
+      inner.innerHTML = buildGalleryLayout(h, images);
+    }
+
+    function initGalleries(root = document) {
+      $$('.gallery', root).forEach(el => {
+        if (el.dataset.initialized === '1') return;
+        el.dataset.initialized = '1';
+        initGallery(el);
+      });
+    }
+
+    /* ============================================================
+       5. PLAYER HTML & FACTS
+       ============================================================ */
 
     function playerHTML(slug) {
       const bars = Array.from({ length: 22 }, (_, i) =>
@@ -1689,7 +1842,7 @@
     }
 
     /* ============================================================
-       5. FILTERING
+       6. FILTERING
        ============================================================ */
 
     function filteredList() {
@@ -1710,7 +1863,7 @@
     }
 
     /* ============================================================
-       6. RENDER: CHIPS
+       7. RENDER: CHIPS
        ============================================================ */
 
     function renderChips() {
@@ -1761,7 +1914,7 @@
     }
 
     /* ============================================================
-       7. RENDER: GRID
+       8. RENDER: GRID
        ============================================================ */
 
     function renderGrid() {
@@ -1840,7 +1993,7 @@
     }
 
     /* ============================================================
-       8. RENDER: BOOK
+       9. RENDER: BOOK
        ============================================================ */
 
     function renderTOC(list) {
@@ -2023,6 +2176,7 @@
             }, 650);
           }
           syncPlayers();
+          initGalleries(wrap);
           state.isTurning = false;
         }, 340);
 
@@ -2036,6 +2190,7 @@
         renderTOC(list);
         renderDots(list.length);
         syncPlayers();
+        initGalleries(wrap);
       }
     }
 
@@ -2054,7 +2209,7 @@
     }
 
     /* ============================================================
-       9. MODAL
+       10. MODAL
        ============================================================ */
 
     function modalHTML(h) {
@@ -2139,6 +2294,7 @@
       if (!h) return;
       state.modalSlug = slug;
       $('#modalBody').innerHTML = modalHTML(h);
+      initGalleries($('#modalBody'));
       const modal = $('#modal');
       const panel = $('#modalPanel');
       modal.classList.remove('hidden');
@@ -2167,7 +2323,7 @@
     }
 
     /* ============================================================
-       10. LIGHTBOX
+       11. LIGHTBOX
        ============================================================ */
 
     function openLightbox(src, caption) {
@@ -2184,7 +2340,7 @@
     }
 
     /* ============================================================
-       11. PLAYER SYNC
+       12. PLAYER SYNC
        ============================================================ */
 
     function syncPlayers() {
@@ -2249,15 +2405,16 @@
     }
 
     /* ============================================================
-       12. GALLERY
+       13. GALLERY — index switching
        ============================================================ */
 
     function gallerySetIndex(galleryEl, idx) {
-      const slug = galleryEl.dataset.gallery;
-      const total = 3;
+      const total = Number(galleryEl.dataset.count) || 0;
+      if (total < 2) return;
       idx = ((idx % total) + total) % total;
       galleryEl.dataset.idx = idx;
 
+      const slug = galleryEl.dataset.gallery;
       const main = galleryEl.querySelector('[data-role="main"]');
       if (main) {
         main.style.opacity = '0';
@@ -2270,6 +2427,9 @@
       galleryEl.querySelectorAll('[data-act="g-thumb"]').forEach((t, i) => {
         t.classList.toggle('thumb-active', i === idx);
       });
+
+      const cur = galleryEl.querySelector('[data-role="cur"]');
+      if (cur) cur.textContent = idx + 1;
     }
 
     function galleryCurrentSrc(galleryEl) {
@@ -2279,7 +2439,7 @@
     }
 
     /* ============================================================
-       13. TOAST
+       14. TOAST
        ============================================================ */
 
     let toastTimer = null;
@@ -2292,7 +2452,7 @@
     }
 
     /* ============================================================
-       14. VIEW SWITCHER + MOBILE NAV
+       15. VIEW SWITCHER + MOBILE NAV
        ============================================================ */
 
     function setView(view) {
@@ -2351,7 +2511,7 @@
     }
 
     /* ============================================================
-       15. BOTTOM SHEET FILTER
+       16. BOTTOM SHEET FILTER
        ============================================================ */
 
     function renderSheetChips() {
@@ -2413,7 +2573,7 @@
     }
 
     /* ============================================================
-       16. SWIPE GESTURE (mobile book)
+       17. SWIPE GESTURE (mobile book)
        ============================================================ */
 
     function setupSwipe() {
@@ -2452,7 +2612,7 @@
     }
 
     /* ============================================================
-       17. EVENT WIRING
+       18. EVENT WIRING
        ============================================================ */
 
     document.addEventListener('click', (e) => {
@@ -2662,7 +2822,7 @@
     });
 
     /* ============================================================
-       18. INIT
+       19. INIT
        ============================================================ */
 
     function init() {
