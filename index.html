@@ -32,778 +32,253 @@
   </script>
 
   <style>
-    * {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
-      color: #0f172a;
-      background-color: #eef3f8;
-      min-height: 100vh;
-      overflow-x: hidden;
-      padding-bottom: env(safe-area-inset-bottom);
+      color: #0f172a; background-color: #eef3f8; min-height: 100vh;
+      overflow-x: hidden; padding-bottom: env(safe-area-inset-bottom);
     }
-
-    /* ===== BACKGROUND ===== */
     .bg-image {
-      position: fixed;
-      inset: 0;
-      z-index: -4;
-      pointer-events: none;
-      background-image: url('back.png');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
+      position: fixed; inset: 0; z-index: -4; pointer-events: none;
+      background-image: url('back.png'); background-size: cover;
+      background-position: center center; background-repeat: no-repeat;
       background-attachment: fixed;
     }
-
     .bg-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      pointer-events: none;
+      position: fixed; inset: 0; z-index: -3; pointer-events: none;
       background:
-        radial-gradient(60% 60% at 18% 18%, rgba(255, 255, 255, .62) 0%, rgba(255, 255, 255, .28) 45%, transparent 78%),
-        radial-gradient(55% 55% at 85% 82%, rgba(255, 255, 255, .55) 0%, rgba(255, 255, 255, .22) 50%, transparent 82%),
-        linear-gradient(180deg, rgba(255, 255, 255, .32) 0%, rgba(255, 255, 255, .18) 40%, rgba(255, 255, 255, .42) 100%);
+        radial-gradient(60% 60% at 18% 18%, rgba(255,255,255,.62) 0%, rgba(255,255,255,.28) 45%, transparent 78%),
+        radial-gradient(55% 55% at 85% 82%, rgba(255,255,255,.55) 0%, rgba(255,255,255,.22) 50%, transparent 82%),
+        linear-gradient(180deg, rgba(255,255,255,.32) 0%, rgba(255,255,255,.18) 40%, rgba(255,255,255,.42) 100%);
       backdrop-filter: blur(3px) saturate(120%);
       -webkit-backdrop-filter: blur(3px) saturate(120%);
     }
-
     .bg-tint {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
+      position: fixed; inset: 0; z-index: -2; pointer-events: none;
       background:
-        radial-gradient(45% 45% at 12% 18%, rgba(16, 185, 129, .13) 0%, transparent 62%),
-        radial-gradient(42% 42% at 88% 12%, rgba(245, 158, 11, .11) 0%, transparent 62%),
-        radial-gradient(42% 42% at 78% 88%, rgba(56, 189, 248, .09) 0%, transparent 62%);
+        radial-gradient(45% 45% at 12% 18%, rgba(16,185,129,.13) 0%, transparent 62%),
+        radial-gradient(42% 42% at 88% 12%, rgba(245,158,11,.11) 0%, transparent 62%),
+        radial-gradient(42% 42% at 78% 88%, rgba(56,189,248,.09) 0%, transparent 62%);
       mix-blend-mode: multiply;
     }
-
     .bg-glow {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
       background:
-        radial-gradient(400px 400px at 20% 30%, rgba(255, 255, 255, .35), transparent 70%),
-        radial-gradient(360px 360px at 80% 70%, rgba(255, 255, 255, .28), transparent 70%);
+        radial-gradient(400px 400px at 20% 30%, rgba(255,255,255,.35), transparent 70%),
+        radial-gradient(360px 360px at 80% 70%, rgba(255,255,255,.28), transparent 70%);
       animation: glowMove 22s ease-in-out infinite alternate;
     }
-
-    @keyframes glowMove {
-      0% {
-        transform: translate3d(0, 0, 0) scale(1);
-      }
-
-      100% {
-        transform: translate3d(3%, -3%, 0) scale(1.08);
-      }
-    }
-
-    /* ===== LIQUID GLASS ===== */
-    .glass,
-    .glass-strong,
-    .glass-soft {
-      position: relative;
-      isolation: isolate;
-      border-radius: 1rem;
+    @keyframes glowMove { 0% { transform: translate3d(0,0,0) scale(1); } 100% { transform: translate3d(3%,-3%,0) scale(1.08); } }
+    .glass, .glass-strong, .glass-soft {
+      position: relative; isolation: isolate; border-radius: 1rem;
       overflow: hidden;
       transition: box-shadow .4s ease, border-color .4s ease, background .4s ease, transform .4s ease;
     }
-
     .glass {
-      background: linear-gradient(135deg, rgba(255, 255, 255, .62) 0%, rgba(255, 255, 255, .42) 42%, rgba(255, 255, 255, .55) 100%);
+      background: linear-gradient(135deg, rgba(255,255,255,.62) 0%, rgba(255,255,255,.42) 42%, rgba(255,255,255,.55) 100%);
       backdrop-filter: blur(28px) saturate(210%) brightness(1.05);
       -webkit-backdrop-filter: blur(28px) saturate(210%) brightness(1.05);
-      border: 1px solid rgba(255, 255, 255, .72);
+      border: 1px solid rgba(255,255,255,.72);
       box-shadow:
-        0 12px 40px -8px rgba(31, 38, 135, .16),
-        0 4px 12px -2px rgba(31, 38, 135, .06),
-        inset 0 1px 0 rgba(255, 255, 255, .95),
-        inset 0 -1px 0 rgba(255, 255, 255, .35),
-        inset 0 0 40px rgba(255, 255, 255, .16);
+        0 12px 40px -8px rgba(31,38,135,.16),
+        0 4px 12px -2px rgba(31,38,135,.06),
+        inset 0 1px 0 rgba(255,255,255,.95),
+        inset 0 -1px 0 rgba(255,255,255,.35),
+        inset 0 0 40px rgba(255,255,255,.16);
     }
-
     .glass-strong {
-      background: linear-gradient(135deg, rgba(255, 255, 255, .78) 0%, rgba(255, 255, 255, .6) 42%, rgba(255, 255, 255, .72) 100%);
+      background: linear-gradient(135deg, rgba(255,255,255,.78) 0%, rgba(255,255,255,.6) 42%, rgba(255,255,255,.72) 100%);
       backdrop-filter: blur(36px) saturate(220%) brightness(1.06);
       -webkit-backdrop-filter: blur(36px) saturate(220%) brightness(1.06);
-      border: 1px solid rgba(255, 255, 255, .85);
+      border: 1px solid rgba(255,255,255,.85);
       box-shadow:
-        0 16px 48px -10px rgba(31, 38, 135, .18),
-        0 6px 16px -4px rgba(31, 38, 135, .08),
-        inset 0 1px 0 rgba(255, 255, 255, 1),
-        inset 0 -1px 0 rgba(255, 255, 255, .4),
-        inset 0 0 50px rgba(255, 255, 255, .22);
+        0 16px 48px -10px rgba(31,38,135,.18),
+        0 6px 16px -4px rgba(31,38,135,.08),
+        inset 0 1px 0 rgba(255,255,255,1),
+        inset 0 -1px 0 rgba(255,255,255,.4),
+        inset 0 0 50px rgba(255,255,255,.22);
     }
-
     .glass-soft {
-      background: linear-gradient(135deg, rgba(255, 255, 255, .58) 0%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .5) 100%);
+      background: linear-gradient(135deg, rgba(255,255,255,.58) 0%, rgba(255,255,255,.4) 50%, rgba(255,255,255,.5) 100%);
       backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
       -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.04);
-      border: 1px solid rgba(255, 255, 255, .65);
+      border: 1px solid rgba(255,255,255,.65);
       box-shadow:
-        0 8px 24px -6px rgba(31, 38, 135, .12),
-        inset 0 1px 0 rgba(255, 255, 255, .85),
-        inset 0 0 30px rgba(255, 255, 255, .14);
+        0 8px 24px -6px rgba(31,38,135,.12),
+        inset 0 1px 0 rgba(255,255,255,.85),
+        inset 0 0 30px rgba(255,255,255,.14);
     }
-
-    .glass::before,
-    .glass-strong::before,
-    .glass-soft::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
+    .glass::before, .glass-strong::before, .glass-soft::before {
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
       background:
-        linear-gradient(115deg, transparent 22%, rgba(255, 255, 255, .35) 42%, rgba(255, 255, 255, .05) 50%, transparent 68%),
-        radial-gradient(120% 60% at 0% 0%, rgba(255, 255, 255, .45) 0%, transparent 55%);
-      pointer-events: none;
-      z-index: 0;
-      opacity: .9;
-      mix-blend-mode: screen;
+        linear-gradient(115deg, transparent 22%, rgba(255,255,255,.35) 42%, rgba(255,255,255,.05) 50%, transparent 68%),
+        radial-gradient(120% 60% at 0% 0%, rgba(255,255,255,.45) 0%, transparent 55%);
+      pointer-events: none; z-index: 0; opacity: .9; mix-blend-mode: screen;
     }
-
-    .glass>*,
-    .glass-strong>*,
-    .glass-soft>* {
-      position: relative;
-      z-index: 1;
+    .glass > *, .glass-strong > *, .glass-soft > * { position: relative; z-index: 1; }
+    .glass, .glass-strong, .glass-soft {
+      color: #0f172a; text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     }
-
-    .glass,
-    .glass-strong,
-    .glass-soft {
-      color: #0f172a;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .text-sharp {
-      text-shadow: 0 1px 0 rgba(255, 255, 255, .35);
-    }
-
-    /* ===== CARDS ===== */
-    .card-hover {
-      transition: transform .5s cubic-bezier(.22, .9, .3, 1), box-shadow .5s ease, border-color .35s;
-    }
-
+    .text-sharp { text-shadow: 0 1px 0 rgba(255,255,255,.35); }
+    .card-hover { transition: transform .5s cubic-bezier(.22,.9,.3,1), box-shadow .5s ease, border-color .35s; }
     @media (hover:hover) {
       .card-hover:hover {
         transform: translateY(-6px);
         box-shadow:
-          0 32px 60px -18px rgba(15, 23, 42, .24),
-          0 8px 20px -6px rgba(31, 38, 135, .12),
-          inset 0 1px 0 rgba(255, 255, 255, 1);
-        border-color: rgba(255, 255, 255, .98);
+          0 32px 60px -18px rgba(15,23,42,.24),
+          0 8px 20px -6px rgba(31,38,135,.12),
+          inset 0 1px 0 rgba(255,255,255,1);
+        border-color: rgba(255,255,255,.98);
       }
     }
-
-    .card-hover:active {
-      transform: scale(.985);
-    }
-
-    /* ===== VIEW SWITCH ===== */
-    .view-hidden {
-      display: none !important;
-    }
-
-    /* ===== PAGE FLIP ===== */
-    .book-stage {
-      position: relative;
-      perspective: 2000px;
-      perspective-origin: 50% 50%;
-      transform-style: preserve-3d;
-    }
-
+    .card-hover:active { transform: scale(.985); }
+    .view-hidden { display: none !important; }
+    .book-stage { position: relative; perspective: 2000px; perspective-origin: 50% 50%; transform-style: preserve-3d; }
     @keyframes pageFlipOutNext {
-      0% {
-        opacity: 1;
-        transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1);
-        filter: brightness(1) blur(0);
-      }
-
-      35% {
-        opacity: .55;
-        filter: brightness(.92) blur(.4px);
-      }
-
-      100% {
-        opacity: 0;
-        transform: perspective(2000px) rotateY(-22deg) translateZ(-60px) translateX(-70px) scale(.94);
-        filter: brightness(.78) blur(1.5px);
-      }
+      0% { opacity: 1; transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1); filter: brightness(1) blur(0); }
+      35% { opacity: .55; filter: brightness(.92) blur(.4px); }
+      100% { opacity: 0; transform: perspective(2000px) rotateY(-22deg) translateZ(-60px) translateX(-70px) scale(.94); filter: brightness(.78) blur(1.5px); }
     }
-
     @keyframes pageFlipOutPrev {
-      0% {
-        opacity: 1;
-        transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1);
-        filter: brightness(1) blur(0);
-      }
-
-      35% {
-        opacity: .55;
-        filter: brightness(.92) blur(.4px);
-      }
-
-      100% {
-        opacity: 0;
-        transform: perspective(2000px) rotateY(22deg) translateZ(-60px) translateX(70px) scale(.94);
-        filter: brightness(.78) blur(1.5px);
-      }
+      0% { opacity: 1; transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1); filter: brightness(1) blur(0); }
+      35% { opacity: .55; filter: brightness(.92) blur(.4px); }
+      100% { opacity: 0; transform: perspective(2000px) rotateY(22deg) translateZ(-60px) translateX(70px) scale(.94); filter: brightness(.78) blur(1.5px); }
     }
-
     @keyframes pageFlipInNext {
-      0% {
-        opacity: 0;
-        transform: perspective(2000px) rotateY(22deg) translateZ(-60px) translateX(70px) scale(.94);
-        filter: brightness(.78) blur(1.5px);
-      }
-
-      55% {
-        opacity: .85;
-        filter: brightness(.96) blur(.2px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1);
-        filter: brightness(1) blur(0);
-      }
+      0% { opacity: 0; transform: perspective(2000px) rotateY(22deg) translateZ(-60px) translateX(70px) scale(.94); filter: brightness(.78) blur(1.5px); }
+      55% { opacity: .85; filter: brightness(.96) blur(.2px); }
+      100% { opacity: 1; transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1); filter: brightness(1) blur(0); }
     }
-
     @keyframes pageFlipInPrev {
-      0% {
-        opacity: 0;
-        transform: perspective(2000px) rotateY(-22deg) translateZ(-60px) translateX(-70px) scale(.94);
-        filter: brightness(.78) blur(1.5px);
-      }
-
-      55% {
-        opacity: .85;
-        filter: brightness(.96) blur(.2px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1);
-        filter: brightness(1) blur(0);
-      }
+      0% { opacity: 0; transform: perspective(2000px) rotateY(-22deg) translateZ(-60px) translateX(-70px) scale(.94); filter: brightness(.78) blur(1.5px); }
+      55% { opacity: .85; filter: brightness(.96) blur(.2px); }
+      100% { opacity: 1; transform: perspective(2000px) rotateY(0deg) translateZ(0) translateX(0) scale(1); filter: brightness(1) blur(0); }
     }
-
-    .page-flip-out-next {
-      animation: pageFlipOutNext .32s cubic-bezier(.55, .06, .68, .19) forwards;
-      transform-origin: left center;
-      pointer-events: none;
-      will-change: transform, opacity, filter;
-    }
-
-    .page-flip-out-prev {
-      animation: pageFlipOutPrev .32s cubic-bezier(.55, .06, .68, .19) forwards;
-      transform-origin: right center;
-      pointer-events: none;
-      will-change: transform, opacity, filter;
-    }
-
-    .page-flip-in-next {
-      animation: pageFlipInNext .58s cubic-bezier(.22, .9, .3, 1) forwards;
-      transform-origin: right center;
-      will-change: transform, opacity, filter;
-    }
-
-    .page-flip-in-prev {
-      animation: pageFlipInPrev .58s cubic-bezier(.22, .9, .3, 1) forwards;
-      transform-origin: left center;
-      will-change: transform, opacity, filter;
-    }
-
-    .page-sweep {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 20;
-      border-radius: 1.5rem;
-      overflow: hidden;
-      opacity: 0;
-    }
-
-    .page-sweep.active {
-      opacity: 1;
-    }
-
+    .page-flip-out-next { animation: pageFlipOutNext .32s cubic-bezier(.55,.06,.68,.19) forwards; transform-origin: left center; pointer-events: none; will-change: transform, opacity, filter; }
+    .page-flip-out-prev { animation: pageFlipOutPrev .32s cubic-bezier(.55,.06,.68,.19) forwards; transform-origin: right center; pointer-events: none; will-change: transform, opacity, filter; }
+    .page-flip-in-next { animation: pageFlipInNext .58s cubic-bezier(.22,.9,.3,1) forwards; transform-origin: right center; will-change: transform, opacity, filter; }
+    .page-flip-in-prev { animation: pageFlipInPrev .58s cubic-bezier(.22,.9,.3,1) forwards; transform-origin: left center; will-change: transform, opacity, filter; }
+    .page-sweep { position: absolute; inset: 0; pointer-events: none; z-index: 20; border-radius: 1.5rem; overflow: hidden; opacity: 0; }
+    .page-sweep.active { opacity: 1; }
     .page-sweep::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -60%;
-      width: 60%;
-      height: 100%;
-      background: linear-gradient(105deg, transparent 0%, rgba(255, 255, 255, .55) 45%, rgba(255, 255, 255, .85) 50%, rgba(255, 255, 255, .55) 55%, transparent 100%);
-      mix-blend-mode: screen;
-      filter: blur(8px);
+      content: ''; position: absolute; top: 0; left: -60%; width: 60%; height: 100%;
+      background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,.55) 45%, rgba(255,255,255,.85) 50%, rgba(255,255,255,.55) 55%, transparent 100%);
+      mix-blend-mode: screen; filter: blur(8px);
     }
-
-    .page-sweep.active::after {
-      animation: sweepMove .7s cubic-bezier(.22, .9, .3, 1) forwards;
-    }
-
-    @keyframes sweepMove {
-      0% {
-        left: -60%;
-        opacity: 0;
-      }
-
-      20% {
-        opacity: 1;
-      }
-
-      100% {
-        left: 120%;
-        opacity: 0;
-      }
-    }
-
-    .page-enter {
-      animation: pageEnter .55s cubic-bezier(.22, .9, .3, 1) both;
-    }
-
-    @keyframes pageEnter {
-      from {
-        opacity: 0;
-        transform: translateY(16px) scale(.99);
-      }
-
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    .card-enter {
-      animation: cardIn .55s cubic-bezier(.22, .9, .3, 1) both;
-    }
-
-    @keyframes cardIn {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    /* ===== AUDIO ===== */
-    .wave {
-      display: flex;
-      align-items: flex-end;
-      gap: 3px;
-      height: 16px;
-    }
-
+    .page-sweep.active::after { animation: sweepMove .7s cubic-bezier(.22,.9,.3,1) forwards; }
+    @keyframes sweepMove { 0% { left: -60%; opacity: 0; } 20% { opacity: 1; } 100% { left: 120%; opacity: 0; } }
+    .page-enter { animation: pageEnter .55s cubic-bezier(.22,.9,.3,1) both; }
+    @keyframes pageEnter { from { opacity: 0; transform: translateY(16px) scale(.99); } to { opacity: 1; transform: none; } }
+    .card-enter { animation: cardIn .55s cubic-bezier(.22,.9,.3,1) both; }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    .wave { display: flex; align-items: flex-end; gap: 3px; height: 16px; }
     .wave span {
-      display: block;
-      width: 3px;
-      height: 22%;
-      border-radius: 999px;
+      display: block; width: 3px; height: 22%; border-radius: 999px;
       background: linear-gradient(180deg, #34d399, #0d9488);
-      transition: height .25s ease;
-      opacity: .55;
+      transition: height .25s ease; opacity: .55;
     }
-
-    .is-playing .wave span {
-      opacity: 1;
-      animation: waveAnim .85s ease-in-out infinite alternate;
-    }
-
-    @keyframes waveAnim {
-      from {
-        height: 18%;
-      }
-
-      to {
-        height: 100%;
-      }
-    }
-
-    .seek-bar {
-      position: relative;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, .4);
-      cursor: pointer;
-    }
-
-    .seek-fill {
-      position: absolute;
-      inset: 0 auto 0 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #34d399, #0d9488);
-      width: 0%;
-    }
-
+    .is-playing .wave span { opacity: 1; animation: waveAnim .85s ease-in-out infinite alternate; }
+    @keyframes waveAnim { from { height: 18%; } to { height: 100%; } }
+    .seek-bar { position: relative; height: 6px; border-radius: 999px; background: rgba(148,163,184,.4); cursor: pointer; }
+    .seek-fill { position: absolute; inset: 0 auto 0 0; border-radius: 999px; background: linear-gradient(90deg, #34d399, #0d9488); width: 0%; }
     .seek-knob {
-      position: absolute;
-      top: 50%;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #fff;
-      border: 2px solid #0d9488;
-      transform: translate(-50%, -50%);
-      left: 0%;
-      box-shadow: 0 2px 6px rgba(13, 148, 136, .4);
-      transition: transform .15s;
+      position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%;
+      background: #fff; border: 2px solid #0d9488; transform: translate(-50%,-50%); left: 0%;
+      box-shadow: 0 2px 6px rgba(13,148,136,.4); transition: transform .15s;
     }
-
-    @media (hover:hover) {
-      .seek-bar:hover .seek-knob {
-        transform: translate(-50%, -50%) scale(1.25);
-      }
-    }
-
+    @media (hover:hover) { .seek-bar:hover .seek-knob { transform: translate(-50%,-50%) scale(1.25); } }
     .audio-dot {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      font-size: 10px;
-      font-weight: 700;
-      color: #065f46;
-      background: rgba(16, 185, 129, .15);
-      border: 1px solid rgba(16, 185, 129, .35);
+      display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px;
+      border-radius: 999px; font-size: 10px; font-weight: 700; color: #065f46;
+      background: rgba(16,185,129,.15); border: 1px solid rgba(16,185,129,.35);
       backdrop-filter: blur(6px);
     }
-
-    .audio-dot i {
-      font-size: 9px;
-    }
-
-    /* ===== IMAGE PLACEHOLDER ===== */
-    .img-ph {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #d1fae5 0%, #ffffff 50%, #fef3c7 100%);
-    }
-
-    .thumb-active {
-      outline: 2px solid #0d9488;
-      outline-offset: 2px;
-    }
-
-    /* ===== TAGS ===== */
+    .audio-dot i { font-size: 9px; }
+    .img-ph { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(135deg, #d1fae5 0%, #ffffff 50%, #fef3c7 100%); }
+    .thumb-active { outline: 2px solid #0d9488; outline-offset: 2px; }
     .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 4px 11px;
-      border-radius: 999px;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: #065f46;
-      background: rgba(16, 185, 129, .12);
-      border: 1px solid rgba(16, 185, 129, .28);
+      display: inline-flex; align-items: center; gap: 4px; padding: 4px 11px;
+      border-radius: 999px; font-size: 11.5px; font-weight: 600; color: #065f46;
+      background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.28);
       backdrop-filter: blur(6px);
     }
-
-    /* ===== SCROLLBARS ===== */
-    .nice-scroll::-webkit-scrollbar {
-      width: 7px;
-      height: 7px;
-    }
-
-    .nice-scroll::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .nice-scroll::-webkit-scrollbar-thumb {
-      background: rgba(100, 116, 139, .3);
-      border-radius: 99px;
-    }
-
-    .nice-scroll::-webkit-scrollbar-thumb:hover {
-      background: rgba(100, 116, 139, .48);
-    }
-
-    .chip-scroll::-webkit-scrollbar {
-      height: 5px;
-    }
-
-    .chip-scroll::-webkit-scrollbar-thumb {
-      background: rgba(100, 116, 139, .25);
-      border-radius: 99px;
-    }
-
-    input[type="search"]::-webkit-search-cancel-button {
-      -webkit-appearance: none;
-    }
-
-    /* ============================================================
-     MOBILE EXPERIENCE
-     ============================================================ */
-    .mobile-nav {
-      display: none;
-    }
-
+    .nice-scroll::-webkit-scrollbar { width: 7px; height: 7px; }
+    .nice-scroll::-webkit-scrollbar-track { background: transparent; }
+    .nice-scroll::-webkit-scrollbar-thumb { background: rgba(100,116,139,.3); border-radius: 99px; }
+    .nice-scroll::-webkit-scrollbar-thumb:hover { background: rgba(100,116,139,.48); }
+    .chip-scroll::-webkit-scrollbar { height: 5px; }
+    .chip-scroll::-webkit-scrollbar-thumb { background: rgba(100,116,139,.25); border-radius: 99px; }
+    input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+    .mobile-nav { display: none; }
     @media (max-width: 1023px) {
-      body {
-        padding-bottom: calc(72px + env(safe-area-inset-bottom));
-      }
-
-      .mobile-nav {
-        display: block;
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 55;
-        padding-bottom: env(safe-area-inset-bottom);
-        pointer-events: none;
-      }
-
+      body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+      .mobile-nav { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 55; padding-bottom: env(safe-area-inset-bottom); pointer-events: none; }
       .mobile-nav-inner {
-        pointer-events: auto;
-        margin: 8px 10px 10px;
-        border-radius: 20px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        overflow: hidden;
+        pointer-events: auto; margin: 8px 10px 10px; border-radius: 20px;
+        display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden;
       }
-
       .mnav-btn {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 3px;
-        padding: 9px 4px 8px;
-        font-size: 10px;
-        font-weight: 800;
-        color: #475569;
-        transition: all .25s ease;
-        position: relative;
-        min-height: 54px;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: 3px; padding: 9px 4px 8px; font-size: 10px; font-weight: 800; color: #475569;
+        transition: all .25s ease; position: relative; min-height: 54px;
       }
-
-      .mnav-btn i {
-        font-size: 17px;
-        transition: transform .25s;
-      }
-
-      .mnav-btn.active {
-        color: #0d9488;
-      }
-
-      .mnav-btn.active i {
-        transform: translateY(-1px) scale(1.08);
-      }
-
+      .mnav-btn i { font-size: 17px; transition: transform .25s; }
+      .mnav-btn.active { color: #0d9488; }
+      .mnav-btn.active i { transform: translateY(-1px) scale(1.08); }
       .mnav-btn.active::after {
-        content: '';
-        position: absolute;
-        bottom: 5px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 18px;
-        height: 3px;
-        border-radius: 99px;
+        content: ''; position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%);
+        width: 18px; height: 3px; border-radius: 99px;
         background: linear-gradient(90deg, #34d399, #0d9488);
       }
-
-      .mnav-btn:active {
-        transform: scale(.94);
-      }
-
-      header {
-        padding-top: 8px !important;
-      }
-
-      .header-compact {
-        padding: 8px 10px !important;
-      }
-
-      .controls-desktop-only {
-        display: none !important;
-      }
-
-      .mobile-filter-btn {
-        display: inline-flex !important;
-      }
-
-      .book-toc-aside {
-        display: none !important;
-      }
-
-      .book-layout {
-        grid-template-columns: 1fr !important;
-      }
-
-      #modalPanel {
-        max-width: 100% !important;
-        border-radius: 20px 20px 0 0 !important;
-        margin: 0 !important;
-        min-height: 100vh;
-      }
-
-      #modal>.relative {
-        padding: 0 !important;
-      }
-
-      #miniPlayer {
-        bottom: calc(76px + env(safe-area-inset-bottom)) !important;
-      }
-
-      #toast {
-        bottom: calc(90px + env(safe-area-inset-bottom)) !important;
-      }
-
-      .hero-title {
-        font-size: 26px !important;
-        line-height: 1.15 !important;
-      }
-
-      .swipe-hint {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        padding: 6px;
-        font-size: 10.5px;
-        font-weight: 700;
-        color: #64748b;
-        opacity: .85;
-      }
-
-      .player {
-        padding: 10px !important;
-      }
-
-      .player .w-12 {
-        width: 42px !important;
-        height: 42px !important;
-      }
+      .mnav-btn:active { transform: scale(.94); }
+      header { padding-top: 8px !important; }
+      .header-compact { padding: 8px 10px !important; }
+      .controls-desktop-only { display: none !important; }
+      .mobile-filter-btn { display: inline-flex !important; }
+      .book-toc-aside { display: none !important; }
+      .book-layout { grid-template-columns: 1fr !important; }
+      #modalPanel { max-width: 100% !important; border-radius: 20px 20px 0 0 !important; margin: 0 !important; min-height: 100vh; }
+      #modal > .relative { padding: 0 !important; }
+      #miniPlayer { bottom: calc(76px + env(safe-area-inset-bottom)) !important; }
+      #toast { bottom: calc(90px + env(safe-area-inset-bottom)) !important; }
+      .hero-title { font-size: 26px !important; line-height: 1.15 !important; }
+      .swipe-hint { display: flex !important; align-items: center; justify-content: center; gap: 6px; padding: 6px; font-size: 10.5px; font-weight: 700; color: #64748b; opacity: .85; }
+      .player { padding: 10px !important; }
+      .player .w-12 { width: 42px !important; height: 42px !important; }
     }
-
-    .mobile-filter-btn {
-      display: none;
-    }
-
-    .swipe-hint {
-      display: none;
-    }
-
+    .mobile-filter-btn { display: none; }
+    .swipe-hint { display: none; }
     @media (max-width: 640px) {
-      .bg-image {
-        background-attachment: scroll;
-      }
-
-      .bg-overlay {
-        backdrop-filter: blur(2px);
-        -webkit-backdrop-filter: blur(2px);
-      }
-
-      .glass,
-      .glass-strong,
-      .glass-soft {
-        backdrop-filter: blur(18px) saturate(180%) brightness(1.04);
-        -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.04);
-      }
-
-      .page-flip-out-next,
-      .page-flip-out-prev,
-      .page-flip-in-next,
-      .page-flip-in-prev {
-        animation-duration: .42s;
-      }
+      .bg-image { background-attachment: scroll; }
+      .bg-overlay { backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+      .glass, .glass-strong, .glass-soft { backdrop-filter: blur(18px) saturate(180%) brightness(1.04); -webkit-backdrop-filter: blur(18px) saturate(180%) brightness(1.04); }
+      .page-flip-out-next, .page-flip-out-prev, .page-flip-in-next, .page-flip-in-prev { animation-duration: .42s; }
     }
-
     @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-
-      .bg-glow {
-        animation: none;
-      }
+      * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .bg-glow { animation: none; }
     }
-
-    /* Bottom sheet */
     .sheet-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 80;
-      background: rgba(15, 23, 42, .5);
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .28s ease;
+      position: fixed; inset: 0; z-index: 80; background: rgba(15,23,42,.5);
+      backdrop-filter: blur(8px); opacity: 0; pointer-events: none; transition: opacity .28s ease;
     }
-
-    .sheet-backdrop.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
+    .sheet-backdrop.open { opacity: 1; pointer-events: auto; }
     .bottom-sheet {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 81;
-      max-height: 82vh;
-      border-radius: 24px 24px 0 0;
-      transform: translateY(100%);
-      transition: transform .35s cubic-bezier(.22, .9, .3, 1);
-      overflow: hidden;
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 81; max-height: 82vh;
+      border-radius: 24px 24px 0 0; transform: translateY(100%);
+      transition: transform .35s cubic-bezier(.22,.9,.3,1); overflow: hidden;
       padding-bottom: env(safe-area-inset-bottom);
     }
-
-    .bottom-sheet.open {
-      transform: translateY(0);
-    }
-
-    .sheet-handle {
-      width: 42px;
-      height: 4px;
-      border-radius: 99px;
-      background: rgba(100, 116, 139, .35);
-      margin: 10px auto 4px;
-    }
-
-    /* ===== GALLERY LOADING SHIMMER ===== */
+    .bottom-sheet.open { transform: translateY(0); }
+    .sheet-handle { width: 42px; height: 4px; border-radius: 99px; background: rgba(100,116,139,.35); margin: 10px auto 4px; }
     .gallery-shimmer {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, .7) 50%, transparent 80%);
+      position: absolute; inset: 0;
+      background: linear-gradient(100deg, transparent 20%, rgba(255,255,255,.7) 50%, transparent 80%);
       animation: shimmerMove 1.4s linear infinite;
     }
-
-    @keyframes shimmerMove {
-      0% {
-        transform: translateX(-100%);
-      }
-
-      100% {
-        transform: translateX(100%);
-      }
-    }
+    @keyframes shimmerMove { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
   </style>
 </head>
 
@@ -1007,6 +482,15 @@
           <i class="fa-solid fa-arrow-left text-emerald-600"></i> Quay về Menu chính
         </a>
       </div>
+
+      <div class="mt-4 pt-4 border-t border-white/70">
+        <p class="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1.5 text-[11px] sm:text-[11.5px] text-slate-700 font-semibold">
+          <span class="inline-flex items-center gap-1.5">
+            <i class="fa-solid fa-camera-retro text-emerald-600"></i>
+            Nguồn ảnh: <span class="text-slate-900 font-bold">sưu tầm internet</span>
+          </span>
+        </p>
+      </div>
     </div>
   </footer>
 
@@ -1032,7 +516,7 @@
     </div>
   </nav>
 
-  <!-- BOTTOM SHEET FILTER (mobile) -->
+  <!-- BOTTOM SHEET FILTER -->
   <div id="filterSheetBackdrop" class="sheet-backdrop" data-close-sheet></div>
   <div id="filterSheet" class="bottom-sheet glass-strong">
     <div class="sheet-handle"></div>
@@ -1144,11 +628,7 @@
       { id: 7, name: 'Tri thức dân gian', short: 'Tri thức', full: 'Loại hình tri thức dân gian', icon: 'fa-seedling' }
     ];
 
-    /* hasAudio = true CHỈ với 3 di sản: Thực hành Then, Ngữ văn dân gian, Hát Páo dung
-       Các di sản còn lại: KHÔNG hiển thị mục âm thanh.
-       Địa danh: dùng tên xã/phường MỚI sau sáp nhập (2025). */
     const HERITAGES = [
-      /* ---------- 1. THEN ---------- */
       {
         slug: 'thuc-hanh-then',
         title: 'Hát Then của người Tày, Nùng, Thái',
@@ -1170,8 +650,6 @@
         ],
         tags: ['Then', 'Đàn tính', 'Hát Then', 'Múa Then', 'Cầu an', 'Cấp sắc']
       },
-
-      /* ---------- 2. CHỮ VIẾT & NGỮ VĂN ---------- */
       {
         slug: 'chu-nom-tay-bang-thanh',
         title: 'Chữ Nôm của người Tày ở xã Bằng Thành',
@@ -1248,8 +726,6 @@
         ],
         tags: ['Ca dao', 'Tục ngữ', 'Thần thoại', 'Lượn', 'Sli']
       },
-
-      /* ---------- 3. TRÌNH DIỄN ---------- */
       {
         slug: 'roi-can-tay',
         title: 'Rối cạn của người Tày',
@@ -1307,8 +783,6 @@
         ],
         tags: ['Páo dung', 'Người Dao', 'Hát giao duyên']
       },
-
-      /* ---------- 4. TÍN NGƯỠNG ---------- */
       {
         slug: 'cap-sac-tay',
         title: 'Lễ Cấp sắc của người Tày',
@@ -1366,8 +840,6 @@
         ],
         tags: ['Cấp sắc', 'Người Dao', 'Nghi lễ trưởng thành']
       },
-
-      /* ---------- 5. LỄ HỘI ---------- */
       {
         slug: 'le-hoi-dinh-phuong-do',
         title: 'Lễ hội đình Phương Độ',
@@ -1423,8 +895,6 @@
         ],
         tags: ['Lồng Tồng', 'Ba Bể', 'Lễ xuống đồng', 'Tung còn']
       },
-
-      /* ---------- 6. THỦ CÔNG ---------- */
       {
         slug: 'nghe-det-tay',
         title: 'Nghề dệt thủ công truyền thống người Tày',
@@ -1481,8 +951,6 @@
         ],
         tags: ['Tương nếp', 'Úc Kỳ', 'Ẩm thực', 'Lên men']
       },
-
-      /* ---------- 7. TRI THỨC ---------- */
       {
         slug: 'tri-thuc-che-tan-cuong',
         title: 'Tri thức trồng và chế biến chè Tân Cương',
@@ -1528,37 +996,25 @@
        ============================================================ */
 
     const state = {
-      view: 'book',
-      category: 'all',
-      level: 'all',
-      search: '',
-      bookIndex: 0,
-      modalSlug: null,
-      isTurning: false
+      view: 'book', category: 'all', level: 'all', search: '',
+      bookIndex: 0, modalSlug: null, isTurning: false
     };
 
     const $ = (s, ctx = document) => ctx.querySelector(s);
     const $$ = (s, ctx = document) => Array.from(ctx.querySelectorAll(s));
 
     function norm(str) {
-      return (str || '')
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/đ/g, 'd').replace(/Đ/g, 'D')
-        .toLowerCase();
+      return (str || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
     }
-
     function fmtTime(sec) {
       if (!isFinite(sec) || isNaN(sec) || sec < 0) return '0:00';
-      const m = Math.floor(sec / 60);
-      const s = Math.floor(sec % 60);
+      const m = Math.floor(sec / 60), s = Math.floor(sec % 60);
       return m + ':' + String(s).padStart(2, '0');
     }
-
     function escapeHTML(str) {
       return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     }
-
     function getHeritage(slug) { return HERITAGES.find(h => h.slug === slug); }
     function hasAudio(h) { return !!(h && h.hasAudio); }
 
@@ -1568,15 +1024,14 @@
 
     const audioEl = new Audio();
     audioEl.preload = 'metadata';
-    let currentSlug = null;
-    let currentTitle = '';
+    let currentSlug = null, currentTitle = '';
     const audioErrors = {};
 
-    audioEl.addEventListener('timeupdate', () => { syncPlayers(); });
-    audioEl.addEventListener('loadedmetadata', () => { syncPlayers(); });
-    audioEl.addEventListener('play', () => { syncPlayers(); });
-    audioEl.addEventListener('pause', () => { syncPlayers(); });
-    audioEl.addEventListener('ended', () => { syncPlayers(); });
+    audioEl.addEventListener('timeupdate', () => syncPlayers());
+    audioEl.addEventListener('loadedmetadata', () => syncPlayers());
+    audioEl.addEventListener('play', () => syncPlayers());
+    audioEl.addEventListener('pause', () => syncPlayers());
+    audioEl.addEventListener('ended', () => syncPlayers());
     audioEl.addEventListener('error', () => {
       if (currentSlug) {
         audioErrors[currentSlug] = true;
@@ -1599,7 +1054,6 @@
       if (p && p.catch) p.catch(() => { });
       syncPlayers();
     }
-
     function toggleTrack(slug, title) {
       const h = getHeritage(slug);
       if (!hasAudio(h)) { toast('Di sản này không có bản ghi âm.'); return; }
@@ -1608,7 +1062,6 @@
       else audioEl.pause();
       syncPlayers();
     }
-
     function stopTrack() {
       audioEl.pause();
       audioEl.removeAttribute('src');
@@ -1616,7 +1069,6 @@
       currentSlug = null;
       syncPlayers();
     }
-
     function seekTo(ratio) {
       if (!currentSlug || !isFinite(audioEl.duration)) return;
       audioEl.currentTime = Math.max(0, Math.min(1, ratio)) * audioEl.duration;
@@ -1635,24 +1087,19 @@
       };
       const m = map[level] || map.Local;
       return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide text-white bg-gradient-to-r ${m.cls} border border-white/60 shadow-md whitespace-nowrap">
-    <i class="fa-solid ${m.icon}"></i>${m.label}</span>`;
+        <i class="fa-solid ${m.icon}"></i>${m.label}</span>`;
     }
 
     function placeholderHTML(label) {
       return `<div class="img-ph">
-    <div class="text-center px-4">
-      <i class="fa-regular fa-image text-2xl text-emerald-500/70"></i>
-      <p class="mt-1 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-700/80">${label || 'Hình ảnh đang cập nhật'}</p>
-    </div>
-  </div>`;
+        <div class="text-center px-4">
+          <i class="fa-regular fa-image text-2xl text-emerald-500/70"></i>
+          <p class="mt-1 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-700/80">${label || 'Hình ảnh đang cập nhật'}</p>
+        </div>
+      </div>`;
     }
 
-    /* ============================================================
-       GALLERY — Dynamic image count (1 hình to, 2-3 hình lưới, 4+ lưới)
-       Ảnh được dò tự động trong thư mục images/{slug}/1.png, 2.png…
-       Dừng khi gặp ảnh không tồn tại. Có cache để không dò lại.
-       ============================================================ */
-
+    /* ---------- GALLERY ---------- */
     const galleryCache = {};
     const galleryPromises = {};
 
@@ -1660,18 +1107,13 @@
       return new Promise(resolve => {
         const img = new Image();
         let done = false;
-        const finish = (ok) => {
-          if (done) return;
-          done = true;
-          resolve(ok);
-        };
+        const finish = (ok) => { if (done) return; done = true; resolve(ok); };
         img.onload = () => finish(true);
         img.onerror = () => finish(false);
         setTimeout(() => finish(false), timeout);
         img.src = src;
       });
     }
-
     async function getGalleryImages(slug) {
       if (galleryCache[slug]) return galleryCache[slug];
       if (galleryPromises[slug]) return galleryPromises[slug];
@@ -1689,89 +1131,68 @@
       return galleryPromises[slug];
     }
 
-    /* Khung gallery: lúc đầu hiển thị loading, sau đó thay bằng layout thật */
     function galleryHTML(h) {
-      return `
-  <div class="gallery" data-gallery="${h.slug}" data-idx="0" data-count="0">
-    <div class="gallery-inner">
-      <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner bg-slate-100">
-        ${placeholderHTML('Đang tải hình ảnh…')}
-        <div class="gallery-shimmer pointer-events-none"></div>
-      </div>
-    </div>
-  </div>`;
+      return `<div class="gallery" data-gallery="${h.slug}" data-idx="0" data-count="0">
+        <div class="gallery-inner">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner bg-slate-100">
+            ${placeholderHTML('Đang tải hình ảnh…')}
+            <div class="gallery-shimmer pointer-events-none"></div>
+          </div>
+        </div>
+      </div>`;
     }
 
     function buildGalleryLayout(h, images) {
       const shortLabel = escapeHTML(h.short);
 
-      // Không có ảnh nào → placeholder to
       if (!images.length) {
-        return `
-      <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner bg-slate-100">
-        ${placeholderHTML('Hình ảnh đang cập nhật')}
-        <span class="absolute z-30 bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-slate-800 max-w-[70%] truncate">
-          <i class="fa-solid fa-camera-retro mr-1 text-emerald-600"></i>${shortLabel}
-        </span>
-      </div>`;
+        return `<div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner bg-slate-100">
+          ${placeholderHTML('Hình ảnh đang cập nhật')}
+          <span class="absolute z-30 bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-slate-800 max-w-[70%] truncate">
+            <i class="fa-solid fa-camera-retro mr-1 text-emerald-600"></i>${shortLabel}
+          </span>
+        </div>`;
       }
 
       const multi = images.length > 1;
-
-      const arrowPrev = multi ? `
-      <button type="button" data-act="g-prev" aria-label="Ảnh trước"
+      const arrowPrev = multi ? `<button type="button" data-act="g-prev" aria-label="Ảnh trước"
         class="absolute z-30 left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-white/80 grid place-items-center text-slate-700 shadow-lg transition-all hover:scale-110">
-        <i class="fa-solid fa-chevron-left text-xs"></i>
-      </button>` : '';
-
-      const arrowNext = multi ? `
-      <button type="button" data-act="g-next" aria-label="Ảnh sau"
+        <i class="fa-solid fa-chevron-left text-xs"></i></button>` : '';
+      const arrowNext = multi ? `<button type="button" data-act="g-next" aria-label="Ảnh sau"
         class="absolute z-30 right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white backdrop-blur-md border border-white/80 grid place-items-center text-slate-700 shadow-lg transition-all hover:scale-110">
-        <i class="fa-solid fa-chevron-right text-xs"></i>
-      </button>` : '';
+        <i class="fa-solid fa-chevron-right text-xs"></i></button>` : '';
+      const counter = multi ? `<span class="absolute z-30 top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900/65 backdrop-blur-md border border-white/30 text-white tabular-nums">
+        <i class="fa-solid fa-image mr-1"></i><span data-role="cur">1</span>/${images.length}</span>` : '';
 
-      const counter = multi ? `
-      <span class="absolute z-30 top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900/65 backdrop-blur-md border border-white/30 text-white tabular-nums">
-        <i class="fa-solid fa-image mr-1"></i><span data-role="cur">1</span>/${images.length}
-      </span>` : '';
+      const mainBlock = `<div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner group/main bg-slate-100">
+        ${placeholderHTML('Hình ảnh đang cập nhật')}
+        <img data-role="main" src="${images[0]}" alt="${escapeHTML(h.title)}"
+             class="relative z-10 w-full h-full object-cover transition-opacity duration-300 cursor-zoom-in"
+             onerror="this.style.opacity=0" />
+        <div class="absolute inset-0 z-20 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
+        ${arrowPrev}${arrowNext}${counter}
+        <button type="button" data-act="g-zoom" aria-label="Xem ảnh lớn"
+          class="absolute z-30 bottom-3 right-3 w-10 h-10 rounded-full bg-white/90 hover:bg-white backdrop-blur-md border border-white/80 grid place-items-center text-slate-700 shadow-lg transition-all hover:scale-110">
+          <i class="fa-solid fa-expand text-xs"></i>
+        </button>
+        <span class="absolute z-30 bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-slate-800 max-w-[60%] truncate">
+          <i class="fa-solid fa-camera-retro mr-1 text-emerald-600"></i>${shortLabel}
+        </span>
+      </div>`;
 
-      const mainBlock = `
-    <div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner group/main bg-slate-100">
-      ${placeholderHTML('Hình ảnh đang cập nhật')}
-      <img data-role="main" src="${images[0]}" alt="${escapeHTML(h.title)}"
-           class="relative z-10 w-full h-full object-cover transition-opacity duration-300 cursor-zoom-in"
-           onerror="this.style.opacity=0" />
-      <div class="absolute inset-0 z-20 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none"></div>
-      ${arrowPrev}
-      ${arrowNext}
-      ${counter}
-      <button type="button" data-act="g-zoom" aria-label="Xem ảnh lớn"
-        class="absolute z-30 bottom-3 right-3 w-10 h-10 rounded-full bg-white/90 hover:bg-white backdrop-blur-md border border-white/80 grid place-items-center text-slate-700 shadow-lg transition-all hover:scale-110">
-        <i class="fa-solid fa-expand text-xs"></i>
-      </button>
-      <span class="absolute z-30 bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-slate-800 max-w-[60%] truncate">
-        <i class="fa-solid fa-camera-retro mr-1 text-emerald-600"></i>${shortLabel}
-      </span>
-    </div>`;
-
-      // Thumbnails: chỉ render khi có từ 2 ảnh trở lên
       let thumbsBlock = '';
       if (multi) {
         let gridCls = 'grid-cols-2';
         if (images.length === 3) gridCls = 'grid-cols-3';
         else if (images.length >= 4) gridCls = 'grid-cols-2 sm:grid-cols-4';
-
-        thumbsBlock = `
-      <div class="mt-2.5 grid ${gridCls} gap-2">
-        ${images.map((src, i) => `
-          <button type="button" data-act="g-thumb" data-idx="${i}"
+        thumbsBlock = `<div class="mt-2.5 grid ${gridCls} gap-2">
+          ${images.map((src, i) => `<button type="button" data-act="g-thumb" data-idx="${i}"
             class="thumb-btn relative aspect-[4/3] rounded-xl overflow-hidden border border-white/80 bg-slate-100 group/th transition-all hover:-translate-y-0.5 ${i === 0 ? 'thumb-active' : ''}">
             <img src="${src}" alt="${escapeHTML(h.title)} - ảnh ${i + 1}" loading="lazy"
                  class="w-full h-full object-cover transition-transform duration-500 group-hover/th:scale-110" />
           </button>`).join('')}
-      </div>`;
+        </div>`;
       }
-
       return mainBlock + thumbsBlock;
     }
 
@@ -1783,12 +1204,10 @@
       if (!el.isConnected) return;
       const inner = el.querySelector('.gallery-inner');
       if (!inner) return;
-
       el.dataset.idx = '0';
       el.dataset.count = String(images.length);
       inner.innerHTML = buildGalleryLayout(h, images);
     }
-
     function initGalleries(root = document) {
       $$('.gallery', root).forEach(el => {
         if (el.dataset.initialized === '1') return;
@@ -1801,44 +1220,49 @@
        5. PLAYER HTML & FACTS
        ============================================================ */
 
+    /* CHỈ render player cho di sản có audio.
+       Trong player có dòng ghi nguồn âm thanh — chỉ xuất hiện ở di sản có âm thanh. */
     function playerHTML(slug) {
       const bars = Array.from({ length: 22 }, (_, i) =>
         `<span style="animation-delay:${(i * 62) % 900}ms"></span>`).join('');
 
       return `
-  <div class="player glass-soft rounded-2xl p-3.5 flex items-center gap-3" data-player="${slug}">
-    <button type="button" data-act="toggle" data-slug="${slug}"
-      class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white grid place-items-center shadow-lg shadow-emerald-500/30 transition-all hover:scale-105 active:scale-95">
-      <i class="fa-solid fa-play text-sm"></i>
-    </button>
-    <div class="flex-1 min-w-0">
-      <div class="flex items-center justify-between gap-2 mb-1.5">
-        <span class="text-[10px] font-extrabold uppercase tracking-[0.14em] text-emerald-800">
-          <i class="fa-solid fa-headphones mr-1"></i>Bản ghi âm di sản
-        </span>
-        <span data-role="time" class="text-[10.5px] tabular-nums font-bold text-slate-700">0:00 / 0:00</span>
-      </div>
-      <div class="seek-bar" data-role="seek">
-        <div class="seek-fill" data-role="fill"></div>
-        <div class="seek-knob" data-role="knob"></div>
-      </div>
-      <div class="mt-2 flex items-center justify-between gap-3">
-        <div class="wave" data-role="wave">${bars}</div>
-        <span data-role="status" class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Sẵn sàng</span>
-      </div>
-    </div>
-  </div>`;
+      <div class="player glass-soft rounded-2xl p-3.5" data-player="${slug}">
+        <div class="flex items-center gap-3">
+          <button type="button" data-act="toggle" data-slug="${slug}"
+            class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white grid place-items-center shadow-lg shadow-emerald-500/30 transition-all hover:scale-105 active:scale-95">
+            <i class="fa-solid fa-play text-sm"></i>
+          </button>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-[10px] font-extrabold uppercase tracking-[0.14em] text-emerald-800">
+                <i class="fa-solid fa-headphones mr-1"></i>Bản ghi âm di sản
+              </span>
+              <span data-role="time" class="text-[10.5px] tabular-nums font-bold text-slate-700">0:00 / 0:00</span>
+            </div>
+            <div class="seek-bar" data-role="seek">
+              <div class="seek-fill" data-role="fill"></div>
+              <div class="seek-knob" data-role="knob"></div>
+            </div>
+            <div class="mt-2 flex items-center justify-between gap-3">
+              <div class="wave" data-role="wave">${bars}</div>
+              <span data-role="status" class="text-[10px] font-bold uppercase tracking-wider text-slate-600">Sẵn sàng</span>
+            </div>
+          </div>
+        </div>
+        <p class="mt-2.5 pt-2 border-t border-white/60 text-[10px] text-slate-600 font-semibold italic flex items-center gap-1">
+          <i class="fa-solid fa-circle-info text-emerald-600 text-[9px]"></i>Nguồn âm thanh: sưu tầm internet
+        </p>
+      </div>`;
     }
 
     function factsHTML(h) {
-      return `
-  <dl class="space-y-2">
-    ${h.facts.map(([k, v]) => `
-      <div class="flex gap-3 items-start text-[12.5px]">
-        <dt class="w-[92px] shrink-0 font-extrabold text-slate-600 uppercase tracking-wide text-[10.5px] pt-0.5">${escapeHTML(k)}</dt>
-        <dd class="flex-1 text-slate-900 font-semibold leading-snug">${escapeHTML(v)}</dd>
-      </div>`).join('')}
-  </dl>`;
+      return `<dl class="space-y-2">
+        ${h.facts.map(([k, v]) => `<div class="flex gap-3 items-start text-[12.5px]">
+          <dt class="w-[92px] shrink-0 font-extrabold text-slate-600 uppercase tracking-wide text-[10.5px] pt-0.5">${escapeHTML(k)}</dt>
+          <dd class="flex-1 text-slate-900 font-semibold leading-snug">${escapeHTML(v)}</dd>
+        </div>`).join('')}
+      </dl>`;
     }
 
     /* ============================================================
@@ -1868,14 +1292,11 @@
 
     function renderChips() {
       const wrap = $('#catChips');
-      const chips = [
-        `<button data-cat="all" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
-       <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả loại hình</button>`
-      ].concat(CATEGORIES.map(c => `
-    <button data-cat="${c.id}" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
-      <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id}. ${escapeHTML(c.short)}
-    </button>`));
-
+      const chips = [`<button data-cat="all" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
+       <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả loại hình</button>`]
+        .concat(CATEGORIES.map(c => `<button data-cat="${c.id}" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
+          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id}. ${escapeHTML(c.short)}
+        </button>`));
       wrap.innerHTML = chips.join('');
       paintChips();
     }
@@ -1894,19 +1315,13 @@
       $$('.view-btn').forEach(el => {
         const active = el.dataset.view === state.view;
         el.className = 'view-btn flex items-center gap-2 px-3.5 py-2 rounded-lg text-[12.5px] font-bold transition-all ' +
-          (active
-            ? 'bg-white text-emerald-700 shadow-md border border-white/90'
-            : 'text-slate-700 hover:text-slate-900');
+          (active ? 'bg-white text-emerald-700 shadow-md border border-white/90' : 'text-slate-700 hover:text-slate-900');
       });
-
       $$('.lvl-btn').forEach(el => {
         const active = el.dataset.level === state.level;
         el.className = 'lvl-btn px-3 py-2 rounded-lg text-[12px] font-bold whitespace-nowrap transition-all ' +
-          (active
-            ? 'bg-white text-emerald-700 shadow-md border border-white/90'
-            : 'text-slate-700 hover:text-slate-900');
+          (active ? 'bg-white text-emerald-700 shadow-md border border-white/90' : 'text-slate-700 hover:text-slate-900');
       });
-
       paintChips();
       paintSheetChips();
       updateMobileNav();
@@ -1923,17 +1338,16 @@
       $('#resultCount').textContent = list.length;
 
       if (!list.length) {
-        wrap.innerHTML = `
-      <div class="col-span-full glass rounded-3xl p-10 sm:p-12 text-center">
-        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-100 to-amber-100 grid place-items-center">
-          <i class="fa-solid fa-magnifying-glass text-2xl text-emerald-600"></i>
-        </div>
-        <h3 class="mt-4 text-lg font-extrabold text-slate-900">Không tìm thấy di sản phù hợp</h3>
-        <p class="mt-1.5 text-[13px] text-slate-700 font-medium">Hãy thử từ khóa khác hoặc đặt lại bộ lọc.</p>
-        <button id="emptyReset" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[13px] font-bold shadow-lg shadow-emerald-500/25 transition hover:-translate-y-0.5">
-          <i class="fa-solid fa-rotate-left"></i> Đặt lại bộ lọc
-        </button>
-      </div>`;
+        wrap.innerHTML = `<div class="col-span-full glass rounded-3xl p-10 sm:p-12 text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-100 to-amber-100 grid place-items-center">
+            <i class="fa-solid fa-magnifying-glass text-2xl text-emerald-600"></i>
+          </div>
+          <h3 class="mt-4 text-lg font-extrabold text-slate-900">Không tìm thấy di sản phù hợp</h3>
+          <p class="mt-1.5 text-[13px] text-slate-700 font-medium">Hãy thử từ khóa khác hoặc đặt lại bộ lọc.</p>
+          <button id="emptyReset" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[13px] font-bold shadow-lg shadow-emerald-500/25 transition hover:-translate-y-0.5">
+            <i class="fa-solid fa-rotate-left"></i> Đặt lại bộ lọc
+          </button>
+        </div>`;
         const btn = $('#emptyReset');
         if (btn) btn.addEventListener('click', resetFilters);
         return;
@@ -1942,51 +1356,45 @@
       wrap.innerHTML = list.map((h, i) => {
         const cat = CATEGORIES[h.cat - 1];
         const cover = `images/${h.slug}/1.png`;
-        const audioBadge = h.hasAudio
-          ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Audio</span>`
-          : '';
-        const audioBtn = h.hasAudio
-          ? `<button data-act="toggle" data-slug="${h.slug}" data-title="${escapeHTML(h.title)}"
+        const audioBadge = h.hasAudio ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Audio</span>` : '';
+        const audioBtn = h.hasAudio ? `<button data-act="toggle" data-slug="${h.slug}" data-title="${escapeHTML(h.title)}"
            title="Nghe bản ghi âm"
            class="w-10 h-10 rounded-xl bg-white/90 hover:bg-emerald-50 border border-white/90 grid place-items-center text-emerald-700 shadow-sm transition-all hover:scale-105 active:scale-95">
-           <i class="fa-solid fa-headphones text-[13px]"></i>
-         </button>`
-          : '';
+           <i class="fa-solid fa-headphones text-[13px]"></i></button>` : '';
 
-        return `
-    <article class="card-hover glass rounded-2xl overflow-hidden flex flex-col card-enter" style="animation-delay:${Math.min(i * 45, 400)}ms">
-      <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
-        ${placeholderHTML('')}
-        <img src="${cover}" alt="${escapeHTML(h.title)}" loading="lazy"
-             class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-             onerror="this.style.opacity=0" />
-        <div class="absolute inset-0 z-20 bg-gradient-to-t from-slate-900/60 via-slate-900/5 to-transparent pointer-events-none"></div>
-        <div class="absolute z-30 top-3 left-3">${levelBadge(h.level)}</div>
-        <div class="absolute z-30 bottom-3 left-3 right-3 flex items-center gap-2 flex-wrap">
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-emerald-800">
-            <i class="fa-solid ${cat.icon}"></i>${escapeHTML(cat.short)}
-          </span>
-          ${audioBadge}
-        </div>
-      </div>
+        return `<article class="card-hover glass rounded-2xl overflow-hidden flex flex-col card-enter" style="animation-delay:${Math.min(i * 45, 400)}ms">
+          <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
+            ${placeholderHTML('')}
+            <img src="${cover}" alt="${escapeHTML(h.title)}" loading="lazy"
+                 class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                 onerror="this.style.opacity=0" />
+            <div class="absolute inset-0 z-20 bg-gradient-to-t from-slate-900/60 via-slate-900/5 to-transparent pointer-events-none"></div>
+            <div class="absolute z-30 top-3 left-3">${levelBadge(h.level)}</div>
+            <div class="absolute z-30 bottom-3 left-3 right-3 flex items-center gap-2 flex-wrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-emerald-800">
+                <i class="fa-solid ${cat.icon}"></i>${escapeHTML(cat.short)}
+              </span>
+              ${audioBadge}
+            </div>
+          </div>
 
-      <div class="p-4 flex flex-col flex-1">
-        <h3 class="font-extrabold text-[15px] leading-snug text-slate-900 line-clamp-2">${escapeHTML(h.title)}</h3>
-        <p class="mt-1.5 flex items-start gap-1.5 text-[11.5px] text-slate-700 font-semibold">
-          <i class="fa-solid fa-location-dot mt-0.5 text-emerald-600"></i>
-          <span class="line-clamp-2">${escapeHTML(h.short)}</span>
-        </p>
-        <p class="mt-3 text-[13px] leading-relaxed text-slate-800 font-medium line-clamp-3">${escapeHTML(h.summary)}</p>
+          <div class="p-4 flex flex-col flex-1">
+            <h3 class="font-extrabold text-[15px] leading-snug text-slate-900 line-clamp-2">${escapeHTML(h.title)}</h3>
+            <p class="mt-1.5 flex items-start gap-1.5 text-[11.5px] text-slate-700 font-semibold">
+              <i class="fa-solid fa-location-dot mt-0.5 text-emerald-600"></i>
+              <span class="line-clamp-2">${escapeHTML(h.short)}</span>
+            </p>
+            <p class="mt-3 text-[13px] leading-relaxed text-slate-800 font-medium line-clamp-3">${escapeHTML(h.summary)}</p>
 
-        <div class="mt-4 pt-3 border-t border-slate-200/70 flex items-center justify-between gap-2 mt-auto">
-          <button data-open="${h.slug}"
-            class="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[12.5px] font-bold shadow-md shadow-emerald-500/20 transition-all hover:-translate-y-0.5 active:scale-95">
-            Xem chi tiết <i class="fa-solid fa-arrow-right text-[10px]"></i>
-          </button>
-          ${audioBtn}
-        </div>
-      </div>
-    </article>`;
+            <div class="mt-4 pt-3 border-t border-slate-200/70 flex items-center justify-between gap-2 mt-auto">
+              <button data-open="${h.slug}"
+                class="flex-1 inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[12.5px] font-bold shadow-md shadow-emerald-500/20 transition-all hover:-translate-y-0.5 active:scale-95">
+                Xem chi tiết <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+              ${audioBtn}
+            </div>
+          </div>
+        </article>`;
       }).join('');
 
       syncPlayers();
@@ -2014,106 +1422,91 @@
 
       wrap.innerHTML = Object.keys(grouped).sort((a, b) => a - b).map(catId => {
         const cat = CATEGORIES[catId - 1];
-        return `
-    <div>
-      <p class="flex items-center gap-2 text-[10.5px] font-extrabold uppercase tracking-[0.12em] text-emerald-800 mb-1.5">
-        <i class="fa-solid ${cat.icon}"></i> Chương ${cat.id} · ${escapeHTML(cat.short)}
-      </p>
-      <div class="space-y-1">
-        ${grouped[catId].map(({ h, idx }) => `
-          <button data-act="toc" data-idx="${idx}"
-            class="toc-item w-full text-left px-2.5 py-2 rounded-lg text-[12px] font-bold leading-snug transition-all flex items-start gap-2 ${idx === state.bookIndex ? 'bg-emerald-50 text-emerald-900 border border-emerald-200/80' : 'text-slate-800 hover:bg-white/80 border border-transparent'}">
-            <span class="text-[10px] font-extrabold text-slate-400 mt-0.5 tabular-nums">${String(idx + 1).padStart(2, '0')}</span>
-            <span class="flex-1 line-clamp-2">${escapeHTML(h.title)}</span>
-            ${h.hasAudio ? '<i class="fa-solid fa-headphones text-[9px] text-emerald-500 mt-1"></i>' : ''}
-          </button>`).join('')}
-      </div>
-    </div>`;
+        return `<div>
+          <p class="flex items-center gap-2 text-[10.5px] font-extrabold uppercase tracking-[0.12em] text-emerald-800 mb-1.5">
+            <i class="fa-solid ${cat.icon}"></i> Chương ${cat.id} · ${escapeHTML(cat.short)}
+          </p>
+          <div class="space-y-1">
+            ${grouped[catId].map(({ h, idx }) => `<button data-act="toc" data-idx="${idx}"
+              class="toc-item w-full text-left px-2.5 py-2 rounded-lg text-[12px] font-bold leading-snug transition-all flex items-start gap-2 ${idx === state.bookIndex ? 'bg-emerald-50 text-emerald-900 border border-emerald-200/80' : 'text-slate-800 hover:bg-white/80 border border-transparent'}">
+              <span class="text-[10px] font-extrabold text-slate-400 mt-0.5 tabular-nums">${String(idx + 1).padStart(2, '0')}</span>
+              <span class="flex-1 line-clamp-2">${escapeHTML(h.title)}</span>
+              ${h.hasAudio ? '<i class="fa-solid fa-headphones text-[9px] text-emerald-500 mt-1"></i>' : ''}
+            </button>`).join('')}
+          </div>
+        </div>`;
       }).join('');
     }
 
     function buildBookPageHTML(h, cat, total) {
       const playerBlock = h.hasAudio ? `<div class="mt-5">${playerHTML(h.slug)}</div>` : '';
-      const audioBadge = h.hasAudio
-        ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Có bản ghi âm</span>`
-        : '';
+      const audioBadge = h.hasAudio ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Có bản ghi âm</span>` : '';
 
-      return `
-  <article class="glass-strong rounded-3xl overflow-hidden shadow-[0_20px_60px_-10px_rgba(15,23,42,0.18)]" data-page-slug="${h.slug}">
-    <div class="flex items-center justify-between gap-3 px-4 sm:px-8 py-3.5 border-b border-white/70 bg-white/60">
-      <div class="flex items-center gap-3 min-w-0">
-        <span class="w-9 h-9 shrink-0 rounded-xl grid place-items-center text-white bg-gradient-to-br from-emerald-500 to-teal-600 shadow-md">
-          <i class="fa-solid ${cat.icon} text-[13px]"></i>
-        </span>
-        <div class="min-w-0">
-          <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-emerald-800 truncate">Chương ${cat.id} · ${escapeHTML(cat.name)}</p>
-          <p class="text-[11px] text-slate-700 font-semibold">Trang ${state.bookIndex + 1} / ${total}${h.year ? ' · ' + escapeHTML(h.year) : ''}</p>
-        </div>
-      </div>
-      <div class="hidden sm:flex items-center gap-2 shrink-0">
-        ${audioBadge}
-        ${levelBadge(h.level)}
-      </div>
-    </div>
-
-    <div class="grid lg:grid-cols-2">
-      <div class="p-4 sm:p-7 border-b lg:border-b-0 lg:border-r border-white/70 bg-white/35">
-        ${galleryHTML(h)}
-        <div class="mt-5 p-4 rounded-2xl bg-white/80 border border-white/85">
-          <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-slate-600 mb-2.5">
-            <i class="fa-solid fa-circle-info mr-1 text-emerald-600"></i>Thông tin di sản
-          </p>
-          ${factsHTML(h)}
-          <div class="mt-3 pt-3 border-t border-slate-200/70 text-[12.5px] flex items-start gap-2">
-            <i class="fa-solid fa-map-pin text-emerald-600 mt-0.5"></i>
-            <span class="text-slate-900 font-semibold leading-snug">${escapeHTML(h.location)}</span>
+      return `<article class="glass-strong rounded-3xl overflow-hidden shadow-[0_20px_60px_-10px_rgba(15,23,42,0.18)]" data-page-slug="${h.slug}">
+        <div class="flex items-center justify-between gap-3 px-4 sm:px-8 py-3.5 border-b border-white/70 bg-white/60">
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="w-9 h-9 shrink-0 rounded-xl grid place-items-center text-white bg-gradient-to-br from-emerald-500 to-teal-600 shadow-md">
+              <i class="fa-solid ${cat.icon} text-[13px]"></i>
+            </span>
+            <div class="min-w-0">
+              <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-emerald-800 truncate">Chương ${cat.id} · ${escapeHTML(cat.name)}</p>
+              <p class="text-[11px] text-slate-700 font-semibold">Trang ${state.bookIndex + 1} / ${total}${h.year ? ' · ' + escapeHTML(h.year) : ''}</p>
+            </div>
+          </div>
+          <div class="hidden sm:flex items-center gap-2 shrink-0">
+            ${audioBadge}${levelBadge(h.level)}
           </div>
         </div>
-      </div>
 
-      <div class="p-4 sm:p-7">
-        <div class="sm:hidden mb-3 flex items-center gap-2 flex-wrap">
-          ${audioBadge}
-          ${levelBadge(h.level)}
+        <div class="grid lg:grid-cols-2">
+          <div class="p-4 sm:p-7 border-b lg:border-b-0 lg:border-r border-white/70 bg-white/35">
+            ${galleryHTML(h)}
+            <div class="mt-5 p-4 rounded-2xl bg-white/80 border border-white/85">
+              <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-slate-600 mb-2.5">
+                <i class="fa-solid fa-circle-info mr-1 text-emerald-600"></i>Thông tin di sản
+              </p>
+              ${factsHTML(h)}
+              <div class="mt-3 pt-3 border-t border-slate-200/70 text-[12.5px] flex items-start gap-2">
+                <i class="fa-solid fa-map-pin text-emerald-600 mt-0.5"></i>
+                <span class="text-slate-900 font-semibold leading-snug">${escapeHTML(h.location)}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 sm:p-7">
+            <div class="sm:hidden mb-3 flex items-center gap-2 flex-wrap">
+              ${audioBadge}${levelBadge(h.level)}
+            </div>
+            <h2 class="text-[22px] sm:text-[30px] font-extrabold leading-[1.18] text-slate-900 tracking-tight text-sharp">${escapeHTML(h.title)}</h2>
+            <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/95 to-amber-50/70 border border-emerald-200/60 border-l-4 border-l-emerald-400">
+              <p class="text-[13.5px] font-bold text-slate-900 leading-relaxed">
+                <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}
+              </p>
+            </div>
+            ${playerBlock}
+            <div class="mt-5 space-y-3.5 text-[14px] leading-[1.9] text-slate-800 font-medium">
+              ${h.desc.map(p => `<p class="text-justify">${escapeHTML(p)}</p>`).join('')}
+            </div>
+            <div class="mt-6 flex flex-wrap gap-2">
+              ${h.tags.map(t => `<span class="tag"><i class="fa-solid fa-hashtag text-[9px] opacity-70"></i>${escapeHTML(t)}</span>`).join('')}
+            </div>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <button data-open="${h.slug}"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[13px] font-bold shadow-lg shadow-emerald-500/25 transition-all hover:-translate-y-0.5 active:scale-95">
+                <i class="fa-solid fa-up-right-and-down-left-from-center"></i> Xem toàn màn hình
+              </button>
+              ${h.hasAudio ? `<button data-act="toggle" data-slug="${h.slug}" data-title="${escapeHTML(h.title)}"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/90 hover:bg-white border border-white/90 text-slate-800 text-[13px] font-bold shadow-sm transition-all hover:-translate-y-0.5 active:scale-95">
+                <i class="fa-solid fa-headphones text-emerald-600"></i> Nghe bản ghi
+              </button>` : ''}
+            </div>
+            <div class="mt-7 pt-4 border-t border-slate-200/70 flex items-center justify-between text-[11px] text-slate-600 font-bold">
+              <span><i class="fa-solid fa-bookmark text-emerald-500 mr-1"></i>Cuốn sách số di sản</span>
+              <span class="tabular-nums">— ${state.bookIndex + 1} —</span>
+            </div>
+          </div>
         </div>
-
-        <h2 class="text-[22px] sm:text-[30px] font-extrabold leading-[1.18] text-slate-900 tracking-tight text-sharp">${escapeHTML(h.title)}</h2>
-
-        <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/95 to-amber-50/70 border border-emerald-200/60 border-l-4 border-l-emerald-400">
-          <p class="text-[13.5px] font-bold text-slate-900 leading-relaxed">
-            <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}
-          </p>
-        </div>
-
-        ${playerBlock}
-
-        <div class="mt-5 space-y-3.5 text-[14px] leading-[1.9] text-slate-800 font-medium">
-          ${h.desc.map(p => `<p class="text-justify">${escapeHTML(p)}</p>`).join('')}
-        </div>
-
-        <div class="mt-6 flex flex-wrap gap-2">
-          ${h.tags.map(t => `<span class="tag"><i class="fa-solid fa-hashtag text-[9px] opacity-70"></i>${escapeHTML(t)}</span>`).join('')}
-        </div>
-
-        <div class="mt-6 flex flex-wrap gap-2">
-          <button data-open="${h.slug}"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[13px] font-bold shadow-lg shadow-emerald-500/25 transition-all hover:-translate-y-0.5 active:scale-95">
-            <i class="fa-solid fa-up-right-and-down-left-from-center"></i> Xem toàn màn hình
-          </button>
-          ${h.hasAudio ? `
-          <button data-act="toggle" data-slug="${h.slug}" data-title="${escapeHTML(h.title)}"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/90 hover:bg-white border border-white/90 text-slate-800 text-[13px] font-bold shadow-sm transition-all hover:-translate-y-0.5 active:scale-95">
-            <i class="fa-solid fa-headphones text-emerald-600"></i> Nghe bản ghi
-          </button>` : ''}
-        </div>
-
-        <div class="mt-7 pt-4 border-t border-slate-200/70 flex items-center justify-between text-[11px] text-slate-600 font-bold">
-          <span><i class="fa-solid fa-bookmark text-emerald-500 mr-1"></i>Cuốn sách số di sản</span>
-          <span class="tabular-nums">— ${state.bookIndex + 1} —</span>
-        </div>
-      </div>
-    </div>
-  </article>`;
+      </article>`;
     }
 
     function runPageSweep() {
@@ -2131,14 +1524,13 @@
       $('#resultCount').textContent = list.length;
 
       if (!list.length) {
-        wrap.innerHTML = `
-      <div class="glass-strong rounded-3xl p-10 sm:p-12 text-center">
-        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-100 to-amber-100 grid place-items-center">
-          <i class="fa-solid fa-book-open text-2xl text-emerald-600"></i>
-        </div>
-        <h3 class="mt-4 text-lg font-extrabold text-slate-900">Không có trang phù hợp</h3>
-        <p class="mt-1.5 text-[13px] text-slate-700 font-medium">Hãy điều chỉnh bộ lọc hoặc từ khóa tìm kiếm.</p>
-      </div>`;
+        wrap.innerHTML = `<div class="glass-strong rounded-3xl p-10 sm:p-12 text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-100 to-amber-100 grid place-items-center">
+            <i class="fa-solid fa-book-open text-2xl text-emerald-600"></i>
+          </div>
+          <h3 class="mt-4 text-lg font-extrabold text-slate-900">Không có trang phù hợp</h3>
+          <p class="mt-1.5 text-[13px] text-slate-700 font-medium">Hãy điều chỉnh bộ lọc hoặc từ khóa tìm kiếm.</p>
+        </div>`;
         renderTOC(list);
         $('#pageDots').innerHTML = '';
         return;
@@ -2150,20 +1542,15 @@
       const h = list[state.bookIndex];
       const cat = CATEGORIES[h.cat - 1];
       const newHTML = buildBookPageHTML(h, cat, list.length);
-
       const oldPage = wrap.firstElementChild;
 
       if (direction && oldPage && !state.isTurning) {
         state.isTurning = true;
-
         const exitClass = direction === 'next' ? 'page-flip-out-next' : 'page-flip-out-prev';
         const enterClass = direction === 'next' ? 'page-flip-in-next' : 'page-flip-in-prev';
-
         oldPage.classList.add(exitClass);
         oldPage.style.willChange = 'transform, opacity, filter';
-
         setTimeout(() => runPageSweep(), 120);
-
         setTimeout(() => {
           wrap.innerHTML = newHTML;
           const newPage = wrap.firstElementChild;
@@ -2179,7 +1566,6 @@
           initGalleries(wrap);
           state.isTurning = false;
         }, 340);
-
         renderTOC(list);
         renderDots(list.length);
         syncPlayers();
@@ -2203,7 +1589,7 @@
       for (let i = 0; i < total; i += step) {
         const active = i === state.bookIndex || (state.bookIndex >= i && state.bookIndex < i + step);
         html += `<button data-act="book-goto" data-idx="${i}"
-      class="w-2.5 h-2.5 rounded-full transition-all ${active ? 'bg-emerald-600 w-6' : 'bg-slate-300 hover:bg-slate-400'}"></button>`;
+          class="w-2.5 h-2.5 rounded-full transition-all ${active ? 'bg-emerald-600 w-6' : 'bg-slate-300 hover:bg-slate-400'}"></button>`;
       }
       dots.innerHTML = html;
     }
@@ -2215,78 +1601,69 @@
     function modalHTML(h) {
       const cat = CATEGORIES[h.cat - 1];
       const playerBlock = h.hasAudio ? `<div class="mt-5">${playerHTML(h.slug)}</div>` : '';
-      const audioBadge = h.hasAudio
-        ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Có bản ghi âm</span>`
-        : '';
+      const audioBadge = h.hasAudio ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Có bản ghi âm</span>` : '';
 
-      return `
-  <div class="sticky top-0 z-30 flex items-center justify-between gap-3 px-4 sm:px-6 py-3 bg-white/85 backdrop-blur-2xl border-b border-white/70">
-    <div class="flex items-center gap-3 min-w-0">
-      <span class="w-10 h-10 shrink-0 rounded-xl grid place-items-center text-white bg-gradient-to-br from-emerald-500 to-teal-600 shadow-md">
-        <i class="fa-solid ${cat.icon}"></i>
-      </span>
-      <div class="min-w-0">
-        <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-emerald-800 truncate">Chương ${cat.id} · ${escapeHTML(cat.full)}</p>
-        <p class="text-[11.5px] text-slate-700 font-semibold truncate">${escapeHTML(h.short)}</p>
-      </div>
-    </div>
-    <button data-close class="w-10 h-10 shrink-0 rounded-xl bg-white/90 hover:bg-white border border-white/80 grid place-items-center text-slate-700 shadow-sm transition-all hover:rotate-90 duration-300">
-      <i class="fa-solid fa-xmark text-base"></i>
-    </button>
-  </div>
-
-  <div class="grid lg:grid-cols-2">
-    <div class="p-4 sm:p-7 border-b lg:border-b-0 lg:border-r border-white/70 bg-white/40">
-      ${galleryHTML(h)}
-      <div class="mt-5 p-4 rounded-2xl bg-white/85 border border-white/85">
-        <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-slate-600 mb-3">
-          <i class="fa-solid fa-circle-info mr-1 text-emerald-600"></i>Thông tin di sản
-        </p>
-        ${factsHTML(h)}
-      </div>
-      <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/90 to-amber-50/70 border border-emerald-200/60">
-        <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-emerald-800 mb-2">
-          <i class="fa-solid fa-location-dot mr-1"></i>Địa bàn phân bố
-        </p>
-        <p class="text-[13px] text-slate-900 font-semibold leading-relaxed">${escapeHTML(h.location)}</p>
-      </div>
-    </div>
-
-    <div class="p-4 sm:p-7">
-      <div class="mb-3 flex items-center gap-2 flex-wrap">
-        ${audioBadge}
-        ${levelBadge(h.level)}
-      </div>
-      <h2 class="text-[24px] sm:text-[32px] font-extrabold leading-[1.18] text-slate-900 tracking-tight text-sharp">${escapeHTML(h.title)}</h2>
-
-      <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/95 to-amber-50/70 border border-emerald-200/60 border-l-4 border-l-emerald-400">
-        <p class="text-[14px] font-bold text-slate-900 leading-relaxed">
-          <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}
-        </p>
-      </div>
-
-      ${playerBlock}
-
-      <div class="mt-6 space-y-4 text-[14.5px] leading-[1.9] text-slate-800 font-medium">
-        ${h.desc.map(p => `<p class="text-justify">${escapeHTML(p)}</p>`).join('')}
-      </div>
-
-      <div class="mt-6 flex flex-wrap gap-2">
-        ${h.tags.map(t => `<span class="tag"><i class="fa-solid fa-hashtag text-[9px] opacity-70"></i>${escapeHTML(t)}</span>`).join('')}
-      </div>
-
-      <div class="mt-7 pt-4 border-t border-slate-200/70 flex flex-wrap gap-2">
-        <a href="https://disanthainguyen.pages.dev/" target="_top"
-           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/90 hover:bg-white border border-white/90 text-slate-800 text-[12.5px] font-bold shadow-sm transition-all hover:-translate-y-0.5">
-          <i class="fa-solid fa-house-chimney text-emerald-600"></i> Menu chính
-        </a>
-        <button data-close
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-900 text-white text-[12.5px] font-bold shadow-sm transition-all hover:-translate-y-0.5">
-          <i class="fa-solid fa-arrow-left"></i> Đóng
+      return `<div class="sticky top-0 z-30 flex items-center justify-between gap-3 px-4 sm:px-6 py-3 bg-white/85 backdrop-blur-2xl border-b border-white/70">
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="w-10 h-10 shrink-0 rounded-xl grid place-items-center text-white bg-gradient-to-br from-emerald-500 to-teal-600 shadow-md">
+            <i class="fa-solid ${cat.icon}"></i>
+          </span>
+          <div class="min-w-0">
+            <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-emerald-800 truncate">Chương ${cat.id} · ${escapeHTML(cat.full)}</p>
+            <p class="text-[11.5px] text-slate-700 font-semibold truncate">${escapeHTML(h.short)}</p>
+          </div>
+        </div>
+        <button data-close class="w-10 h-10 shrink-0 rounded-xl bg-white/90 hover:bg-white border border-white/80 grid place-items-center text-slate-700 shadow-sm transition-all hover:rotate-90 duration-300">
+          <i class="fa-solid fa-xmark text-base"></i>
         </button>
       </div>
-    </div>
-  </div>`;
+
+      <div class="grid lg:grid-cols-2">
+        <div class="p-4 sm:p-7 border-b lg:border-b-0 lg:border-r border-white/70 bg-white/40">
+          ${galleryHTML(h)}
+          <div class="mt-5 p-4 rounded-2xl bg-white/85 border border-white/85">
+            <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-slate-600 mb-3">
+              <i class="fa-solid fa-circle-info mr-1 text-emerald-600"></i>Thông tin di sản
+            </p>
+            ${factsHTML(h)}
+          </div>
+          <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/90 to-amber-50/70 border border-emerald-200/60">
+            <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-emerald-800 mb-2">
+              <i class="fa-solid fa-location-dot mr-1"></i>Địa bàn phân bố
+            </p>
+            <p class="text-[13px] text-slate-900 font-semibold leading-relaxed">${escapeHTML(h.location)}</p>
+          </div>
+        </div>
+
+        <div class="p-4 sm:p-7">
+          <div class="mb-3 flex items-center gap-2 flex-wrap">
+            ${audioBadge}${levelBadge(h.level)}
+          </div>
+          <h2 class="text-[24px] sm:text-[32px] font-extrabold leading-[1.18] text-slate-900 tracking-tight text-sharp">${escapeHTML(h.title)}</h2>
+          <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/95 to-amber-50/70 border border-emerald-200/60 border-l-4 border-l-emerald-400">
+            <p class="text-[14px] font-bold text-slate-900 leading-relaxed">
+              <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}
+            </p>
+          </div>
+          ${playerBlock}
+          <div class="mt-6 space-y-4 text-[14.5px] leading-[1.9] text-slate-800 font-medium">
+            ${h.desc.map(p => `<p class="text-justify">${escapeHTML(p)}</p>`).join('')}
+          </div>
+          <div class="mt-6 flex flex-wrap gap-2">
+            ${h.tags.map(t => `<span class="tag"><i class="fa-solid fa-hashtag text-[9px] opacity-70"></i>${escapeHTML(t)}</span>`).join('')}
+          </div>
+          <div class="mt-7 pt-4 border-t border-slate-200/70 flex flex-wrap gap-2">
+            <a href="https://disanthainguyen.pages.dev/" target="_top"
+               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/90 hover:bg-white border border-white/90 text-slate-800 text-[12.5px] font-bold shadow-sm transition-all hover:-translate-y-0.5">
+              <i class="fa-solid fa-house-chimney text-emerald-600"></i> Menu chính
+            </a>
+            <button data-close
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/90 hover:bg-slate-900 text-white text-[12.5px] font-bold shadow-sm transition-all hover:-translate-y-0.5">
+              <i class="fa-solid fa-arrow-left"></i> Đóng
+            </button>
+          </div>
+        </div>
+      </div>`;
     }
 
     function openModal(slug) {
@@ -2333,7 +1710,6 @@
       lb.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox() {
       $('#lightbox').classList.add('hidden');
       if (!state.modalSlug) document.body.style.overflow = '';
@@ -2384,7 +1760,6 @@
     function updateMiniPlayer() {
       const mini = $('#miniPlayer');
       const modalOpen = !$('#modal').classList.contains('hidden');
-
       if (!currentSlug || modalOpen) { mini.classList.add('hidden'); return; }
       mini.classList.remove('hidden');
 
@@ -2413,7 +1788,6 @@
       if (total < 2) return;
       idx = ((idx % total) + total) % total;
       galleryEl.dataset.idx = idx;
-
       const slug = galleryEl.dataset.gallery;
       const main = galleryEl.querySelector('[data-role="main"]');
       if (main) {
@@ -2423,11 +1797,9 @@
           main.style.opacity = '';
         }, 140);
       }
-
       galleryEl.querySelectorAll('[data-act="g-thumb"]').forEach((t, i) => {
         t.classList.toggle('thumb-active', i === idx);
       });
-
       const cur = galleryEl.querySelector('[data-role="cur"]');
       if (cur) cur.textContent = idx + 1;
     }
@@ -2458,10 +1830,8 @@
     function setView(view) {
       state.view = view;
       paintControls();
-
       const gridView = $('#gridView');
       const bookView = $('#bookView');
-
       if (view === 'grid') {
         gridView.classList.remove('view-hidden');
         bookView.classList.add('view-hidden');
@@ -2519,23 +1889,20 @@
       const lvlWrap = $('#sheetLvlChips');
       if (!catWrap || !lvlWrap) return;
 
-      catWrap.innerHTML = [
-        `<button data-scat="all" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
-       <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả</button>`
-      ].concat(CATEGORIES.map(c => `
-    <button data-scat="${c.id}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
-      <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id}. ${escapeHTML(c.short)}
-    </button>`)).join('');
+      catWrap.innerHTML = [`<button data-scat="all" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
+       <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả</button>`]
+        .concat(CATEGORIES.map(c => `<button data-scat="${c.id}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
+          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id}. ${escapeHTML(c.short)}
+        </button>`)).join('');
 
       lvlWrap.innerHTML = [
         { v: 'all', l: 'Tất cả', i: 'fa-border-all' },
         { v: 'UNESCO', l: 'UNESCO', i: 'fa-globe' },
         { v: 'QG', l: 'Quốc gia', i: 'fa-award' },
         { v: 'Local', l: 'Địa phương', i: 'fa-location-dot' }
-      ].map(x => `
-    <button data-slvl="${x.v}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
-      <i class="fa-solid ${x.i} mr-1.5"></i>${x.l}
-    </button>`).join('');
+      ].map(x => `<button data-slvl="${x.v}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
+        <i class="fa-solid ${x.i} mr-1.5"></i>${x.l}
+      </button>`).join('');
 
       paintSheetChips();
     }
@@ -2565,7 +1932,6 @@
       document.body.style.overflow = 'hidden';
       paintSheetChips();
     }
-
     function closeSheet() {
       $('#filterSheet').classList.remove('open');
       $('#filterSheetBackdrop').classList.remove('open');
@@ -2573,21 +1939,19 @@
     }
 
     /* ============================================================
-       17. SWIPE GESTURE (mobile book)
+       17. SWIPE GESTURE
        ============================================================ */
 
     function setupSwipe() {
       const stage = $('#bookStage');
       if (!stage) return;
       let x0 = 0, y0 = 0, t0 = 0, tracking = false;
-
       stage.addEventListener('touchstart', (e) => {
         if (state.view !== 'book' || state.isTurning) return;
         const t = e.touches[0];
         x0 = t.clientX; y0 = t.clientY; t0 = Date.now();
         tracking = true;
       }, { passive: true });
-
       stage.addEventListener('touchend', (e) => {
         if (!tracking) return;
         tracking = false;
@@ -2597,10 +1961,8 @@
         const dy = t.clientY - y0;
         const dt = Date.now() - t0;
         if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.4 || dt > 800) return;
-
         const list = filteredList();
         if (!list.length) return;
-
         if (dx < 0) {
           state.bookIndex = (state.bookIndex + 1) % list.length;
           renderBook('next');
@@ -2618,18 +1980,14 @@
     document.addEventListener('click', (e) => {
       const openBtn = e.target.closest('[data-open]');
       if (openBtn) { openModal(openBtn.dataset.open); return; }
-
       if (e.target.closest('[data-close]')) { closeModal(); return; }
       if (e.target.closest('[data-close-lightbox]')) { closeLightbox(); return; }
       if (e.target.closest('[data-close-sheet]')) { closeSheet(); return; }
 
       const sheetChip = e.target.closest('.sheet-chip');
       if (sheetChip) {
-        if (sheetChip.hasAttribute('data-scat')) {
-          state.category = sheetChip.dataset.scat;
-        } else if (sheetChip.hasAttribute('data-slvl')) {
-          state.level = sheetChip.dataset.slvl;
-        }
+        if (sheetChip.hasAttribute('data-scat')) state.category = sheetChip.dataset.scat;
+        else if (sheetChip.hasAttribute('data-slvl')) state.level = sheetChip.dataset.slvl;
         state.bookIndex = 0;
         paintControls();
         paintSheetChips();
@@ -2647,7 +2005,6 @@
         toggleTrack(slug, title);
         return;
       }
-
       if (act === 'book-prev') {
         if (state.isTurning) return;
         const list = filteredList();
@@ -2656,7 +2013,6 @@
         renderBook('prev');
         return;
       }
-
       if (act === 'book-next') {
         if (state.isTurning) return;
         const list = filteredList();
@@ -2665,7 +2021,6 @@
         renderBook('next');
         return;
       }
-
       if (act === 'book-goto') {
         if (state.isTurning) return;
         const newIdx = Number(actEl.dataset.idx) || 0;
@@ -2675,7 +2030,6 @@
         renderBook(dir);
         return;
       }
-
       if (act === 'toc') {
         if (state.isTurning) return;
         const newIdx = Number(actEl.dataset.idx) || 0;
@@ -2690,7 +2044,6 @@
       const gallery = e.target.closest('[data-gallery]');
       if (!gallery) return;
       const curIdx = Number(gallery.dataset.idx || 0);
-
       if (act === 'g-prev') gallerySetIndex(gallery, curIdx - 1);
       if (act === 'g-next') gallerySetIndex(gallery, curIdx + 1);
       if (act === 'g-thumb') gallerySetIndex(gallery, Number(actEl.dataset.idx));
@@ -2724,7 +2077,6 @@
       const rect = e.currentTarget.getBoundingClientRect();
       seekTo((e.clientX - rect.left) / rect.width);
     });
-
     $('#miniToggle').addEventListener('click', () => {
       if (!currentSlug) return;
       if (audioEl.paused) { const p = audioEl.play(); if (p && p.catch) p.catch(() => { }); }
@@ -2736,7 +2088,6 @@
     $$('.view-btn').forEach(btn => {
       btn.addEventListener('click', () => setView(btn.dataset.view));
     });
-
     $$('.lvl-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         state.level = btn.dataset.level;
@@ -2745,7 +2096,6 @@
         renderAll();
       });
     });
-
     $('#catChips').addEventListener('click', (e) => {
       const chip = e.target.closest('.cat-chip');
       if (!chip) return;
@@ -2754,16 +2104,14 @@
       paintChips();
       renderAll();
     });
-
     $$('.mnav-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const m = btn.dataset.mnav;
         if (m === 'home') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
         if (m === 'filter') { openSheet(); return; }
-        if (m === 'book' || m === 'grid') { setView(m); }
+        if (m === 'book' || m === 'grid') setView(m);
       });
     });
-
     $('#openFilterSheet')?.addEventListener('click', openSheet);
     $('#sheetReset')?.addEventListener('click', () => {
       state.category = 'all';
@@ -2786,7 +2134,6 @@
         renderAll();
       }, 220);
     });
-
     $('#clearSearch').addEventListener('click', () => {
       $('#searchInput').value = '';
       $('#clearSearch').classList.add('hidden');
@@ -2794,7 +2141,6 @@
       state.bookIndex = 0;
       renderAll();
     });
-
     $('#resetFilters').addEventListener('click', resetFilters);
 
     document.addEventListener('keydown', (e) => {
