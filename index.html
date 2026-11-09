@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0d9488" />
-  <title>Cuốn Sách Số Di Sản Văn Hóa Phi Vật Thể Thái Nguyên</title>
+  <title>Cuốn Sách Số Di Sản Văn Hóa Phi Vật Thể Tỉnh Thái Nguyên</title>
   <meta name="description"
     content="Cuốn sách số tương tác về Di sản văn hóa phi vật thể Thái Nguyên: Then, Tắc Xình, Páo dung, Lồng Tồng, nghề truyền thống và tri thức dân gian." />
 
@@ -302,7 +302,7 @@
         <div class="min-w-0">
           <h1
             class="text-[11.5px] sm:text-[15px] font-extrabold tracking-tight leading-tight truncate text-slate-900 text-sharp">
-            DI SẢN VĂN HÓA PHI VẬT THỂ
+            DI SẢN VĂN HÓA PHI VẬT THỂ TỈNH THÁI NGUYÊN
           </h1>
           <p class="text-[10px] sm:text-[11.5px] text-slate-700 font-semibold truncate">
             Thái Nguyên · Không gian văn hóa số
@@ -344,7 +344,7 @@
         CUỐN SÁCH SỐ<br />
         <span
           class="bg-gradient-to-r from-emerald-600 via-teal-600 to-amber-500 bg-clip-text text-transparent drop-shadow-sm">
-          DI SẢN VĂN HÓA PHI VẬT THỂ
+          DI SẢN VĂN HÓA PHI VẬT THỂ TỈNH THÁI NGUYÊN
         </span>
       </h2>
     </div>
@@ -381,8 +381,6 @@
           class="controls-desktop-only flex items-center gap-1 p-1 rounded-xl bg-slate-100/70 border border-white/80 overflow-x-auto chip-scroll self-start lg:self-auto backdrop-blur-md">
           <button data-level="all"
             class="lvl-btn px-3 py-2 rounded-lg text-[12px] font-bold whitespace-nowrap transition-all">Tất cả</button>
-          <button data-level="UNESCO"
-            class="lvl-btn px-3 py-2 rounded-lg text-[12px] font-bold whitespace-nowrap transition-all">UNESCO</button>
           <button data-level="QG"
             class="lvl-btn px-3 py-2 rounded-lg text-[12px] font-bold whitespace-nowrap transition-all">Quốc
             gia</button>
@@ -474,7 +472,7 @@
     <div class="mx-auto max-w-7xl glass rounded-2xl p-5 sm:p-6">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
         <div>
-          <p class="text-[13px] font-extrabold text-slate-900 text-sharp">CUỐN SÁCH SỐ DI SẢN VĂN HÓA PHI VẬT THỂ</p>
+          <p class="text-[13px] font-extrabold text-slate-900 text-sharp">CUỐN SÁCH SỐ DI SẢN VĂN HÓA PHI VẬT THỂ TỈNH THÁI NGUYÊN</p>
           <p class="text-[11.5px] text-slate-700 font-semibold mt-0.5">Thái Nguyên · Dự án số hóa di sản văn hóa</p>
         </div>
         <a href="https://disanthainguyen.pages.dev/" target="_top"
@@ -619,7 +617,7 @@
        ============================================================ */
 
     const CATEGORIES = [
-      { id: 1, name: 'Hát Then', short: 'Then', full: 'Hát Then của người Tày, Nùng, Thái', icon: 'fa-hands-praying' },
+      { id: 1, roman: 'I', name: 'Thực hành Then', short: 'Thực hành Then', full: 'Thực hành Then', icon: 'fa-hands-praying' },
       { id: 2, name: 'Tiếng nói – Chữ viết – Ngữ văn dân gian', short: 'Chữ viết & Ngữ văn', full: 'Tiếng nói, chữ viết, ký tự & Ngữ văn dân gian', icon: 'fa-feather-pointed' },
       { id: 3, name: 'Nghệ thuật trình diễn dân gian', short: 'Trình diễn', full: 'Nghệ thuật trình diễn dân gian', icon: 'fa-music' },
       { id: 4, name: 'Tập quán xã hội và tín ngưỡng', short: 'Tín ngưỡng', full: 'Tập quán xã hội và tín ngưỡng', icon: 'fa-fire-flame-curved' },
@@ -631,24 +629,28 @@
     const HERITAGES = [
       {
         slug: 'thuc-hanh-then',
-        title: 'Hát Then của người Tày, Nùng, Thái',
-        cat: 1, level: 'UNESCO', year: '2019', hasAudio: true,
-        short: 'Các xã vùng Đình Hóa – Thái Nguyên',
-        location: 'Các xã Đình Hóa, Bình Yên, Bình Thành, Trung Hội, Phượng Tiến, Phú Đình, Kim Phượng, Lam Vỹ – tỉnh Thái Nguyên',
+        title: 'Thực hành Then của người Tày',
+        cat: 1, level: 'QG', year: '2015', hasAudio: true,
+        short: 'Các xã vùng Định Hóa – Thái Nguyên',
+        location: 'Các xã Định Hóa, Bình Yên, Bình Thành, Trung Hội, Phượng Tiến, Phú Đình, Kim Phượng, Lam Vỹ – tỉnh Thái Nguyên',
         summary: 'Tín ngưỡng dân gian tổng hợp kết hợp âm nhạc đàn Tính, lời Then, múa Then và nghi lễ cầu an, giải hạn, cấp sắc.',
         desc: [
-          'Then là hình thức sinh hoạt tín ngưỡng dân gian tổng hợp của người Tày, Nùng, Thái, bao gồm lời Then, tiếng đàn Tính, điệu múa và hệ thống nghi lễ gắn chặt với đời sống tâm linh của cộng đồng. Thầy Then vừa là người dẫn dắt nghi lễ, vừa là nghệ sĩ trình diễn, đưa con người giao hòa cùng thế giới thần linh.',
-          'Tại Thái Nguyên, hát Then được bảo tồn đậm đặc ở vùng Đình Hóa – nơi còn lưu giữ nhiều gia đình có truyền thống hành nghề Then qua nhiều thế hệ. Các nghi lễ tiêu biểu gồm cầu an, giải hạn, chữa bệnh, mừng thọ, cấp sắc và các cuộc Then trong lễ hội cộng đồng.',
-          'Năm 2019, UNESCO đã ghi danh "Hát Then của người Tày, Nùng, Thái ở Việt Nam" vào Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại, khẳng định giá trị nhân văn và sức sống của loại hình này.'
+          'Nghi lễ Then không chỉ là một hình thức nghệ thuật mà còn chứa đựng những giá trị văn hóa tinh thần sâu sắc của dân tộc Tày tỉnh Thái Nguyên. Là sợi dây kết nối cộng đồng tạo nên sự gắn kết giữa các thành viên trong bản làng, là dịp để mọi người cùng nhau chia sẻ niềm vui, nỗi buồn và cầu mong những điều tốt đẹp. Nghi lễ Then như một bảo tàng sống động lưu giữ những giá trị văn hóa truyền thống của dân tộc Tày từ ngôn ngữ, âm nhạc, vũ đạo đến trang phục và các phong tục tập quán phản ánh thế giới quan, nhân sinh quan của người Tày, thể hiện ước mơ về một cuộc sống ấm no, hạnh phúc, hòa hợp với thiên nhiên.',
+          'Nghi lễ Then chứa đựng trong bản thân nó nhiều yếu tố của tôn giáo nguyên thủy có sự tiếp thu ảnh hưởng của Đạo giáo, Phật giáo và Nho giáo song yếu tố bản địa của dân tộc Tày vẫn là chủ đạo. Nội dung chủ yếu của nghi lễ Then phản ánh hiện thực cuộc sống của người Tày ở tỉnh Thái Nguyên trong quá trình lao động sản xuất, đấu tranh sinh tồn trong xã hội có giai cấp cùng những sinh hoạt văn hóa tinh thần từ thuở sơ khai được bảo lưu và trao truyền từ thế hệ này qua thế hệ khác cho đến ngày nay.'
         ],
         facts: [
           ['Loại hình', 'Tín ngưỡng dân gian & Nghệ thuật trình diễn'],
-          ['Dân tộc', 'Tày, Nùng, Thái'],
+          ['Dân tộc', 'Tày'],
           ['Nhạc cụ', 'Đàn Tính, chùm xóc'],
-          ['Địa bàn', 'Vùng Đình Hóa – Thái Nguyên'],
-          ['Ghi danh', 'UNESCO – 2019']
+          ['Địa bàn', 'Vùng Định Hóa – Thái Nguyên'],
+          ['Danh mục', 'Danh mục di sản văn hóa phi vật thể quốc gia theo Quyết định số 3465/QĐ-BVHTTDL ngày 12/10/2015']
         ],
-        tags: ['Then', 'Đàn tính', 'Hát Then', 'Múa Then', 'Cầu an', 'Cấp sắc']
+        captions: [
+          'Thực hành nghi lễ Then của người Tày tỉnh Thái Nguyên (Nguồn: Báo Thái Nguyên)',
+          'Biểu diễn hát Then – đàn Tính tại Thái Nguyên (Nguồn: Báo Thái Nguyên)',
+          'Không gian thực hành nghi lễ Then truyền thống của người Tày (Nguồn: Hồ sơ di sản văn hóa phi vật thể tỉnh Thái Nguyên)'
+        ],
+        tags: ['Then', 'Đàn tính', 'Thực hành Then', 'Múa Then', 'Cầu an', 'Cấp sắc']
       },
       {
         slug: 'chu-nom-tay-bang-thanh',
@@ -667,28 +669,37 @@
           ['Dân tộc', 'Tày'],
           ['Cơ sở chữ', 'Chữ Hán (phồn thể), âm Hán – Việt'],
           ['Địa bàn', 'X. Bằng Thành – Thái Nguyên'],
-          ['Ghi danh', 'Di sản Quốc gia – 2014']
+          ['Danh mục', 'Di sản văn hóa phi vật thể quốc gia – 2014']
+        ],
+        captions: [
+          'Sách cổ chữ Nôm Tày lưu giữ trong gia đình tại xã Bằng Thành (Nguồn: Báo Bắc Kạn)',
+          'Văn bản chữ Nôm của người Tày viết trên giấy bản cổ (Nguồn: Báo Bắc Kạn)',
+          'Truyền dạy và gìn giữ chữ Nôm của người Tày ở xã Bằng Thành (Nguồn: Báo Bắc Kạn)'
         ],
         tags: ['Chữ Nôm Tày', 'Bằng Thành', 'Pác Nặm', 'Sách cổ', 'Văn học dân gian']
       },
       {
         slug: 'sach-co-nom-dao',
-        title: 'Sách cổ chữ Nôm Dao',
+        title: 'Chữ Nôm Dao',
         cat: 2, level: 'Local', year: '', hasAudio: false,
-        short: 'X. Nam Hòa, X. Quang Sơn – Thái Nguyên',
-        location: 'Gia đình lưu giữ tại xã Nam Hòa và xã Quang Sơn – tỉnh Thái Nguyên',
-        summary: 'Kho tư liệu Hán – Nôm cổ của người Dao ghi chép nghi lễ, lịch pháp, y dược cổ truyền và gia phả dòng họ.',
+        short: 'Thái Nguyên',
+        location: '',
+        summary: 'Chữ Nôm Dao là công cụ để người Dao ghi chép lại nghi lễ, lịch pháp, y dược cổ truyền và gia phả dòng họ',
         desc: [
-          'Những bộ sách cổ chữ Nôm Dao được lưu giữ trong các gia đình người Dao tại vùng Nam Hòa – Quang Sơn là kho tư liệu quý phản ánh tri thức bản địa được tích lũy qua nhiều đời. Sách được viết trên giấy bản truyền thống, đóng thành quyển, nhiều bộ đã ngả màu theo thời gian.',
-          'Nội dung sách trải rộng từ các bài cúng, nghi thức cấp sắc, lịch pháp cổ, phương thang y dược đến gia phả dòng họ và các bài học đạo lý. Đây là nguồn sử liệu quan trọng để nghiên cứu ngôn ngữ, tôn giáo tín ngưỡng và tập quán của người Dao ở Thái Nguyên.'
+          'Dân tộc Dao ở Thái Nguyên gồm 03 nhóm chính là Dao Đỏ, Dao Tiền và Dao Quần Chẹt (ngoài ra còn có một bộ phận nhỏ nhóm Dao Lô Gang và Dao Quần Trắng). Dù thuộc các nhóm khác nhau, tiếng nói của người Dao vẫn thống nhất trong phạm vi toàn bộ dân tộc và chỉ có sự khác biệt rất nhỏ về mặt ngữ âm giữa các nhóm hay các vùng địa lý.',
+          'Về chữ viết, người Dao không có hệ thống văn tự riêng mà tiếp thu chữ Hán đã được “Dao hóa” để tạo thành chữ Nôm Dao. Hệ thống chữ này bao gồm cả những chữ Hán nguyên bản được đọc theo âm Hán - Dao và các chữ được cải biến để ghi âm tiếng Dao cổ. Trẻ em người Dao khi bắt đầu học chữ thường sử dụng cuốn Tam tự kinh với cách thức học tương tự như người Việt xưa học chữ Hán, tức là thầy chỉ mặt chữ, đọc âm rồi giải nghĩa từng câu để trò ghi nhớ. Chữ Nôm Dao đóng vai trò đặc biệt quan trọng trong việc bảo tồn di sản văn hóa của dân tộc, được sử dụng để ghi chép gia phả, các bài cúng trong nghi lễ tôn giáo, văn học dân gian (truyện cổ, dân ca), lịch sử (như Quá sơn bảng văn) và các tri thức dân gian về lịch pháp, xem ngày giờ hay thuốc chữa bệnh. Không chỉ bó hẹp trong phạm vi tôn giáo, chữ Nôm Dao còn được dùng rộng rãi trong sinh hoạt hàng ngày như viết thư từ và ghi chép văn tự.'
         ],
         facts: [
           ['Loại hình', 'Tiếng nói, chữ viết, ký tự'],
           ['Dân tộc', 'Dao'],
           ['Chất liệu', 'Giấy bản, mực Tàu'],
-          ['Địa bàn', 'X. Nam Hòa, X. Quang Sơn']
+          ['Địa bàn', 'Thái Nguyên']
         ],
-        tags: ['Chữ Nôm Dao', 'Sách cổ', 'Người Dao', 'Tri thức bản địa']
+        captions: [
+          'Sách chữ Nôm Dao lưu giữ tại tỉnh Thái Nguyên (Nguồn: Hồ sơ di sản văn hóa phi vật thể tỉnh Thái Nguyên)',
+          'Văn bản chữ Nôm Dao ghi chép nghi lễ, lịch pháp và tri thức dân gian (Nguồn: Hồ sơ di sản văn hóa phi vật thể tỉnh Thái Nguyên)'
+        ],
+        tags: ['Chữ Nôm Dao', 'Người Dao', 'Tam tự kinh', 'Tri thức bản địa']
       },
       {
         slug: 'cot-da-chua-ha',
@@ -705,6 +716,9 @@
           ['Loại hình', 'Tiếng nói, chữ viết, ký tự'],
           ['Di tích', 'Bà Ha Tự (chùa Ha)'],
           ['Địa bàn', 'X. Phú Bình – Thái Nguyên']
+        ],
+        captions: [
+          'Chữ khắc trên cột đá cổ tại chùa Ha (Bà Ha Tự), xã Phú Bình (Nguồn: Báo Thái Nguyên)'
         ],
         tags: ['Cột đá', 'Chùa Ha', 'Cổ tự', 'Chữ cổ']
       },
@@ -724,26 +738,32 @@
           ['Thể loại', 'Thần thoại, ngụ ngôn, ca dao, tục ngữ, dân ca'],
           ['Dân tộc', 'Tày, Nùng, Dao, Sán Chay, Mông…']
         ],
+        captions: [
+          'Diễn xướng dân ca và ngữ văn dân gian các dân tộc tỉnh Thái Nguyên (Nguồn: Báo Thái Nguyên)'
+        ],
         tags: ['Ca dao', 'Tục ngữ', 'Thần thoại', 'Lượn', 'Sli']
       },
       {
         slug: 'roi-can-tay',
         title: 'Rối cạn của người Tày',
         cat: 3, level: 'QG', year: '', hasAudio: false,
-        short: 'X. Bình Yên, X. Đồng Hỷ – Thái Nguyên',
-        location: 'Các xã Bình Yên và Đồng Hỷ – tỉnh Thái Nguyên',
+        short: 'Xã Bình Yên, xã Định Hóa',
+        location: 'Xã Bình Yên, xã Định Hóa',
         summary: 'Nghệ thuật múa rối cạn độc đáo của người Tày, điều khiển con rối bằng que gỗ gắn với các tích trò dân gian.',
         desc: [
-          'Rối cạn của người Tày là loại hình trình diễn dân gian hiếm gặp, trong đó nghệ nhân điều khiển những con rối được làm từ gỗ và vải, biểu diễn các tích trò gắn với đời sống nông nghiệp, săn bắt và sinh hoạt cộng đồng.',
-          'Trò diễn thường gắn với không gian lễ hội, hội xuân và các nghi lễ cầu mùa. Việc bảo tồn rối cạn Tày tại các xã Bình Yên và Đồng Hỷ là nỗ lực quan trọng nhằm giữ gìn một loại hình sân khấu dân gian đang có nguy cơ mai một.'
+          'Tại khu vực Định Hóa, truyền thống múa rối cạn gắn liền với hai dòng họ: dòng họ Ma Quang ở thôn Thẩm Rộc (xã Bình Yên) và dòng họ Đồng ở thôn Ru Nghệ (xã Định Hóa). Trải qua nhiều biến cố lịch sử, phường rối dòng họ Đồng tại Ru Nghệ hiện chỉ còn lưu giữ được một vài hiện vật nhưng không còn duy trì hoạt động trình diễn. Hiện nay, duy nhất dòng họ Ma Quang ở thôn Thẩm Rộc còn nắm giữ đầy đủ bộ con rối cổ cùng các kỹ thuật biểu diễn truyền thống.',
+          'Theo lời kể của các nghệ nhân cao tuổi tại Thẩm Rộc, nghề múa rối của dòng họ đã có lịch sử hơn 200 năm và được truyền nối liên tục qua 7 đời trưởng họ. Các con rối được chế tác chủ yếu từ gỗ thừng mực (mạy múc) nhờ đặc tính nhẹ, thớ mịn, dễ đẽo gọt và ít bị mối mọt. Phần đầu và thân rối được tạo hình tách rời, sau đó lắp ghép lại thông qua một trục tre đóng vai trò như cổ rối; trục này nối dài xuống dưới làm tay cầm giúp nghệ nhân điều khiển con rối xoay chuyển linh hoạt. Trang phục cho rối là những tấm vải vuông may kiểu áo chui đầu với các gam màu rực rỡ như xanh, đỏ, tím, vàng. Nhằm bảo tồn và phát huy giá trị độc đáo này, ngày 20/6/2015, Bộ Văn hóa, Thể thao và Du lịch đã ban hành Quyết định số 1877/QĐ-BVHTTDL công nhận nghệ thuật Rối cạn của người Tày ở Thẩm Rộc (Bình Yên) và Ru Nghệ (Đồng Thịnh) vào Danh mục di sản văn hóa phi vật thể quốc gia.'
         ],
         facts: [
           ['Loại hình', 'Nghệ thuật trình diễn dân gian'],
           ['Dân tộc', 'Tày'],
-          ['Địa bàn', 'X. Bình Yên, X. Đồng Hỷ'],
-          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+          ['Địa bàn', 'Xã Bình Yên, xã Định Hóa'],
+          ['Danh mục', 'Di sản văn hóa phi vật thể Quốc gia']
         ],
-        tags: ['Rối cạn', 'Sân khấu dân gian', 'Người Tày']
+        captions: [
+          'Rối cạn của người Tày (Nguồn: Thầy giáo Nguyễn Thanh Thùy - THPT Bình Yên)'
+        ],
+        tags: ['Rối cạn', 'Thẩm Rộc', 'Ru Nghệ', 'Sân khấu dân gian', 'Người Tày']
       },
       {
         slug: 'mua-tac-xinh',
@@ -753,14 +773,17 @@
         location: 'Các xã Yên Trạch, Hợp Thành và vùng Phú Lương – tỉnh Thái Nguyên',
         summary: 'Điệu múa nghi lễ - hội hè của người Sán Chay, nhịp điệu dồn dập mô phỏng động tác lao động sản xuất.',
         desc: [
-          'Tắc Xình là điệu múa tập thể của người Sán Chay (Cao Lan – Sán Chí) được trình diễn trong các dịp lễ hội, cầu mùa, mừng nhà mới. Người múa xếp thành vòng, nhún chân theo nhịp trống, chiêng, tạo nên không khí cộng cảm mạnh mẽ.',
-          'Động tác múa mô phỏng các hoạt động lao động như cày cấy, gieo hạt, giã gạo – thể hiện ước vọng mùa màng bội thu và đời sống sung túc. Múa Tắc Xình đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+          'Múa Tắc Xình có 09 động tác mô phỏng đời sống của người Sán Chay: thăm đường, lập làng, bắt quyết, mài dao, phát nương, tra mố, chăm sóc lúa, thu hoạch mùa màng và mừng mùa chính hội (bồ câu ăn muối).',
+          'Múa Tắc Xình là điệu múa nghi lễ trong lễ Cầu mùa của người Sán Chay với các bước nhảy vui nhộn phụ họa theo tiết tấu của âm thanh “tắc, xình”. Múa Tắc Xình thể hiện tín ngưỡng phồn thực với đạo cụ bằng tre đực già và tre cái bánh tẻ và những động tác chọc lỗ, tra hạt giống cầu cho một năm mưa thuận gió hòa, mùa màng tươi tốt, bản làng bình yên no ấm. Ngày 09/6/2014, Bộ trưởng Bộ Văn hóa, Thể thao và Du lịch đã ký Quyết định số 1605/QĐ-BVHTTDL công nhận múa Tắc Xình của người Sán Chay ở huyện Phú Lương vào Danh mục di sản văn hóa phi vật thể quốc gia.'
         ],
         facts: [
           ['Loại hình', 'Nghệ thuật trình diễn dân gian'],
-          ['Dân tộc', 'Sán Chay (Cao Lan, Sán Chí)'],
+          ['Dân tộc', 'Sán Chay'],
           ['Địa bàn', 'X. Yên Trạch, X. Hợp Thành'],
-          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+          ['Danh mục', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        captions: [
+          'Múa tra mố (Ảnh: Theo Hồ sơ di sản)'
         ],
         tags: ['Tắc Xình', 'Sán Chay', 'Múa cầu mùa']
       },
@@ -773,13 +796,16 @@
         summary: 'Làn điệu hát đối đáp giao duyên của người Dao, gắn với nghi lễ và sinh hoạt cộng đồng.',
         desc: [
           'Páo dung là hình thức hát đối đáp truyền thống của người Dao, thường được cất lên trong các dịp lễ Tết, hội làng, đám cưới và những buổi giao duyên giữa nam nữ thanh niên.',
-          'Lời hát Páo dung giàu hình ảnh, sử dụng nhiều ẩn dụ về núi rừng, mùa màng, chim muông, thể hiện tình cảm và triết lý sống của người Dao. Giai điệu mộc mạc, gần với ngữ điệu nói, dễ đi vào lòng người. Nghệ thuật hát Páo dung đã được ghi danh Di sản văn hóa phi vật thể Quốc gia.'
+          'Lời hát Páo dung giàu hình ảnh, sử dụng nhiều ẩn dụ về núi rừng, mùa màng, chim muông, thể hiện tình cảm và triết lý sống của người Dao. Giai điệu mộc mạc, gần với ngữ điệu nói, dễ đi vào lòng người. Nghệ thuật hát Páo dung được ghi vào Danh mục di sản văn hóa phi vật thể quốc gia.'
         ],
         facts: [
           ['Loại hình', 'Nghệ thuật trình diễn dân gian'],
           ['Dân tộc', 'Dao'],
           ['Địa bàn', 'Chợ Đồn, Ngân Sơn, Bằng Thành, Phủ Thông, P. Bắc Kạn, P. Đức Xuân'],
-          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+          ['Danh mục', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        captions: [
+          'Hát Páo Dung ru con, điệu hát đã nuôi dưỡng tâm hồn bao thế hệ người Dao (Nguồn: VOV)'
         ],
         tags: ['Páo dung', 'Người Dao', 'Hát giao duyên']
       },
@@ -800,24 +826,32 @@
           ['Địa bàn', 'X. Na Rì – Thái Nguyên'],
           ['Thời gian', 'Tổ chức nhiều ngày, thường vào mùa xuân – thu']
         ],
+        captions: [
+          'Các nghi thức trong Lễ Cấp sắc của người Tày (Nguồn: VOV4)'
+        ],
         tags: ['Cấp sắc', 'Then', 'Na Rì', 'Nghi lễ']
       },
       {
         slug: 'het-khoan-nung',
         title: 'Lễ Hét Khoăn (Tài khoăn) của người Nùng',
         cat: 4, level: 'QG', year: '', hasAudio: false,
-        short: 'X. Xuân Dương – Thái Nguyên',
-        location: 'Xã Xuân Dương và vùng Na Rì – tỉnh Thái Nguyên',
+        short: 'Đồng Hỷ, X. Xuân Dương – Thái Nguyên',
+        location: 'Đồng Hỷ, xã Xuân Dương – tỉnh Thái Nguyên',
         summary: 'Nghi lễ "gọi hồn" cầu sức khỏe, bình an và may mắn cho con người, gắn với quan niệm vạn vật hữu linh.',
         desc: [
-          'Hét Khoăn (còn gọi Tài khoăn) là nghi lễ gọi hồn của người Nùng, dựa trên quan niệm mỗi con người có nhiều "khoăn" trú ngụ; khi ốm đau, gặp vận hạn hoặc sau biến cố lớn, khoăn có thể rời khỏi thân thể và cần được gọi trở về.',
-          'Nghi lễ do thầy cúng chủ trì, kết hợp lời khấn, nhạc đệm và các động tác nghi thức, được tổ chức tại gia đình hoặc cộng đồng. Hét Khoăn thể hiện khát vọng về sức khỏe, bình an và sự gắn kết của con người với thế giới tâm linh, đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+          'Lễ Hét Khoăn là một nghi lễ truyền thống vô cùng quan trọng trong đời sống tinh thần của cộng đồng người Nùng Phàn Slình tại khu vực xã Đồng Hỷ, tỉnh Thái Nguyên. Nghi lễ này thường được tổ chức trong hai trường hợp chính là khi trong gia đình có người đau ốm kéo dài để cầu xin sức khỏe, hoặc khi các bậc cao niên đến tuổi thượng thọ (từ 50 tuổi trở lên) nhằm tổng kết cuộc đời và cầu mong sự trường thọ, bình an.',
+          'Tài khoăn là một nghi lễ có từ lâu đời và được lưu truyền từ đời này qua đời khác của người Nùng ở xã Xuân Dương. Đây là nghi lễ mang đậm nét văn hóa truyền thống, thể hiện lòng biết ơn đối với các bậc sinh thành, giáo dưỡng của con cháu trong gia đình và cầu mong cho cha mẹ, ông bà có sức khỏe dồi dào, sống lâu cùng con cháu, qua đó giáo dục cho thế hệ trẻ lòng hiếu thảo, lễ nghĩa trong gia đình và toàn xã hội.',
+          'Nghi lễ Hét Khoăn của người Nùng được đưa vào Danh mục di sản văn hóa phi vật thể quốc gia.'
         ],
         facts: [
           ['Loại hình', 'Tập quán xã hội và tín ngưỡng'],
           ['Dân tộc', 'Nùng'],
-          ['Địa bàn', 'X. Xuân Dương – Thái Nguyên'],
-          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+          ['Địa bàn', 'Đồng Hỷ, X. Xuân Dương – Thái Nguyên'],
+          ['Danh mục', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        captions: [
+          'Nghi lễ “Hét khoăn” - Lễ mừng sinh nhật của người Nùng (Nguồn: Du lịch Thái Nguyên)',
+          'Nghệ nhân Nông Văn Hồ ở Xuân Dương - Na Rì (áo xanh, mũ đỏ bên phải) là người thực hành nhiều nghi lễ “Tài Khoăn” của người Nùng (Nguồn ảnh: Làng Văn hóa - Du lịch các dân tộc Việt Nam)'
         ],
         tags: ['Hét Khoăn', 'Tài khoăn', 'Người Nùng', 'Cầu an']
       },
@@ -825,18 +859,21 @@
         slug: 'cap-sac-dao',
         title: 'Nghi lễ Cấp sắc của người Dao',
         cat: 4, level: 'QG', year: '', hasAudio: false,
-        short: 'X. Thanh Thịnh, X. Chợ Mới – Thái Nguyên',
-        location: 'Các xã Thanh Thịnh và Chợ Mới – tỉnh Thái Nguyên',
+        short: 'Tỉnh Thái Nguyên',
+        location: 'Tỉnh Thái Nguyên',
         summary: 'Nghi lễ trưởng thành quan trọng nhất của người Dao, đánh dấu việc người đàn ông được công nhận là con cháu thần linh.',
         desc: [
-          'Cấp sắc là nghi lễ thiêng liêng và quan trọng bậc nhất trong đời sống tín ngưỡng của người Dao. Người được cấp sắc phải trải qua quá trình học tập, chuẩn bị lễ vật và thực hiện nghi thức dưới sự dẫn dắt của thầy cúng cùng hội đồng các thầy.',
-          'Nghi lễ kéo dài nhiều ngày đêm, bao gồm các bước như lập đàn, tụng kinh, nhảy múa, "lên đèn" và đặt tên âm. Cấp sắc thể hiện triết lý về sự trưởng thành, đạo hiếu và trách nhiệm của con người với tổ tiên, cộng đồng. Nghi lễ đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+          'Lễ Cấp sắc là nghi lễ bắt buộc đối với người đàn ông dân tộc Dao để được thần linh và tổ tiên công nhận là người trưởng thành, có đủ tâm đức gánh vác công việc gia đình và xã hội. Người trải qua lễ này mới được cấp âm binh, có tên âm và khi mất đi hồn mới được đoàn tụ với tổ tiên. Nghi lễ được chia thành nhiều bậc dựa trên số lượng đèn và âm binh như: bậc 3 đèn (36 binh mã), bậc 7 đèn (72 binh mã) và cao nhất là bậc 12 đèn (120 binh mã). Thông thường, các gia đình tổ chức cấp sắc 3 đèn cho từ 1 đến 3 người (thường là anh em ruột hoặc bố con) vào dịp nông nhàn tháng 11, 12 hoặc tháng Giêng âm lịch.',
+          'Nghi lễ cấp sắc của người Dao có giá trị văn hóa to lớn trong đời sống tinh thần của dân tộc Dao tỉnh Thái Nguyên và được ghi vào Danh mục di sản văn hóa phi vật thể quốc gia.'
         ],
         facts: [
           ['Loại hình', 'Tập quán xã hội và tín ngưỡng'],
           ['Dân tộc', 'Dao'],
-          ['Địa bàn', 'X. Thanh Thịnh, X. Chợ Mới'],
-          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+          ['Địa bàn', 'Tỉnh Thái Nguyên'],
+          ['Danh mục', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        captions: [
+          'Nghi Lễ cấp sắc của người Dao ở Định Hóa (Nguồn: Báo Thái Nguyên)'
         ],
         tags: ['Cấp sắc', 'Người Dao', 'Nghi lễ trưởng thành']
       },
@@ -848,15 +885,17 @@
         location: 'Xã Phú Bình – tỉnh Thái Nguyên',
         summary: 'Lễ hội truyền thống tưởng niệm các vị thần hoàng làng, gắn với nghi thức rước và hội thi dân gian.',
         desc: [
-          'Lễ hội đình Phương Độ diễn ra tại xã Phú Bình – nơi thờ các vị thành hoàng có công với làng, với đất nước. Phần lễ gồm các nghi thức rước kiệu, dâng hương, tế lễ trang nghiêm do các bô lão và đội tế chủ trì.',
-          'Phần hội sôi nổi với các trò chơi dân gian, thi đấu thể thao, biểu diễn văn nghệ truyền thống, thu hút đông đảo nhân dân trong vùng tham gia. Lễ hội là dịp gắn kết cộng đồng và giáo dục truyền thống uống nước nhớ nguồn.'
+          'Lễ hội truyền thống của đình Phương Độ gắn với tục thờ danh tướng Dương Tự Minh, lễ hội diễn ra hàng năm theo 3 kỳ lễ tính theo lịch âm: Lễ khai đài cầu phúc diễn ra vào ngày 14 và 15 tháng Giêng; Tiểu lệ (còn gọi là Lễ Thượng điền) diễn ra vào ngày 10/4 và Đại lệ (Lệ của làng) diễn ra vào ngày 10/10. Trong 3 kì lễ thì ngày Đại lệ là ngày lễ quan trọng nhất năm.'
         ],
         facts: [
           ['Loại hình', 'Lễ hội truyền thống'],
           ['Địa bàn', 'X. Phú Bình – Thái Nguyên'],
           ['Thời gian', 'Mùa xuân – mùa thu âm lịch']
         ],
-        tags: ['Đình Phương Độ', 'Lễ hội', 'Thành hoàng']
+        captions: [
+          'Lễ hội đình Phương Độ (Nguồn: Báo Thái Nguyên)'
+        ],
+        tags: ['Đình Phương Độ', 'Lễ hội', 'Dương Tự Minh']
       },
       {
         slug: 'le-hoi-nui-van-nui-vo',
@@ -866,15 +905,19 @@
         location: 'Các xã Vạn Phú và Đại Từ – tỉnh Thái Nguyên',
         summary: 'Lễ hội gắn với truyền thuyết hai ngọn núi Văn – Võ, đề cao truyền thống hiếu học và thượng võ.',
         desc: [
-          'Lễ hội Núi Văn – Núi Võ tại vùng Đại Từ gắn với truyền thuyết về hai ngọn núi tượng trưng cho văn tài và võ nghệ. Lễ hội thể hiện truyền thống hiếu học, tôn sư trọng đạo và tinh thần thượng võ của người dân địa phương.',
-          'Trong lễ hội diễn ra các nghi thức dâng hương, tế lễ, cùng nhiều hoạt động văn hóa – thể thao như thi đấu võ thuật, kéo co, đẩy gậy và các trò chơi dân gian khác.'
+          'Núi Văn và núi Võ là hai ngọn núi nằm dưới chân dãy Tam Đảo thuộc địa bàn xã Vạn Phú và xã Đại Từ. Đây là vùng đất gắn liền với sự nghiệp của danh tướng Lưu Nhân Chú - một võ tướng thời Hậu Lê, người đã cùng cha là Lưu Trung và anh rể là Phạm Cuống có công phò tá Lê Lợi đánh đuổi giặc Minh xâm lược ở thế kỷ XV. Lưu Nhân Chú là một trong 18 người cùng với Lê Lợi tham gia Hội thề Lũng Nhai năm 1416 và được phong chức Đại Tư đồ phụ chính - chức quan võ cao nhất của triều đình lúc bấy giờ.',
+          'Lễ hội núi Văn - núi Võ được tổ chức vào ngày mùng 4 tháng Giêng hằng năm để tưởng nhớ công đức của Tể tướng Lưu Nhân Chú. Phần lễ có hoạt động rước lễ từ đình làng Duyên về đền thờ Lưu Nhân Chú dưới chân núi Văn và nghi thức tế lễ cổ truyền được thực hiện bởi đội tế gồm những bậc cao niên trong làng được lựa chọn kỹ lưỡng. Phần hội diễn ra sôi nổi với các hoạt động văn hóa, nghệ thuật cùng nhiều trò chơi dân gian đặc sắc.',
+          'Lễ hội núi Văn - núi Võ đã được ghi vào Danh mục di sản văn hóa phi vật thể quốc gia.'
         ],
         facts: [
           ['Loại hình', 'Lễ hội truyền thống'],
           ['Địa bàn', 'X. Vạn Phú, X. Đại Từ – Thái Nguyên'],
           ['Ý nghĩa', 'Hiếu học – Thượng võ']
         ],
-        tags: ['Núi Văn', 'Núi Võ', 'Đại Từ', 'Thượng võ']
+        captions: [
+          'Dòng họ Lưu ở xã Văn Yên (Đại Từ) rước Lễ vào đền thờ Lưu Nhân Chú (Nguồn: THPT Lưu Nhân Chú)'
+        ],
+        tags: ['Núi Văn', 'Núi Võ', 'Lưu Nhân Chú', 'Đại Từ', 'Thượng võ']
       },
       {
         slug: 'le-hoi-long-tong-ba-be',
@@ -885,13 +928,16 @@
         summary: 'Lễ hội xuống đồng của người Tày vùng hồ Ba Bể, cầu mùa màng bội thu, mưa thuận gió hòa.',
         desc: [
           'Lồng Tồng theo tiếng Tày nghĩa là "xuống đồng". Đây là lễ hội nông nghiệp cổ truyền của người Tày vùng Ba Bể, được tổ chức vào đầu năm để cầu cho mùa màng bội thu, muôn loài sinh sôi và bản làng ấm no.',
-          'Phần lễ gồm nghi thức cúng thần linh, cày tượng trưng trên thửa ruộng thiêng. Phần hội sôi động với các trò chơi dân gian đặc sắc như tung còn, đẩy gậy, kéo co, hát lượn và thi ẩm thực bản địa. Lễ hội Lồng Tồng Ba Bể đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+          'Phần lễ gồm nghi thức cúng thần linh, cày tượng trưng trên thửa ruộng thiêng. Phần hội sôi động với các trò chơi dân gian đặc sắc như tung còn, đẩy gậy, kéo co, hát lượn và thi ẩm thực bản địa. Lễ hội Lồng Tồng được ghi vào Danh mục di sản văn hóa phi vật thể quốc gia.'
         ],
         facts: [
           ['Loại hình', 'Lễ hội truyền thống'],
           ['Dân tộc', 'Tày'],
           ['Địa bàn', 'X. Ba Bể – Thái Nguyên'],
-          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+          ['Danh mục', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        captions: [
+          'Thực hiện nghi lễ tâm linh trong lễ hội Lồng tồng ở Ba Bể (Nguồn: Báo Quân đội nhân dân)'
         ],
         tags: ['Lồng Tồng', 'Ba Bể', 'Lễ xuống đồng', 'Tung còn']
       },
@@ -904,13 +950,16 @@
         summary: 'Kỹ thuật trồng bông, kéo sợi, nhuộm chàm và dệt vải với hoa văn truyền thống của người Tày.',
         desc: [
           'Nghề dệt thủ công của người Tày ở vùng Ba Bể – Chợ Rã bao gồm chuỗi công đoạn công phu: trồng bông, bật bông, kéo sợi, mắc cửi, nhuộm chàm và dệt vải. Mỗi công đoạn đều đòi hỏi sự khéo léo và kinh nghiệm được truyền từ mẹ sang con gái.',
-          'Sản phẩm dệt mang hoa văn hình học, họa tiết hoa lá, chim thú – thể hiện thẩm mỹ và quan niệm về vũ trụ của người Tày. Nghề dệt không chỉ tạo ra trang phục mà còn là biểu tượng của bản sắc văn hóa tộc người.'
+          'Nghề dệt thủ công truyền thống của người Tày là nét văn hóa rất độc đáo và đặc sắc với hai kiểu dệt: dệt vải trắng (tăm mộc) dùng để nhuộm chàm hoặc các màu khác may quần áo, khăn, túi, màn, vỏ chăn và dệt thổ cẩm (tămจ锦 - dệt hoa văn nhiều màu sắc) dùng làm mặt chăn, mặt địu hay khăn trải giường. Các công đoạn dệt hoàn toàn làm bằng phương pháp thủ công như dùng sa quay sợi, khung dệt làm bằng gỗ. Vải dệt ra được nhuộm chàm, một nguyên liệu có sẵn ở địa phương tạo nên một màu sắc thuần khiết, giản dị như chính tâm hồn mộc mạc, chất phác, bình dị của người Tày nơi đây.'
         ],
         facts: [
           ['Loại hình', 'Nghề thủ công truyền thống'],
           ['Dân tộc', 'Tày'],
           ['Công đoạn', 'Trồng bông – kéo sợi – nhuộm chàm – dệt'],
           ['Địa bàn', 'X. Ba Bể, X. Chợ Rã']
+        ],
+        captions: [
+          'Nghề dệt thủ công truyền thống của người Tày (Nguồn: FB Phan Thái)'
         ],
         tags: ['Dệt vải', 'Nhuộm chàm', 'Người Tày', 'Ba Bể']
       },
@@ -930,24 +979,31 @@
           ['Vùng nguyên liệu', 'Tân Cương, La Bằng, Trại Cau, Phúc Thuận'],
           ['Kỹ thuật', 'Hái tay – vò – sao sấy thủ công']
         ],
+        captions: [
+          'Chế biến chè Tân Cương (Nguồn: Di sản văn hóa phi vật thể tỉnh Thái Nguyên, tập 2, NXB Văn hóa dân tộc, 2020, tr.113)'
+        ],
         tags: ['Chè Thái Nguyên', 'Sao sấy', 'Tân Cương', 'Nghề truyền thống']
       },
       {
         slug: 'tuong-nep-uc-ky',
         title: 'Nghề làm tương nếp Úc Kỳ',
-        cat: 6, level: 'QG', year: '', hasAudio: false,
+        cat: 6, level: 'Local', year: '', hasAudio: false,
         short: 'X. Phú Bình – Thái Nguyên',
         location: 'Xã Phú Bình – tỉnh Thái Nguyên',
         summary: 'Bí quyết ủ tương từ gạo nếp và đậu tương, tạo nên hương vị đậm đà nổi tiếng của vùng Phú Bình.',
         desc: [
           'Tương nếp Úc Kỳ là sản phẩm ẩm thực truyền thống lâu đời của người dân xã Phú Bình. Nguyên liệu chính gồm gạo nếp, đậu tương, muối và nước sạch, trải qua quá trình lên men tự nhiên trong nhiều tháng.',
-          'Bí quyết nằm ở khâu chọn nguyên liệu, tỷ lệ pha trộn và cách ủ trong chum sành dưới ánh nắng. Tương có vị ngọt hậu, mùi thơm dịu đặc trưng, là gia vị không thể thiếu trong bữa ăn của nhiều gia đình. Nghề làm tương nếp Úc Kỳ đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+          'Bí quyết nằm ở khâu chọn nguyên liệu, tỷ lệ pha trộn và cách ủ trong chum sành dưới ánh nắng. Tương có vị ngọt hậu, mùi thơm dịu đặc trưng, là gia vị không thể thiếu trong bữa ăn của nhiều gia đình.'
         ],
         facts: [
           ['Loại hình', 'Nghề thủ công truyền thống'],
           ['Nguyên liệu', 'Gạo nếp, đậu tương, muối'],
-          ['Địa bàn', 'X. Phú Bình – Thái Nguyên'],
-          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+          ['Địa bàn', 'X. Phú Bình – Thái Nguyên']
+        ],
+        captions: [
+          'Nghề làm tương nếp Úc Kỳ (Nguồn: Dương Hiểu Lan)',
+          'Nghề làm tương nếp Úc Kỳ (Nguồn: Dương Hiểu Lan)',
+          'Nghề làm tương nếp Úc Kỳ (Nguồn: Dương Hiểu Lan)'
         ],
         tags: ['Tương nếp', 'Úc Kỳ', 'Ẩm thực', 'Lên men']
       },
@@ -960,12 +1016,18 @@
         summary: 'Hệ tri thức bản địa về chọn giống, canh tác, thu hái và chế biến chè – linh hồn của vùng chè Tân Cương.',
         desc: [
           'Tri thức trồng và chế biến chè Tân Cương là hệ thống kiến thức bản địa được tích lũy qua nhiều thế hệ về chọn đất, chọn giống, kỹ thuật trồng, chăm sóc, thời điểm thu hái và phương pháp chế biến chè xanh.',
-          'Người trồng chè Tân Cương am hiểu về thổ nhưỡng, khí hậu, mùa vụ và các yếu tố ảnh hưởng đến chất lượng búp chè. Tri thức này gắn liền với đời sống kinh tế, văn hóa và nghệ thuật thưởng trà của người dân địa phương, đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+          'Người trồng chè Tân Cương am hiểu về thổ nhưỡng, khí hậu, mùa vụ và các yếu tố ảnh hưởng đến chất lượng búp chè. Tri thức này gắn liền với đời sống kinh tế, văn hóa và nghệ thuật thưởng trà của người dân địa phương.'
         ],
         facts: [
           ['Loại hình', 'Tri thức dân gian'],
           ['Địa bàn', 'X. Tân Cương, P. Tích Lương, P. Gia Sàng'],
-          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+          ['Danh mục', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        captions: [
+          'Chế biến chè Tân Cương (Nguồn: Di sản văn hóa phi vật thể tỉnh Thái Nguyên, tập 2, NXB Văn hóa dân tộc, 2020, tr.113)',
+          'Thu hái và chế biến chè tại vùng chè Tân Cương (Nguồn: Báo Thái Nguyên)',
+          'Sao vò chè truyền thống tại vùng chè Tân Cương (Nguồn: Báo Thái Nguyên)',
+          'Chế biến chè Tân Cương (Nguồn: Di sản văn hóa phi vật thể tỉnh Thái Nguyên, tập 2, NXB Văn hóa dân tộc, 2020, tr.113)'
         ],
         tags: ['Chè Tân Cương', 'Tri thức bản địa', 'Trà', 'Canh tác']
       },
@@ -978,14 +1040,17 @@
         summary: 'Kỹ thuật thêu, in sáp ong và ghép hoa văn tinh xảo trên trang phục truyền thống của người Dao Đỏ.',
         desc: [
           'Trang phục người Dao Đỏ nổi bật với hệ hoa văn phong phú được tạo nên bằng kỹ thuật thêu chỉ màu, in sáp ong và ghép vải. Các mô típ như mặt trời, cây cỏ, chim thú, hình học… mang ý nghĩa biểu tượng về vũ trụ, tổ tiên và bản sắc tộc người.',
-          'Người phụ nữ Dao Đỏ học thêu từ nhỏ và làm trang phục cho bản thân, gia đình trong suốt cuộc đời. Nghệ thuật trang trí hoa văn trên trang phục người Dao Đỏ tại Chợ Đồn đã được công nhận là Di sản văn hóa phi vật thể Quốc gia.'
+          'Người phụ nữ Dao Đỏ học thêu từ nhỏ và làm trang phục cho bản thân, gia đình trong suốt cuộc đời. Nghệ thuật trang trí hoa văn trên trang phục người Dao Đỏ tại Chợ Đồn đã được ghi vào Danh mục di sản văn hóa phi vật thể quốc gia.'
         ],
         facts: [
           ['Loại hình', 'Tri thức dân gian'],
           ['Dân tộc', 'Dao Đỏ'],
           ['Kỹ thuật', 'Thêu chỉ màu, in sáp ong, ghép vải'],
           ['Địa bàn', 'X. Chợ Đồn – Thái Nguyên'],
-          ['Xếp hạng', 'Di sản văn hóa phi vật thể Quốc gia']
+          ['Danh mục', 'Di sản văn hóa phi vật thể Quốc gia']
+        ],
+        captions: [
+          'Trang phục truyền thống của người Dao đỏ ở Bắc Kạn (Ảnh: baobackan.org.vn)'
         ],
         tags: ['Dao Đỏ', 'Hoa văn', 'Thêu', 'Sáp ong', 'Chợ Đồn']
       }
@@ -1017,6 +1082,18 @@
     }
     function getHeritage(slug) { return HERITAGES.find(h => h.slug === slug); }
     function hasAudio(h) { return !!(h && h.hasAudio); }
+    function getImageCaption(h, idx) {
+      if (!h) return '';
+      if (Array.isArray(h.captions) && h.captions.length) {
+        return h.captions[idx] || h.captions[0] || '';
+      }
+      return h.caption || '';
+    }
+    function formatChapterHeading(cat, field = 'name') {
+      if (!cat) return '';
+      if (cat.id === 1) return 'Chương I- Thực hành Then';
+      return `Chương ${cat.id} · ${cat[field] || cat.name}`;
+    }
 
     /* ============================================================
        3. AUDIO ENGINE
@@ -1118,15 +1195,15 @@
       if (galleryCache[slug]) return galleryCache[slug];
       if (galleryPromises[slug]) return galleryPromises[slug];
       galleryPromises[slug] = (async () => {
-        const images = [];
-        for (let i = 1; i <= 10; i++) {
-          const src = `images/${slug}/${i}.png`;
-          if (await probeImage(src)) images.push(src);
+        const list = [];
+        for (let i = 1; i <= 12; i++) {
+          const url = `images/${slug}/${i}.png`;
+          const ok = await probeImage(url);
+          if (ok) list.push(url);
           else break;
         }
-        galleryCache[slug] = images;
-        delete galleryPromises[slug];
-        return images;
+        galleryCache[slug] = list;
+        return list;
       })();
       return galleryPromises[slug];
     }
@@ -1144,6 +1221,10 @@
 
     function buildGalleryLayout(h, images) {
       const shortLabel = escapeHTML(h.short);
+      const firstCaption = getImageCaption(h, 0);
+      const captionBlock = firstCaption ? `<p data-role="caption" class="mt-2.5 px-3 py-2 rounded-xl bg-white/80 border border-white/85 text-[11.5px] text-slate-700 font-semibold italic leading-snug text-center shadow-sm">
+        <i class="fa-solid fa-camera text-emerald-600 mr-1.5 text-[10.5px]"></i><span>${escapeHTML(firstCaption)}</span>
+      </p>` : '';
 
       if (!images.length) {
         return `<div class="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/80 shadow-inner bg-slate-100">
@@ -1151,7 +1232,7 @@
           <span class="absolute z-30 bottom-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-slate-800 max-w-[70%] truncate">
             <i class="fa-solid fa-camera-retro mr-1 text-emerald-600"></i>${shortLabel}
           </span>
-        </div>`;
+        </div>` + captionBlock;
       }
 
       const multi = images.length > 1;
@@ -1193,7 +1274,7 @@
           </button>`).join('')}
         </div>`;
       }
-      return mainBlock + thumbsBlock;
+      return mainBlock + captionBlock + thumbsBlock;
     }
 
     async function initGallery(el) {
@@ -1295,7 +1376,7 @@
       const chips = [`<button data-cat="all" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
        <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả loại hình</button>`]
         .concat(CATEGORIES.map(c => `<button data-cat="${c.id}" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
-          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id}. ${escapeHTML(c.short)}
+          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id === 1 ? 'Chương I- Thực hành Then' : `${c.id}. ${escapeHTML(c.short)}`}
         </button>`));
       wrap.innerHTML = chips.join('');
       paintChips();
@@ -1384,7 +1465,7 @@
               <i class="fa-solid fa-location-dot mt-0.5 text-emerald-600"></i>
               <span class="line-clamp-2">${escapeHTML(h.short)}</span>
             </p>
-            <p class="mt-3 text-[13px] leading-relaxed text-slate-800 font-medium line-clamp-3">${escapeHTML(h.summary)}</p>
+            <p class="mt-3 text-[13px] leading-relaxed text-slate-800 font-medium line-clamp-3">“${escapeHTML(h.summary)}”</p>
 
             <div class="mt-4 pt-3 border-t border-slate-200/70 flex items-center justify-between gap-2 mt-auto">
               <button data-open="${h.slug}"
@@ -1424,12 +1505,12 @@
         const cat = CATEGORIES[catId - 1];
         return `<div>
           <p class="flex items-center gap-2 text-[10.5px] font-extrabold uppercase tracking-[0.12em] text-emerald-800 mb-1.5">
-            <i class="fa-solid ${cat.icon}"></i> Chương ${cat.id} · ${escapeHTML(cat.short)}
+            <i class="fa-solid ${cat.icon}"></i> ${escapeHTML(formatChapterHeading(cat, 'short'))}
           </p>
           <div class="space-y-1">
             ${grouped[catId].map(({ h, idx }) => `<button data-act="toc" data-idx="${idx}"
               class="toc-item w-full text-left px-2.5 py-2 rounded-lg text-[12px] font-bold leading-snug transition-all flex items-start gap-2 ${idx === state.bookIndex ? 'bg-emerald-50 text-emerald-900 border border-emerald-200/80' : 'text-slate-800 hover:bg-white/80 border border-transparent'}">
-              <span class="text-[10px] font-extrabold text-slate-400 mt-0.5 tabular-nums">${String(idx + 1).padStart(2, '0')}</span>
+              <span class="text-[10px] font-extrabold text-slate-400 mt-0.5 tabular-nums">${String(idx + 1).padStart(2, '0')}.</span>
               <span class="flex-1 line-clamp-2">${escapeHTML(h.title)}</span>
               ${h.hasAudio ? '<i class="fa-solid fa-headphones text-[9px] text-emerald-500 mt-1"></i>' : ''}
             </button>`).join('')}
@@ -1441,6 +1522,10 @@
     function buildBookPageHTML(h, cat, total) {
       const playerBlock = h.hasAudio ? `<div class="mt-5">${playerHTML(h.slug)}</div>` : '';
       const audioBadge = h.hasAudio ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Có bản ghi âm</span>` : '';
+      const locationBlock = h.location ? `<div class="mt-3 pt-3 border-t border-slate-200/70 text-[12.5px] flex items-start gap-2">
+                <i class="fa-solid fa-map-pin text-emerald-600 mt-0.5"></i>
+                <span class="text-slate-900 font-semibold leading-snug">${escapeHTML(h.location)}</span>
+              </div>` : '';
 
       return `<article class="glass-strong rounded-3xl overflow-hidden shadow-[0_20px_60px_-10px_rgba(15,23,42,0.18)]" data-page-slug="${h.slug}">
         <div class="flex items-center justify-between gap-3 px-4 sm:px-8 py-3.5 border-b border-white/70 bg-white/60">
@@ -1449,7 +1534,7 @@
               <i class="fa-solid ${cat.icon} text-[13px]"></i>
             </span>
             <div class="min-w-0">
-              <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-emerald-800 truncate">Chương ${cat.id} · ${escapeHTML(cat.name)}</p>
+              <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-emerald-800 truncate">${escapeHTML(formatChapterHeading(cat, 'name'))}</p>
               <p class="text-[11px] text-slate-700 font-semibold">Trang ${state.bookIndex + 1} / ${total}${h.year ? ' · ' + escapeHTML(h.year) : ''}</p>
             </div>
           </div>
@@ -1466,10 +1551,7 @@
                 <i class="fa-solid fa-circle-info mr-1 text-emerald-600"></i>Thông tin di sản
               </p>
               ${factsHTML(h)}
-              <div class="mt-3 pt-3 border-t border-slate-200/70 text-[12.5px] flex items-start gap-2">
-                <i class="fa-solid fa-map-pin text-emerald-600 mt-0.5"></i>
-                <span class="text-slate-900 font-semibold leading-snug">${escapeHTML(h.location)}</span>
-              </div>
+              ${locationBlock}
             </div>
           </div>
 
@@ -1480,7 +1562,7 @@
             <h2 class="text-[22px] sm:text-[30px] font-extrabold leading-[1.18] text-slate-900 tracking-tight text-sharp">${escapeHTML(h.title)}</h2>
             <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/95 to-amber-50/70 border border-emerald-200/60 border-l-4 border-l-emerald-400">
               <p class="text-[13.5px] font-bold text-slate-900 leading-relaxed">
-                <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}
+                <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}<i class="fa-solid fa-quote-right text-emerald-500/70 ml-1.5"></i>
               </p>
             </div>
             ${playerBlock}
@@ -1602,6 +1684,12 @@
       const cat = CATEGORIES[h.cat - 1];
       const playerBlock = h.hasAudio ? `<div class="mt-5">${playerHTML(h.slug)}</div>` : '';
       const audioBadge = h.hasAudio ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Có bản ghi âm</span>` : '';
+      const locationCard = h.location ? `<div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/90 to-amber-50/70 border border-emerald-200/60">
+            <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-emerald-800 mb-2">
+              <i class="fa-solid fa-location-dot mr-1"></i>Địa bàn phân bố
+            </p>
+            <p class="text-[13px] text-slate-900 font-semibold leading-relaxed">${escapeHTML(h.location)}</p>
+          </div>` : '';
 
       return `<div class="sticky top-0 z-30 flex items-center justify-between gap-3 px-4 sm:px-6 py-3 bg-white/85 backdrop-blur-2xl border-b border-white/70">
         <div class="flex items-center gap-3 min-w-0">
@@ -1609,7 +1697,7 @@
             <i class="fa-solid ${cat.icon}"></i>
           </span>
           <div class="min-w-0">
-            <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-emerald-800 truncate">Chương ${cat.id} · ${escapeHTML(cat.full)}</p>
+            <p class="text-[10px] font-extrabold uppercase tracking-[0.16em] text-emerald-800 truncate">${escapeHTML(formatChapterHeading(cat, 'full'))}</p>
             <p class="text-[11.5px] text-slate-700 font-semibold truncate">${escapeHTML(h.short)}</p>
           </div>
         </div>
@@ -1627,12 +1715,7 @@
             </p>
             ${factsHTML(h)}
           </div>
-          <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/90 to-amber-50/70 border border-emerald-200/60">
-            <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-emerald-800 mb-2">
-              <i class="fa-solid fa-location-dot mr-1"></i>Địa bàn phân bố
-            </p>
-            <p class="text-[13px] text-slate-900 font-semibold leading-relaxed">${escapeHTML(h.location)}</p>
-          </div>
+          ${locationCard}
         </div>
 
         <div class="p-4 sm:p-7">
@@ -1642,7 +1725,7 @@
           <h2 class="text-[24px] sm:text-[32px] font-extrabold leading-[1.18] text-slate-900 tracking-tight text-sharp">${escapeHTML(h.title)}</h2>
           <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/95 to-amber-50/70 border border-emerald-200/60 border-l-4 border-l-emerald-400">
             <p class="text-[14px] font-bold text-slate-900 leading-relaxed">
-              <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}
+              <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}<i class="fa-solid fa-quote-right text-emerald-500/70 ml-1.5"></i>
             </p>
           </div>
           ${playerBlock}
@@ -1789,6 +1872,7 @@
       idx = ((idx % total) + total) % total;
       galleryEl.dataset.idx = idx;
       const slug = galleryEl.dataset.gallery;
+      const h = getHeritage(slug);
       const main = galleryEl.querySelector('[data-role="main"]');
       if (main) {
         main.style.opacity = '0';
@@ -1796,6 +1880,10 @@
           main.src = `images/${slug}/${idx + 1}.png`;
           main.style.opacity = '';
         }, 140);
+      }
+      const capSpan = galleryEl.querySelector('[data-role="caption"] span');
+      if (capSpan && h) {
+        capSpan.textContent = getImageCaption(h, idx);
       }
       galleryEl.querySelectorAll('[data-act="g-thumb"]').forEach((t, i) => {
         t.classList.toggle('thumb-active', i === idx);
@@ -1892,12 +1980,11 @@
       catWrap.innerHTML = [`<button data-scat="all" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
        <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả</button>`]
         .concat(CATEGORIES.map(c => `<button data-scat="${c.id}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
-          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id}. ${escapeHTML(c.short)}
+          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id === 1 ? 'Chương I- Thực hành Then' : `${c.id}. ${escapeHTML(c.short)}`}
         </button>`)).join('');
 
       lvlWrap.innerHTML = [
         { v: 'all', l: 'Tất cả', i: 'fa-border-all' },
-        { v: 'UNESCO', l: 'UNESCO', i: 'fa-globe' },
         { v: 'QG', l: 'Quốc gia', i: 'fa-award' },
         { v: 'Local', l: 'Địa phương', i: 'fa-location-dot' }
       ].map(x => `<button data-slvl="${x.v}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
@@ -2049,7 +2136,7 @@
       if (act === 'g-thumb') gallerySetIndex(gallery, Number(actEl.dataset.idx));
       if (act === 'g-zoom') {
         const h = getHeritage(gallery.dataset.gallery);
-        openLightbox(galleryCurrentSrc(gallery), h ? h.title + ' · Ảnh ' + (curIdx + 1) : '');
+        openLightbox(galleryCurrentSrc(gallery), h ? (getImageCaption(h, curIdx) || (h.title + ' · Ảnh ' + (curIdx + 1))) : '');
       }
     });
 
@@ -2060,7 +2147,7 @@
         if (gallery) {
           const h = getHeritage(gallery.dataset.gallery);
           const idx = Number(gallery.dataset.idx || 0);
-          openLightbox(galleryCurrentSrc(gallery), h ? h.title + ' · Ảnh ' + (idx + 1) : '');
+          openLightbox(galleryCurrentSrc(gallery), h ? (getImageCaption(h, idx) || (h.title + ' · Ảnh ' + (idx + 1))) : '');
         }
       }
     });
