@@ -618,12 +618,12 @@
 
     const CATEGORIES = [
       { id: 1, roman: 'I', name: 'Thực hành Then', short: 'Thực hành Then', full: 'Thực hành Then', icon: 'fa-hands-praying' },
-      { id: 2, name: 'Tiếng nói – Chữ viết – Ngữ văn dân gian', short: 'Chữ viết & Ngữ văn', full: 'Tiếng nói, chữ viết, ký tự & Ngữ văn dân gian', icon: 'fa-feather-pointed' },
-      { id: 3, name: 'Nghệ thuật trình diễn dân gian', short: 'Trình diễn', full: 'Nghệ thuật trình diễn dân gian', icon: 'fa-music' },
-      { id: 4, name: 'Tập quán xã hội và tín ngưỡng', short: 'Tín ngưỡng', full: 'Tập quán xã hội và tín ngưỡng', icon: 'fa-fire-flame-curved' },
-      { id: 5, name: 'Lễ hội truyền thống', short: 'Lễ hội', full: 'Loại hình lễ hội truyền thống', icon: 'fa-drum' },
-      { id: 6, name: 'Nghề thủ công truyền thống', short: 'Thủ công', full: 'Loại hình nghề thủ công truyền thống', icon: 'fa-hands-holding-circle' },
-      { id: 7, name: 'Tri thức dân gian', short: 'Tri thức', full: 'Loại hình tri thức dân gian', icon: 'fa-seedling' }
+      { id: 2, roman: 'II', name: 'Tiếng nói – Chữ viết – Ngữ văn dân gian', short: 'Chữ viết & Ngữ văn', full: 'Tiếng nói, chữ viết, ký tự & Ngữ văn dân gian', icon: 'fa-feather-pointed' },
+      { id: 3, roman: 'III', name: 'Nghệ thuật trình diễn dân gian', short: 'Trình diễn', full: 'Nghệ thuật trình diễn dân gian', icon: 'fa-music' },
+      { id: 4, roman: 'IV', name: 'Tập quán xã hội và tín ngưỡng', short: 'Tín ngưỡng', full: 'Tập quán xã hội và tín ngưỡng', icon: 'fa-fire-flame-curved' },
+      { id: 5, roman: 'V', name: 'Lễ hội truyền thống', short: 'Lễ hội', full: 'Loại hình lễ hội truyền thống', icon: 'fa-drum' },
+      { id: 6, roman: 'VI', name: 'Nghề thủ công truyền thống', short: 'Thủ công', full: 'Loại hình nghề thủ công truyền thống', icon: 'fa-hands-holding-circle' },
+      { id: 7, roman: 'VII', name: 'Tri thức dân gian', short: 'Tri thức', full: 'Loại hình tri thức dân gian', icon: 'fa-seedling' }
     ];
 
     const HERITAGES = [
@@ -1011,8 +1011,8 @@
         slug: 'tri-thuc-che-tan-cuong',
         title: 'Tri thức trồng và chế biến chè Tân Cương',
         cat: 7, level: 'QG', year: '', hasAudio: false,
-        short: 'X. Tân Cương, P. Tích Lương – Thái Nguyên',
-        location: 'Xã Tân Cương, phường Tích Lương, phường Gia Sàng – tỉnh Thái Nguyên',
+        short: 'X. Tân Cương, X. Đại Phúc – Thái Nguyên',
+        location: 'Xã Tân Cương, xã Đại Phúc – tỉnh Thái Nguyên',
         summary: 'Hệ tri thức bản địa về chọn giống, canh tác, thu hái và chế biến chè – linh hồn của vùng chè Tân Cương.',
         desc: [
           'Tri thức trồng và chế biến chè Tân Cương là hệ thống kiến thức bản địa được tích lũy qua nhiều thế hệ về chọn đất, chọn giống, kỹ thuật trồng, chăm sóc, thời điểm thu hái và phương pháp chế biến chè xanh.',
@@ -1020,7 +1020,7 @@
         ],
         facts: [
           ['Loại hình', 'Tri thức dân gian'],
-          ['Địa bàn', 'X. Tân Cương, P. Tích Lương, P. Gia Sàng'],
+          ['Địa bàn', 'Xã Tân Cương, xã Đại Phúc'],
           ['Danh mục', 'Di sản văn hóa phi vật thể Quốc gia']
         ],
         captions: [
@@ -1029,7 +1029,7 @@
           'Sao vò chè truyền thống tại vùng chè Tân Cương (Nguồn: Báo Thái Nguyên)',
           'Chế biến chè Tân Cương (Nguồn: Di sản văn hóa phi vật thể tỉnh Thái Nguyên, tập 2, NXB Văn hóa dân tộc, 2020, tr.113)'
         ],
-        tags: ['Chè Tân Cương', 'Tri thức bản địa', 'Trà', 'Canh tác']
+        tags: ['Chè Tân Cương', 'Tri thức bản địa', 'Trà', 'Canh tác', 'Đại Phúc']
       },
       {
         slug: 'hoa-van-dao-do',
@@ -1091,8 +1091,8 @@
     }
     function formatChapterHeading(cat, field = 'name') {
       if (!cat) return '';
-      if (cat.id === 1) return 'Chương I- Thực hành Then';
-      return `Chương ${cat.id} · ${cat[field] || cat.name}`;
+      const r = cat.roman || cat.id;
+      return `${r}. ${cat[field] || cat.name}`;
     }
 
     /* ============================================================
@@ -1376,7 +1376,7 @@
       const chips = [`<button data-cat="all" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
        <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả loại hình</button>`]
         .concat(CATEGORIES.map(c => `<button data-cat="${c.id}" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
-          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id === 1 ? 'Chương I- Thực hành Then' : `${c.id}. ${escapeHTML(c.short)}`}
+          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.roman || c.id}. ${escapeHTML(c.short)}
         </button>`));
       wrap.innerHTML = chips.join('');
       paintChips();
@@ -1980,7 +1980,7 @@
       catWrap.innerHTML = [`<button data-scat="all" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
        <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả</button>`]
         .concat(CATEGORIES.map(c => `<button data-scat="${c.id}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
-          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.id === 1 ? 'Chương I- Thực hành Then' : `${c.id}. ${escapeHTML(c.short)}`}
+          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.roman || c.id}. ${escapeHTML(c.short)}
         </button>`)).join('');
 
       lvlWrap.innerHTML = [
