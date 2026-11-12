@@ -344,7 +344,8 @@
         CUỐN SÁCH SỐ<br />
         <span
           class="bg-gradient-to-r from-emerald-600 via-teal-600 to-amber-500 bg-clip-text text-transparent drop-shadow-sm">
-          DI SẢN VĂN HÓA PHI VẬT THỂ TỈNH THÁI NGUYÊN
+          DI SẢN VĂN HÓA PHI VẬT THỂ<br />
+          <span class="inline-block">TỈNH THÁI NGUYÊN</span>
         </span>
       </h2>
     </div>
@@ -617,13 +618,13 @@
        ============================================================ */
 
     const CATEGORIES = [
-      { id: 1, roman: 'I', name: 'Thực hành Then', short: 'Thực hành Then', full: 'Thực hành Then', icon: 'fa-hands-praying' },
-      { id: 2, roman: 'II', name: 'Tiếng nói – Chữ viết – Ngữ văn dân gian', short: 'Chữ viết & Ngữ văn', full: 'Tiếng nói, chữ viết, ký tự & Ngữ văn dân gian', icon: 'fa-feather-pointed' },
-      { id: 3, roman: 'III', name: 'Nghệ thuật trình diễn dân gian', short: 'Trình diễn', full: 'Nghệ thuật trình diễn dân gian', icon: 'fa-music' },
-      { id: 4, roman: 'IV', name: 'Tập quán xã hội và tín ngưỡng', short: 'Tín ngưỡng', full: 'Tập quán xã hội và tín ngưỡng', icon: 'fa-fire-flame-curved' },
-      { id: 5, roman: 'V', name: 'Lễ hội truyền thống', short: 'Lễ hội', full: 'Loại hình lễ hội truyền thống', icon: 'fa-drum' },
-      { id: 6, roman: 'VI', name: 'Nghề thủ công truyền thống', short: 'Thủ công', full: 'Loại hình nghề thủ công truyền thống', icon: 'fa-hands-holding-circle' },
-      { id: 7, roman: 'VII', name: 'Tri thức dân gian', short: 'Tri thức', full: 'Loại hình tri thức dân gian', icon: 'fa-seedling' }
+      { id: 1, name: 'Thực hành Then', short: 'Thực hành Then', full: 'Thực hành Then', icon: 'fa-hands-praying' },
+      { id: 2, name: 'Tiếng nói, chữ viết, ngữ văn dân gian', short: 'Tiếng nói, chữ viết, ngữ văn dân gian', full: 'Tiếng nói, chữ viết, ngữ văn dân gian', icon: 'fa-feather-pointed' },
+      { id: 3, name: 'Nghệ thuật trình diễn dân gian', short: 'Nghệ thuật trình diễn dân gian', full: 'Nghệ thuật trình diễn dân gian', icon: 'fa-music' },
+      { id: 4, name: 'Tập quán xã hội và tín ngưỡng dân gian', short: 'Tập quán xã hội và tín ngưỡng dân gian', full: 'Tập quán xã hội và tín ngưỡng dân gian', icon: 'fa-fire-flame-curved' },
+      { id: 5, name: 'Lễ hội truyền thống', short: 'Lễ hội truyền thống', full: 'Lễ hội truyền thống', icon: 'fa-drum' },
+      { id: 6, name: 'Nghề thủ công truyền thống', short: 'Nghề thủ công truyền thống', full: 'Nghề thủ công truyền thống', icon: 'fa-hands-holding-circle' },
+      { id: 7, name: 'Tri thức dân gian', short: 'Tri thức dân gian', full: 'Tri thức dân gian', icon: 'fa-seedling' }
     ];
 
     const HERITAGES = [
@@ -1091,8 +1092,7 @@
     }
     function formatChapterHeading(cat, field = 'name') {
       if (!cat) return '';
-      const r = cat.roman || cat.id;
-      return `${r}. ${cat[field] || cat.name}`;
+      return cat[field] || cat.name;
     }
 
     /* ============================================================
@@ -1376,7 +1376,7 @@
       const chips = [`<button data-cat="all" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
        <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả loại hình</button>`]
         .concat(CATEGORIES.map(c => `<button data-cat="${c.id}" class="cat-chip px-3.5 py-2 rounded-xl text-[12px] font-bold whitespace-nowrap border transition-all">
-          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.roman || c.id}. ${escapeHTML(c.short)}
+          <i class="fa-solid ${c.icon} mr-1.5"></i>${escapeHTML(c.name)}
         </button>`));
       wrap.innerHTML = chips.join('');
       paintChips();
@@ -1980,7 +1980,7 @@
       catWrap.innerHTML = [`<button data-scat="all" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
        <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả</button>`]
         .concat(CATEGORIES.map(c => `<button data-scat="${c.id}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
-          <i class="fa-solid ${c.icon} mr-1.5"></i>${c.roman || c.id}. ${escapeHTML(c.short)}
+          <i class="fa-solid ${c.icon} mr-1.5"></i>${escapeHTML(c.name)}
         </button>`)).join('');
 
       lvlWrap.innerHTML = [
