@@ -122,6 +122,9 @@
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     }
     .text-sharp { text-shadow: 0 1px 0 rgba(255,255,255,.35); }
+    .text-balance { text-wrap: balance; }
+    .text-pretty { text-wrap: pretty; }
+    .hero-title { font-size: clamp(16px, 4.0vw, 52px); line-height: 1.15; }
     .card-hover { transition: transform .5s cubic-bezier(.22,.9,.3,1), box-shadow .5s ease, border-color .35s; }
     @media (hover:hover) {
       .card-hover:hover {
@@ -243,7 +246,6 @@
       #modal > .relative { padding: 0 !important; }
       #miniPlayer { bottom: calc(76px + env(safe-area-inset-bottom)) !important; }
       #toast { bottom: calc(90px + env(safe-area-inset-bottom)) !important; }
-      .hero-title { font-size: 26px !important; line-height: 1.15 !important; }
       .swipe-hint { display: flex !important; align-items: center; justify-content: center; gap: 6px; padding: 6px; font-size: 10.5px; font-weight: 700; color: #64748b; opacity: .85; }
       .player { padding: 10px !important; }
       .player .w-12 { width: 42px !important; height: 42px !important; }
@@ -332,20 +334,20 @@
 
   <!-- HERO -->
   <section class="relative px-4 pt-6 sm:pt-12 pb-4 sm:pb-6">
-    <div class="mx-auto max-w-5xl text-center">
+    <div class="mx-auto max-w-6xl text-center">
       <span
-        class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full glass-soft text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-emerald-800">
+        class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full glass-soft text-[9.5px] sm:text-[11px] font-bold uppercase tracking-[0.08em] sm:tracking-[0.16em] text-emerald-800 whitespace-nowrap">
         <i class="fa-solid fa-landmark-dome"></i>
         Di sản văn hóa phi vật thể Việt Nam
       </span>
 
       <h2
-        class="hero-title mt-4 sm:mt-5 text-[26px] leading-[1.12] sm:text-5xl lg:text-[58px] font-extrabold tracking-tight text-slate-900 text-sharp">
+        class="hero-title mt-4 sm:mt-5 font-extrabold tracking-tight text-slate-900 text-sharp">
         CUỐN SÁCH SỐ<br />
         <span
           class="bg-gradient-to-r from-emerald-600 via-teal-600 to-amber-500 bg-clip-text text-transparent drop-shadow-sm">
-          DI SẢN VĂN HÓA PHI VẬT THỂ<br />
-          <span class="inline-block">TỈNH THÁI NGUYÊN</span>
+          <span class="whitespace-nowrap">DI SẢN VĂN HÓA PHI VẬT THỂ</span><br />
+          <span class="whitespace-nowrap">TỈNH THÁI NGUYÊN</span>
         </span>
       </h2>
     </div>
@@ -421,7 +423,7 @@
 
   <!-- BOOK VIEW -->
   <section id="bookView" class="view-hidden px-3 sm:px-4 pb-20">
-    <div class="mx-auto max-w-7xl book-layout grid lg:grid-cols-[300px_minmax(0,1fr)] gap-5">
+    <div class="mx-auto max-w-7xl book-layout grid lg:grid-cols-[310px_minmax(0,1fr)] xl:grid-cols-[330px_minmax(0,1fr)] gap-5">
 
       <aside class="book-toc-aside glass rounded-2xl p-4 h-fit lg:sticky lg:top-24">
         <div class="flex items-center gap-2 mb-3">
@@ -451,7 +453,7 @@
 
         <div class="mt-3 sm:mt-4 glass rounded-2xl p-2.5 sm:p-3 flex items-center justify-between gap-3">
           <button data-act="book-prev"
-            class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl glass text-[13px] font-bold text-slate-800 transition-all hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+            class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl glass text-[13px] font-bold text-slate-800 whitespace-nowrap shrink-0 transition-all hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0">
             <i class="fa-solid fa-chevron-left text-emerald-600"></i>
             <span class="hidden sm:inline">Trang trước</span>
           </button>
@@ -459,7 +461,7 @@
           <div class="flex items-center gap-1.5" id="pageDots"></div>
 
           <button data-act="book-next"
-            class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-[13px] font-bold shadow-lg shadow-emerald-500/30 transition-all hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+            class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-[13px] font-bold whitespace-nowrap shrink-0 shadow-lg shadow-emerald-500/30 transition-all hover:-translate-y-0.5 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0">
             <span class="hidden sm:inline">Trang sau</span>
             <i class="fa-solid fa-chevron-right"></i>
           </button>
@@ -473,11 +475,11 @@
     <div class="mx-auto max-w-7xl glass rounded-2xl p-5 sm:p-6">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
         <div>
-          <p class="text-[13px] font-extrabold text-slate-900 text-sharp">CUỐN SÁCH SỐ DI SẢN VĂN HÓA PHI VẬT THỂ TỈNH THÁI NGUYÊN</p>
-          <p class="text-[11.5px] text-slate-700 font-semibold mt-0.5">Thái Nguyên · Dự án số hóa di sản văn hóa</p>
+          <p class="text-[13px] font-extrabold text-slate-900 text-sharp text-balance">CUỐN SÁCH SỐ DI SẢN VĂN HÓA PHI VẬT THỂ <span class="whitespace-nowrap">TỈNH THÁI NGUYÊN</span></p>
+          <p class="text-[11.5px] text-slate-700 font-semibold mt-0.5 text-balance">Thái Nguyên · Dự án số hóa di&nbsp;sản văn&nbsp;hóa</p>
         </div>
         <a href="https://disanthainguyen.pages.dev/" target="_top"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl glass text-[12.5px] font-bold text-slate-800 transition-all hover:-translate-y-0.5">
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl glass text-[12.5px] font-bold text-slate-800 whitespace-nowrap shrink-0 transition-all hover:-translate-y-0.5">
           <i class="fa-solid fa-arrow-left text-emerald-600"></i> Quay về Menu chính
         </a>
       </div>
@@ -534,7 +536,7 @@
       <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-emerald-800 mb-2">
         <i class="fa-solid fa-layer-group mr-1"></i>Loại hình di sản
       </p>
-      <div id="sheetCatChips" class="grid grid-cols-2 gap-2 mb-5"></div>
+      <div id="sheetCatChips" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5"></div>
 
       <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-emerald-800 mb-2">
         <i class="fa-solid fa-award mr-1"></i>Cấp ghi danh
@@ -576,7 +578,7 @@
       <figure class="max-w-5xl w-full text-center">
         <img id="lightboxImg" src="" alt=""
           class="max-h-[78vh] w-auto mx-auto rounded-2xl shadow-2xl border border-white/20 object-contain" />
-        <figcaption id="lightboxCap" class="mt-4 text-white/90 text-[13px] font-semibold"></figcaption>
+        <figcaption id="lightboxCap" class="mt-4 text-white/90 text-[13px] font-semibold text-balance"></figcaption>
       </figure>
     </div>
   </div>
@@ -1081,6 +1083,25 @@
     function escapeHTML(str) {
       return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     }
+    function preventWidows(str, minTailWords = 3) {
+      if (!str) return '';
+      const words = String(str).trim().split(/\s+/);
+      if (words.length <= 3) return words.join(' ');
+      if (words.length >= 5 && minTailWords >= 3) {
+        const tail3 = words.slice(-3);
+        if (tail3.join(' ').length <= 22) {
+          return words.slice(0, -3).join(' ') + ' ' + tail3.join('\u00A0');
+        }
+      }
+      const tail2 = words.slice(-2);
+      if (tail2.join(' ').length <= 20) {
+        return words.slice(0, -2).join(' ') + ' ' + tail2.join('\u00A0');
+      }
+      return words.join(' ');
+    }
+    function noWidowHTML(str, minTailWords = 3) {
+      return escapeHTML(preventWidows(str, minTailWords));
+    }
     function getHeritage(slug) { return HERITAGES.find(h => h.slug === slug); }
     function hasAudio(h) { return !!(h && h.hasAudio); }
     function getImageCaption(h, idx) {
@@ -1222,8 +1243,8 @@
     function buildGalleryLayout(h, images) {
       const shortLabel = escapeHTML(h.short);
       const firstCaption = getImageCaption(h, 0);
-      const captionBlock = firstCaption ? `<p data-role="caption" class="mt-2.5 px-3 py-2 rounded-xl bg-white/80 border border-white/85 text-[11.5px] text-slate-700 font-semibold italic leading-snug text-center shadow-sm">
-        <i class="fa-solid fa-camera text-emerald-600 mr-1.5 text-[10.5px]"></i><span>${escapeHTML(firstCaption)}</span>
+      const captionBlock = firstCaption ? `<p data-role="caption" class="mt-2.5 px-3 py-2 rounded-xl bg-white/80 border border-white/85 text-[11.5px] text-slate-700 font-semibold italic leading-snug text-center text-balance shadow-sm">
+        <i class="fa-solid fa-camera text-emerald-600 mr-1.5 text-[10.5px]"></i><span>${noWidowHTML(firstCaption, 3)}</span>
       </p>` : '';
 
       if (!images.length) {
@@ -1340,8 +1361,8 @@
     function factsHTML(h) {
       return `<dl class="space-y-2">
         ${h.facts.map(([k, v]) => `<div class="flex gap-3 items-start text-[12.5px]">
-          <dt class="w-[92px] shrink-0 font-extrabold text-slate-600 uppercase tracking-wide text-[10.5px] pt-0.5">${escapeHTML(k)}</dt>
-          <dd class="flex-1 text-slate-900 font-semibold leading-snug">${escapeHTML(v)}</dd>
+          <dt class="w-[112px] sm:w-[118px] shrink-0 font-extrabold text-slate-600 uppercase tracking-wide text-[10.5px] pt-0.5 whitespace-nowrap">${escapeHTML(k)}</dt>
+          <dd class="flex-1 text-slate-900 font-semibold leading-snug text-pretty">${noWidowHTML(v, 3)}</dd>
         </div>`).join('')}
       </dl>`;
     }
@@ -1423,8 +1444,8 @@
           <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-100 to-amber-100 grid place-items-center">
             <i class="fa-solid fa-magnifying-glass text-2xl text-emerald-600"></i>
           </div>
-          <h3 class="mt-4 text-lg font-extrabold text-slate-900">Không tìm thấy di sản phù hợp</h3>
-          <p class="mt-1.5 text-[13px] text-slate-700 font-medium">Hãy thử từ khóa khác hoặc đặt lại bộ lọc.</p>
+          <h3 class="mt-4 text-lg font-extrabold text-slate-900 text-balance">Không tìm thấy di sản phù hợp</h3>
+          <p class="mt-1.5 text-[13px] text-slate-700 font-medium text-balance">Hãy thử từ khóa khác hoặc đặt lại bộ lọc.</p>
           <button id="emptyReset" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[13px] font-bold shadow-lg shadow-emerald-500/25 transition hover:-translate-y-0.5">
             <i class="fa-solid fa-rotate-left"></i> Đặt lại bộ lọc
           </button>
@@ -1452,20 +1473,20 @@
             <div class="absolute inset-0 z-20 bg-gradient-to-t from-slate-900/60 via-slate-900/5 to-transparent pointer-events-none"></div>
             <div class="absolute z-30 top-3 left-3">${levelBadge(h.level)}</div>
             <div class="absolute z-30 bottom-3 left-3 right-3 flex items-center gap-2 flex-wrap">
-              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-emerald-800">
-                <i class="fa-solid ${cat.icon}"></i>${escapeHTML(cat.short)}
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/90 backdrop-blur-md border border-white/80 text-emerald-800 max-w-full">
+                <i class="fa-solid ${cat.icon} shrink-0"></i><span class="truncate">${escapeHTML(cat.short)}</span>
               </span>
               ${audioBadge}
             </div>
           </div>
 
           <div class="p-4 flex flex-col flex-1">
-            <h3 class="font-extrabold text-[15px] leading-snug text-slate-900 line-clamp-2">${escapeHTML(h.title)}</h3>
+            <h3 class="font-extrabold text-[15px] leading-snug text-slate-900 text-balance">${noWidowHTML(h.title, 2)}</h3>
             <p class="mt-1.5 flex items-start gap-1.5 text-[11.5px] text-slate-700 font-semibold">
-              <i class="fa-solid fa-location-dot mt-0.5 text-emerald-600"></i>
-              <span class="line-clamp-2">${escapeHTML(h.short)}</span>
+              <i class="fa-solid fa-location-dot mt-0.5 text-emerald-600 shrink-0"></i>
+              <span class="text-balance">${noWidowHTML(h.short, 3)}</span>
             </p>
-            <p class="mt-3 text-[13px] leading-relaxed text-slate-800 font-medium line-clamp-3">“${escapeHTML(h.summary)}”</p>
+            <p class="mt-3 text-[13px] leading-relaxed text-slate-800 font-medium text-pretty">“${noWidowHTML(h.summary, 3)}”</p>
 
             <div class="mt-4 pt-3 border-t border-slate-200/70 flex items-center justify-between gap-2 mt-auto">
               <button data-open="${h.slug}"
@@ -1504,14 +1525,14 @@
       wrap.innerHTML = Object.keys(grouped).sort((a, b) => a - b).map(catId => {
         const cat = CATEGORIES[catId - 1];
         return `<div>
-          <p class="flex items-center gap-2 text-[10.5px] font-extrabold uppercase tracking-[0.12em] text-emerald-800 mb-1.5">
-            <i class="fa-solid ${cat.icon}"></i> ${escapeHTML(formatChapterHeading(cat, 'short'))}
+          <p class="flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[0.05em] text-emerald-800 mb-1.5">
+            <i class="fa-solid ${cat.icon} shrink-0"></i> <span class="text-balance">${noWidowHTML(formatChapterHeading(cat, 'short'), 2)}</span>
           </p>
           <div class="space-y-1">
             ${grouped[catId].map(({ h, idx }) => `<button data-act="toc" data-idx="${idx}"
               class="toc-item w-full text-left px-2.5 py-2 rounded-lg text-[12px] font-bold leading-snug transition-all flex items-start gap-2 ${idx === state.bookIndex ? 'bg-emerald-50 text-emerald-900 border border-emerald-200/80' : 'text-slate-800 hover:bg-white/80 border border-transparent'}">
               <span class="text-[10px] font-extrabold text-slate-400 mt-0.5 tabular-nums">${String(idx + 1).padStart(2, '0')}.</span>
-              <span class="flex-1 line-clamp-2">${escapeHTML(h.title)}</span>
+              <span class="flex-1 text-balance">${noWidowHTML(h.title, 2)}</span>
               ${h.hasAudio ? '<i class="fa-solid fa-headphones text-[9px] text-emerald-500 mt-1"></i>' : ''}
             </button>`).join('')}
           </div>
@@ -1523,8 +1544,8 @@
       const playerBlock = h.hasAudio ? `<div class="mt-5">${playerHTML(h.slug)}</div>` : '';
       const audioBadge = h.hasAudio ? `<span class="audio-dot"><i class="fa-solid fa-headphones"></i>Có bản ghi âm</span>` : '';
       const locationBlock = h.location ? `<div class="mt-3 pt-3 border-t border-slate-200/70 text-[12.5px] flex items-start gap-2">
-                <i class="fa-solid fa-map-pin text-emerald-600 mt-0.5"></i>
-                <span class="text-slate-900 font-semibold leading-snug">${escapeHTML(h.location)}</span>
+                <i class="fa-solid fa-map-pin text-emerald-600 mt-0.5 shrink-0"></i>
+                <span class="text-slate-900 font-semibold leading-snug text-pretty">${noWidowHTML(h.location, 3)}</span>
               </div>` : '';
 
       return `<article class="glass-strong rounded-3xl overflow-hidden shadow-[0_20px_60px_-10px_rgba(15,23,42,0.18)]" data-page-slug="${h.slug}">
@@ -1559,15 +1580,15 @@
             <div class="sm:hidden mb-3 flex items-center gap-2 flex-wrap">
               ${audioBadge}${levelBadge(h.level)}
             </div>
-            <h2 class="text-[22px] sm:text-[30px] font-extrabold leading-[1.18] text-slate-900 tracking-tight text-sharp">${escapeHTML(h.title)}</h2>
+            <h2 class="text-[22px] sm:text-[26px] xl:text-[30px] font-extrabold leading-[1.2] text-slate-900 tracking-tight text-sharp text-balance">${noWidowHTML(h.title, 2)}</h2>
             <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/95 to-amber-50/70 border border-emerald-200/60 border-l-4 border-l-emerald-400">
-              <p class="text-[13.5px] font-bold text-slate-900 leading-relaxed">
-                <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}<i class="fa-solid fa-quote-right text-emerald-500/70 ml-1.5"></i>
+              <p class="text-[13.5px] font-bold text-slate-900 leading-relaxed text-pretty">
+                <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${noWidowHTML(h.summary, 3)}<i class="fa-solid fa-quote-right text-emerald-500/70 ml-1.5"></i>
               </p>
             </div>
             ${playerBlock}
             <div class="mt-5 space-y-3.5 text-[14px] leading-[1.9] text-slate-800 font-medium">
-              ${h.desc.map(p => `<p class="text-justify">${escapeHTML(p)}</p>`).join('')}
+              ${h.desc.map(p => `<p class="text-justify text-pretty">${noWidowHTML(p, 3)}</p>`).join('')}
             </div>
             <div class="mt-6 flex flex-wrap gap-2">
               ${h.tags.map(t => `<span class="tag"><i class="fa-solid fa-hashtag text-[9px] opacity-70"></i>${escapeHTML(t)}</span>`).join('')}
@@ -1610,8 +1631,8 @@
           <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-emerald-100 to-amber-100 grid place-items-center">
             <i class="fa-solid fa-book-open text-2xl text-emerald-600"></i>
           </div>
-          <h3 class="mt-4 text-lg font-extrabold text-slate-900">Không có trang phù hợp</h3>
-          <p class="mt-1.5 text-[13px] text-slate-700 font-medium">Hãy điều chỉnh bộ lọc hoặc từ khóa tìm kiếm.</p>
+          <h3 class="mt-4 text-lg font-extrabold text-slate-900 text-balance">Không có trang phù hợp</h3>
+          <p class="mt-1.5 text-[13px] text-slate-700 font-medium text-balance">Hãy điều chỉnh bộ lọc hoặc từ khóa tìm kiếm.</p>
         </div>`;
         renderTOC(list);
         $('#pageDots').innerHTML = '';
@@ -1688,7 +1709,7 @@
             <p class="text-[10.5px] font-extrabold uppercase tracking-[0.14em] text-emerald-800 mb-2">
               <i class="fa-solid fa-location-dot mr-1"></i>Địa bàn phân bố
             </p>
-            <p class="text-[13px] text-slate-900 font-semibold leading-relaxed">${escapeHTML(h.location)}</p>
+            <p class="text-[13px] text-slate-900 font-semibold leading-relaxed text-pretty">${noWidowHTML(h.location, 3)}</p>
           </div>` : '';
 
       return `<div class="sticky top-0 z-30 flex items-center justify-between gap-3 px-4 sm:px-6 py-3 bg-white/85 backdrop-blur-2xl border-b border-white/70">
@@ -1722,15 +1743,15 @@
           <div class="mb-3 flex items-center gap-2 flex-wrap">
             ${audioBadge}${levelBadge(h.level)}
           </div>
-          <h2 class="text-[24px] sm:text-[32px] font-extrabold leading-[1.18] text-slate-900 tracking-tight text-sharp">${escapeHTML(h.title)}</h2>
+          <h2 class="text-[24px] sm:text-[28px] lg:text-[32px] font-extrabold leading-[1.2] text-slate-900 tracking-tight text-sharp text-balance">${noWidowHTML(h.title, 2)}</h2>
           <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-emerald-50/95 to-amber-50/70 border border-emerald-200/60 border-l-4 border-l-emerald-400">
-            <p class="text-[14px] font-bold text-slate-900 leading-relaxed">
-              <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${escapeHTML(h.summary)}<i class="fa-solid fa-quote-right text-emerald-500/70 ml-1.5"></i>
+            <p class="text-[14px] font-bold text-slate-900 leading-relaxed text-pretty">
+              <i class="fa-solid fa-quote-left text-emerald-500/70 mr-1.5"></i>${noWidowHTML(h.summary, 3)}<i class="fa-solid fa-quote-right text-emerald-500/70 ml-1.5"></i>
             </p>
           </div>
           ${playerBlock}
           <div class="mt-6 space-y-4 text-[14.5px] leading-[1.9] text-slate-800 font-medium">
-            ${h.desc.map(p => `<p class="text-justify">${escapeHTML(p)}</p>`).join('')}
+            ${h.desc.map(p => `<p class="text-justify text-pretty">${noWidowHTML(p, 3)}</p>`).join('')}
           </div>
           <div class="mt-6 flex flex-wrap gap-2">
             ${h.tags.map(t => `<span class="tag"><i class="fa-solid fa-hashtag text-[9px] opacity-70"></i>${escapeHTML(t)}</span>`).join('')}
@@ -1789,7 +1810,7 @@
     function openLightbox(src, caption) {
       const lb = $('#lightbox');
       $('#lightboxImg').src = src;
-      $('#lightboxCap').textContent = caption || '';
+      $('#lightboxCap').textContent = preventWidows(caption || '', 3);
       lb.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
@@ -1883,7 +1904,7 @@
       }
       const capSpan = galleryEl.querySelector('[data-role="caption"] span');
       if (capSpan && h) {
-        capSpan.textContent = getImageCaption(h, idx);
+        capSpan.textContent = preventWidows(getImageCaption(h, idx), 3);
       }
       galleryEl.querySelectorAll('[data-act="g-thumb"]').forEach((t, i) => {
         t.classList.toggle('thumb-active', i === idx);
@@ -1977,10 +1998,10 @@
       const lvlWrap = $('#sheetLvlChips');
       if (!catWrap || !lvlWrap) return;
 
-      catWrap.innerHTML = [`<button data-scat="all" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
-       <i class="fa-solid fa-border-all mr-1.5"></i>Tất cả</button>`]
-        .concat(CATEGORIES.map(c => `<button data-scat="${c.id}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left">
-          <i class="fa-solid ${c.icon} mr-1.5"></i>${escapeHTML(c.name)}
+      catWrap.innerHTML = [`<button data-scat="all" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left flex items-center gap-2">
+       <i class="fa-solid fa-border-all shrink-0"></i><span>Tất cả</span></button>`]
+        .concat(CATEGORIES.map(c => `<button data-scat="${c.id}" class="sheet-chip px-3 py-3 rounded-xl text-[12px] font-bold border transition-all text-left flex items-center gap-2">
+          <i class="fa-solid ${c.icon} shrink-0"></i><span class="text-balance">${noWidowHTML(c.name, 2)}</span>
         </button>`)).join('');
 
       lvlWrap.innerHTML = [
